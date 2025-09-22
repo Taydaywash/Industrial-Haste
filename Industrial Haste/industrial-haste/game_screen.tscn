@@ -27,6 +27,8 @@ script = ExtResource("1_t5odh")
 position = Vector2(-696.00006, 72)
 scale = Vector2(1156.5, 144)
 
+[node name="Node2D" type="Node2D" parent="BoxSpawner"]
+
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(-4, 247.99998)
