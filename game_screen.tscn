@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://q8gujfl73qx"]
+[gd_scene load_steps=5 format=3 uid="uid://q8gujfl73qx"]
 
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://boxController.gd" id="1_t5odh"]
 
@@ -7,8 +7,6 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t5odh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_norob"]
 
 [node name="GameScreen" type="Node2D"]
 
@@ -34,8 +32,3 @@ z_index = 2
 position = Vector2(-4, 247.99998)
 scale = Vector2(1160.0001, 144)
 texture = SubResource("PlaceholderTexture2D_t5odh")
-
-[node name="Square" type="Sprite2D" parent="."]
-position = Vector2(-7.9999695, -655.99994)
-scale = Vector2(576.5, 480.5)
-texture = SubResource("PlaceholderTexture2D_norob")
