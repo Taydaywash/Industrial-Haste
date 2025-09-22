@@ -23,6 +23,8 @@ scale = Vector2(231.5625, 215.69014)
 texture = SubResource("PlaceholderTexture2D_xwjjp")
 script = ExtResource("1_t5odh")
 
+[node name="testNode" type="Node2D" parent="Box"]
+
 [node name="BoxSpawner" type="Node2D" parent="."]
 position = Vector2(-696.00006, 72)
 scale = Vector2(1156.5, 144)
