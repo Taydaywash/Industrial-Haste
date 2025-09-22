@@ -32,3 +32,5 @@ z_index = 2
 position = Vector2(-4, 247.99998)
 scale = Vector2(1160.0001, 144)
 texture = SubResource("PlaceholderTexture2D_t5odh")
+
+[node name="updatedUsername" type="Node" parent="."]
