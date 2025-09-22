@@ -20,7 +20,7 @@ texture = SubResource("PlaceholderTexture2D_cwsi1")
 [node name="Node2D" type="Node2D" parent="background"]
 
 [node name="Box" type="Sprite2D" parent="."]
-position = Vector2(-746, 80)
+position = Vector2(-793.00006, -183)
 scale = Vector2(231.5625, 215.69014)
 texture = SubResource("PlaceholderTexture2D_xwjjp")
 script = ExtResource("1_t5odh")
