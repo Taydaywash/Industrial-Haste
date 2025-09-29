@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2y061y0fry5a"]
 
-[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_85ytm"]
-[ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/game_screen.gd" id="1_dv2sx"]
-[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_3uriw"]
+[ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
+[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_i1jb3"]
+[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="3_xpdqc"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
 
@@ -22,7 +22,7 @@ func _on_timer_timeout() -> void:
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t5odh"]
 
 [node name="GameScreen" type="Node2D"]
-script = ExtResource("1_dv2sx")
+script = ExtResource("1_osnef")
 
 [node name="Camera" type="Camera2D" parent="."]
 
@@ -31,13 +31,13 @@ z_index = -1
 position = Vector2(5, -5)
 rotation = 1.5707964
 scale = Vector2(0.445, 0.58)
-texture = ExtResource("1_85ytm")
+texture = ExtResource("2_i1jb3")
 
 [node name="Box" type="Sprite2D" parent="."]
 position = Vector2(-752, -473)
 scale = Vector2(230, 230)
 texture = SubResource("PlaceholderTexture2D_xwjjp")
-script = ExtResource("2_3uriw")
+script = ExtResource("3_xpdqc")
 
 [node name="BoxSpawner" type="Node2D" parent="."]
 position = Vector2(-696, 63)
