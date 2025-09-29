@@ -1,40 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://q8gujfl73qx"]
+[gd_scene load_steps=6 format=3 uid="uid://q8gujfl73qx"]
 
 [ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_85ytm"]
-[ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/game_screen.gd" id="1_dv2sx"]
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_3uriw"]
+[ext_resource type="Script" uid="uid://dvav8epvdr6un" path="res://scripts/boxSpawner.gd" id="3_3uriw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
-
-[sub_resource type="GDScript" id="GDScript_3uriw"]
-script/source = "extends Node2D
-
-@onready var tubes = preload(\"res://scenes/boxes.tscn\")
-@onready var box_spawner: Node2D = $\"../BoxSpawner\"
-
-func _on_timer_timeout() -> void:
-	var boxInstance = tubes.instantiate()
-	boxInstance.position = Vector2(-696, 63 )
-	add_child(boxInstance)
-	$Timer.start()
-"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t5odh"]
 
 [node name="GameScreen" type="Node2D"]
-script = ExtResource("1_dv2sx")
 
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(5, -5)
+position = Vector2(3.9999995, -6.9999995)
 rotation = 1.5707964
 scale = Vector2(0.445, 0.58)
 texture = ExtResource("1_85ytm")
 
 [node name="Box" type="Sprite2D" parent="."]
-position = Vector2(-752, -473)
+position = Vector2(-692, 63.000004)
 scale = Vector2(230, 230)
 texture = SubResource("PlaceholderTexture2D_xwjjp")
 script = ExtResource("2_3uriw")
@@ -42,7 +27,9 @@ script = ExtResource("2_3uriw")
 [node name="BoxSpawner" type="Node2D" parent="."]
 position = Vector2(-696, 63)
 scale = Vector2(1156.5, 144)
-script = SubResource("GDScript_3uriw")
+script = ExtResource("3_3uriw")
+
+[node name="Timer" type="Timer" parent="BoxSpawner"]
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
 z_index = 2
@@ -50,8 +37,4 @@ position = Vector2(4, 251)
 scale = Vector2(1160.0001, 144)
 texture = SubResource("PlaceholderTexture2D_t5odh")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 1.25
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BoxSpawner/Timer" to="BoxSpawner" method="_on_timer_timeout"]
