@@ -1,23 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=6 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_i1jb3"]
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="3_xpdqc"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
-
-[sub_resource type="GDScript" id="GDScript_3uriw"]
-script/source = "extends Node2D
-
-@onready var tubes = preload(\"res://scenes/boxes.tscn\")
-@onready var box_spawner: Node2D = $\"../BoxSpawner\"
-
-func _on_timer_timeout() -> void:
-	var boxInstance = tubes.instantiate()
-	boxInstance.position = Vector2(-696, 63 )
-	add_child(boxInstance)
-	$Timer.start()
-"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t5odh"]
 
@@ -42,7 +29,6 @@ script = ExtResource("3_xpdqc")
 [node name="BoxSpawner" type="Node2D" parent="."]
 position = Vector2(-696, 63)
 scale = Vector2(1156.5, 144)
-script = SubResource("GDScript_3uriw")
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
 z_index = 2
