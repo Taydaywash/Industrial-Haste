@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://q8gujfl73qx"]
+
+<<<<<<< HEAD:scenes/GameScreen.tscn
+[ext_resource type="Texture2D" uid="uid://bi4i45edt6oh" path="res://spirtes/mock-up background.jpg" id="1_gj13t"]
+[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_osnef"]
+=======
+[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_85ytm"]
+[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_3uriw"]
+>>>>>>> parent of add4b02 (Renamed Scenes in Pascal Case):scenes/game_screen.tscn
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t5odh"]
+
+[node name="GameScreen" type="Node2D"]
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="."]
+<<<<<<< HEAD:scenes/GameScreen.tscn
+scale = Vector2(1.605, 1.605)
+texture = ExtResource("1_gj13t")
+=======
+position = Vector2(-3.2007694e-05, -2)
+rotation = 1.5707964
+scale = Vector2(0.445, 0.58)
+texture = ExtResource("1_85ytm")
+>>>>>>> parent of add4b02 (Renamed Scenes in Pascal Case):scenes/game_screen.tscn
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(-37.00003, 60.000008)
+scale = Vector2(230, 230)
+texture = SubResource("PlaceholderTexture2D_xwjjp")
+script = ExtResource("2_3uriw")
+
+[node name="BoxSpawner" type="Node2D" parent="."]
+position = Vector2(-728, 0)
+scale = Vector2(1156.5, 144)
+
+[node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-4, 247.99998)
+scale = Vector2(1160.0001, 144)
+texture = SubResource("PlaceholderTexture2D_t5odh")
