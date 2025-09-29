@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://q8gujfl73qx"]
 
-[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_gj13t"]
+[ext_resource type="Texture2D" uid="uid://bi4i45edt6oh" path="res://spirtes/mock-up background.jpg" id="1_gj13t"]
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_osnef"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
@@ -12,9 +12,7 @@
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(-3.2007694e-05, -2)
-rotation = 1.5707964
-scale = Vector2(0.445, 0.58)
+scale = Vector2(1.605, 1.605)
 texture = ExtResource("1_gj13t")
 
 [node name="Box" type="Sprite2D" parent="."]
