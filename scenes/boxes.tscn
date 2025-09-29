@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c45jilxmdnc6p"]
+[gd_scene load_steps=4 format=3 uid="uid://bvu2iy63sqxqk"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scenes/box_controller.gd" id="1_hl4tw"]
 
