@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://q8gujfl73qx"]
+[gd_scene load_steps=5 format=3 uid="uid://ddkk6afh7sqnm"]
 
 [ext_resource type="Texture2D" uid="uid://bi4i45edt6oh" path="res://spirtes/mock-up background.jpg" id="1_gj13t"]
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_osnef"]
