@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://q8gujfl73qx"]
 
-[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://boxController.gd" id="1_t5odh"]
-[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_xwjjp"]
+[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="1_85ytm"]
+[ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="2_3uriw"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
 
@@ -15,16 +15,16 @@
 position = Vector2(-3.2007694e-05, -2)
 rotation = 1.5707964
 scale = Vector2(0.445, 0.58)
-texture = ExtResource("1_xwjjp")
+texture = ExtResource("1_85ytm")
 
 [node name="Box" type="Sprite2D" parent="."]
 position = Vector2(-37.00003, 60.000008)
 scale = Vector2(230, 230)
 texture = SubResource("PlaceholderTexture2D_xwjjp")
-script = ExtResource("1_t5odh")
+script = ExtResource("2_3uriw")
 
 [node name="BoxSpawner" type="Node2D" parent="."]
-position = Vector2(-696.00006, 72)
+position = Vector2(-728, 0)
 scale = Vector2(1156.5, 144)
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
