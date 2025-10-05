@@ -8,6 +8,8 @@ size = Vector2(230, 230.5)
 
 [node name="Box" type="Node2D"]
 script = ExtResource("1_hl4tw")
+boxSpeed = null
+boxType = null
 
 [node name="Area2D" type="Area2D" parent="."]
 

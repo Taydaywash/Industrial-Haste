@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var box = preload("res://scenes/Boxes.tscn")
+
+@onready var box = preload("res://scenes/boxes.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 
 func _on_timer_timeout() -> void:
