@@ -1,7 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=8 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_ch40n"]
+[ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_dfj8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
+bg_color = Color(0.55, 0.36666667, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31, 0.18269335, 0.0372, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l16e"]
+bg_color = Color(0.7, 0.46666667, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31, 0.18269335, 0.0372, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyuap"]
 bg_color = Color(0.38170326, 0.38170326, 0.3817031, 1)
@@ -9,6 +34,9 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
+bg_color = Color(0.25, 0.18333334, 0.125, 0.7294118)
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -23,6 +51,8 @@ offset_left = -560.0
 offset_top = -304.0
 offset_right = -416.0
 offset_bottom = -224.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Testing"
 
 [node name="LevelSelectButton" type="Button" parent="."]
@@ -31,6 +61,8 @@ offset_left = -256.0
 offset_top = -224.0
 offset_right = 256.0
 offset_bottom = -128.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Level Select
 "
 
@@ -40,6 +72,8 @@ offset_left = -256.0
 offset_top = -40.0
 offset_right = 256.0
 offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="."]
@@ -48,6 +82,8 @@ offset_left = -256.0
 offset_top = 152.0
 offset_right = 256.0
 offset_bottom = 256.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Quit
 "
 
@@ -242,6 +278,21 @@ offset_top = 361.0
 offset_right = 126.0
 offset_bottom = 393.0
 text = "Back"
+
+[node name="TItleBackgroundOverlay" type="Panel" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8k5og")
+
+[node name="TitleBackground" type="Sprite2D" parent="TItleBackgroundOverlay"]
+z_index = -4
+position = Vector2(576, 328)
+texture = ExtResource("3_dfj8j")
 
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]
