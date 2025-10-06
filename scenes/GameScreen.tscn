@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_i1jb3"]
 [ext_resource type="Script" uid="uid://b4sebcsmb8qs3" path="res://scripts/boxController.gd" id="3_xpdqc"]
-[ext_resource type="Texture2D" uid="uid://bi4i45edt6oh" path="res://spirtes/mock-up background.jpg" id="4_i1jb3"]
+[ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
+[ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xwjjp"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xpdqc"]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_osnef")
@@ -33,9 +32,7 @@ scale = Vector2(1156.5, 144)
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(4, 251)
-scale = Vector2(1160.0001, 144)
-texture = SubResource("PlaceholderTexture2D_xpdqc")
+texture = ExtResource("4_xpdqc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.25
@@ -43,7 +40,6 @@ autostart = true
 
 [node name="MockUpBackground" type="Sprite2D" parent="."]
 position = Vector2(4.777771, 2)
-scale = Vector2(1.5700483, 1.5700483)
-texture = ExtResource("4_i1jb3")
+texture = ExtResource("5_yxycf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
