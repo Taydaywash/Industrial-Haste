@@ -15,7 +15,7 @@ script = ExtResource("1_osnef")
 
 [node name="background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(661.99994, -253.99998)
+position = Vector2(591, -745.99994)
 rotation = 1.5707964
 scale = Vector2(0.445, 0.58)
 texture = ExtResource("2_i1jb3")
@@ -35,7 +35,7 @@ z_index = 2
 texture = ExtResource("4_xpdqc")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.25
+wait_time = 2.0
 autostart = true
 
 [node name="MockUpBackground" type="Sprite2D" parent="."]
