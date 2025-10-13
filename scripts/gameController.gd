@@ -8,7 +8,7 @@ var count = 0
 @onready var clockText: Label = $Clock
 var gameTime = 0
 var hour = 6
-var min = 0
+var minute = 0
 
 func _second_passed():
 	# 30 seconds is 1 minute ingame
@@ -17,11 +17,13 @@ func _second_passed():
 	if (gameTime >= 360):
 		return
 	if (gameTime % 60 == 0):
+		@warning_ignore("integer_division")
 		hour = (6 + gameTime/60)
 	if (gameTime % 10 == 0):
-		min = ((gameTime/10) - (6 * (hour - 6)))
-		print(min)
-	clockText.text = str(hour) + ":" + str(min) + "0"
+		@warning_ignore("integer_division")
+		minute = ((gameTime/10) - (6 * (hour - 6)))
+		print(minute)
+	clockText.text = str(hour) + ":" + str(minute) + "0"
 
 func _on_timer_timeout() -> void:
 	var boxInstance = box.instantiate()

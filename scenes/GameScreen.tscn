@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=5 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
-[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_i1jb3"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
 
@@ -14,13 +13,6 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_osnef")
 
 [node name="Camera" type="Camera2D" parent="."]
-
-[node name="background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(591, -745.99994)
-rotation = 1.5707964
-scale = Vector2(0.445, 0.58)
-texture = ExtResource("2_i1jb3")
 
 [node name="BoxSpawner" type="Node2D" parent="."]
 position = Vector2(-696.00006, 64)
@@ -48,6 +40,7 @@ label_settings = SubResource("LabelSettings_i1jb3")
 horizontal_alignment = 2
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
+wait_time = 0.123
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
