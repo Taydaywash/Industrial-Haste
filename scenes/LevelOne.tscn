@@ -1,3 +1,34 @@
-[gd_scene format=3 uid="uid://dfr4gnt53wsj2"]
+[gd_scene load_steps=5 format=3 uid="uid://q2grelqqkw5m"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_estr2"]
+[ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_8671u"]
+[ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="3_l2kow"]
+[ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="4_f0icx"]
+
+[node name="LevelOne" type="Node2D"]
+script = ExtResource("1_estr2")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(591, -745.99994)
+rotation = 1.5707964
+scale = Vector2(0.445, 0.58)
+texture = ExtResource("2_8671u")
+
+[node name="BoxSpawner" type="Node2D" parent="."]
+position = Vector2(-696.00006, 64)
+scale = Vector2(1156.5, 144)
+
+[node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("3_l2kow")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="MockUpBackground" type="Sprite2D" parent="."]
+position = Vector2(4.777771, 2)
+texture = ExtResource("4_f0icx")

@@ -14,6 +14,3 @@ func _on_timer_timeout() -> void:
 	print("box spawned in")
 	count += 1
 	$Timer.start()
-	
-func print2():
-	print("Hello")

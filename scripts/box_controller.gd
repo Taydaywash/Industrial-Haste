@@ -22,6 +22,7 @@ func get_box_type():
 	
 	for n in boxType:
 		if item <= boxType[n]:
+			print(item)
 			return n
 	
 	
