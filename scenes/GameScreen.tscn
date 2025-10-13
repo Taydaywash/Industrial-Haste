@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=9 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
+[ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scenes/toolController.gd" id="4_i1jb3"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
 
@@ -8,6 +9,13 @@
 font_size = 40
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xpdqc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yxycf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m38y"]
+size = Vector2(0.9979884, 1.0301809)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_osnef")
@@ -43,5 +51,29 @@ horizontal_alignment = 2
 wait_time = 0.123
 autostart = true
 
+[node name="ToolBar" type="Node2D" parent="."]
+z_index = 2
+script = ExtResource("4_i1jb3")
+
+[node name="ToolOne" type="Node2D" parent="ToolBar"]
+
+[node name="ToolOneHeld" type="Sprite2D" parent="ToolBar/ToolOne"]
+z_index = 1
+position = Vector2(-204, 268)
+scale = Vector2(119.99999, 119.99999)
+texture = SubResource("PlaceholderTexture2D_xpdqc")
+
+[node name="ToolOneToolBar" type="Sprite2D" parent="ToolBar/ToolOne"]
+position = Vector2(-201.875, 265.875)
+scale = Vector2(124.250015, 124.25002)
+texture = SubResource("PlaceholderTexture2D_yxycf")
+
+[node name="Area2D" type="Area2D" parent="ToolBar/ToolOne/ToolOneToolBar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/ToolOne/ToolOneToolBar/Area2D"]
+position = Vector2(-0.0010056496, -0.015090466)
+shape = SubResource("RectangleShape2D_5m38y")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="input_event" from="ToolBar/ToolOne/ToolOneToolBar/Area2D" to="ToolBar" method="_on_tool_clicked"]

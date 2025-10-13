@@ -22,7 +22,6 @@ func _second_passed():
 	if (gameTime % 10 == 0):
 		@warning_ignore("integer_division")
 		minute = ((gameTime/10) - (6 * (hour - 6)))
-		print(minute)
 	clockText.text = str(hour) + ":" + str(minute) + "0"
 
 func _on_timer_timeout() -> void:
@@ -30,6 +29,6 @@ func _on_timer_timeout() -> void:
 	boxInstance.position = boxSpawner.position
 	boxInstance.match_box(boxInstance.get_box_type())
 	add_child(boxInstance)
-	print("box spawned in")
+	#print("box spawned in")
 	count += 1
 	$Timer.start()

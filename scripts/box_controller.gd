@@ -12,7 +12,7 @@ func _process(delta: float):
 	position.x += boxSpeed * delta 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("box deleted")
+	#print("box deleted")
 	queue_free()
 
 func get_box_type():
@@ -22,7 +22,7 @@ func get_box_type():
 	
 	for n in boxType:
 		if item <= boxType[n]:
-			print(item)
+			#print(item)
 			return n
 	
 	
