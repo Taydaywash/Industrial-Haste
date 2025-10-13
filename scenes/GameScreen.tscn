@@ -39,12 +39,13 @@ position = Vector2(4.777771, 2)
 texture = ExtResource("5_yxycf")
 
 [node name="Clock" type="Label" parent="."]
-offset_left = 480.0
+offset_left = 408.0
 offset_top = -312.0
-offset_right = 559.0
+offset_right = 567.0
 offset_bottom = -257.0
 text = "6:00"
 label_settings = SubResource("LabelSettings_i1jb3")
+horizontal_alignment = 2
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
 autostart = true
