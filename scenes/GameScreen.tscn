@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=6 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://de3uf0ph40baj" path="res://spirtes/Mr Wilson.png" id="2_i1jb3"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
+font_size = 40
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_osnef")
@@ -33,4 +38,16 @@ autostart = true
 position = Vector2(4.777771, 2)
 texture = ExtResource("5_yxycf")
 
+[node name="Clock" type="Label" parent="."]
+offset_left = 480.0
+offset_top = -312.0
+offset_right = 559.0
+offset_bottom = -257.0
+text = "6:00"
+label_settings = SubResource("LabelSettings_i1jb3")
+
+[node name="ClockTimer" type="Timer" parent="Clock"]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]

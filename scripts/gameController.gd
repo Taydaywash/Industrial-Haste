@@ -6,6 +6,9 @@ extends Node2D
 
 var count = 0
 
+func _second_passed():
+	pass
+
 func _on_timer_timeout() -> void:
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
