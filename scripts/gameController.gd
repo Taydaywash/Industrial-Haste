@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var box_controller = $"../Boxes"
 @onready var box = preload("res://scenes/boxes.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 
