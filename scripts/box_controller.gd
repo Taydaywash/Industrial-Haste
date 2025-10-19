@@ -1,8 +1,16 @@
 extends Node2D
 
 @export var boxSpeed = 150
-@export var boxTypes: Dictionary = {"Fixed": 50, "Opened": 65, "Tapeless": 70,
-								   "Dirty": 85, "Mislabeled": 90 , "Bulging": 100}
+@export var boxTypes: Dictionary = {
+	"Fixed": 50, 
+	"Opened": 65, 
+	"Tapeless": 70,
+	"Dirty": 85, 
+	"Mislabeled": 90, 
+	"Bulging": 100, 
+	"Loose Bolt": 101, #Unused Currently
+	"Boltless": 101 #Unused Currently
+	}
 var boxType
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 
@@ -42,6 +50,10 @@ func match_box(type: String) -> void:
 			$Area2D/Sprite.modulate = Color("blue")
 		"Bulging":
 			$Area2D/Sprite.modulate = Color("purple")
+		"Loose Bolt":
+			$Area2D/Sprite.modulate = Color("black")
+		"Boltless":
+			$Area2D/Sprite.modulate = Color("white")
 		_:
 			pass
 
@@ -52,15 +64,21 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)
 		match tool:
 			0: #Hand Tool
-				pass
+				print("Pushed " + boxType)
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
-					print("Fixed Tapeless Box!")
+					print("Fixed " + boxType)
 				else:
-					print("Tool #" + str(tool) + " cannot be used to fix " + boxType)
+					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			2: #Wrench Tool
-				pass
+				if (boxType == "Loose Bolt" || boxType == "Boltless" ):
+					print("Tighted bolt on " + boxType)
+				else:
+					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			3: #Bolts Tool
-				pass
+				if (boxType == "Boltless"):
+					print("Added Bolt to Boltless Crate!!")
+				else:
+					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			_:
 				pass

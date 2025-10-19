@@ -73,6 +73,46 @@ texture = SubResource("PlaceholderTexture2D_yxycf")
 position = Vector2(-0.0010056496, -0.015090466)
 shape = SubResource("RectangleShape2D_5m38y")
 
+[node name="WrenchTool" type="Node2D" parent="ToolBar"]
+
+[node name="WrenchToolHeldSprite" type="Sprite2D" parent="ToolBar/WrenchTool"]
+z_index = 1
+position = Vector2(-4, 268)
+scale = Vector2(119.99999, 119.99999)
+texture = SubResource("PlaceholderTexture2D_xpdqc")
+
+[node name="WrenchToolToolBar" type="Sprite2D" parent="ToolBar/WrenchTool"]
+position = Vector2(-1.875, 265.875)
+scale = Vector2(124.250015, 124.25002)
+texture = SubResource("PlaceholderTexture2D_yxycf")
+
+[node name="Area2D" type="Area2D" parent="ToolBar/WrenchTool/WrenchToolToolBar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/WrenchTool/WrenchToolToolBar/Area2D"]
+position = Vector2(-0.0010056496, -0.015090466)
+shape = SubResource("RectangleShape2D_5m38y")
+
+[node name="BoltsTool" type="Node2D" parent="ToolBar"]
+
+[node name="BoltsToolHeldSprite" type="Sprite2D" parent="ToolBar/BoltsTool"]
+z_index = 1
+position = Vector2(219, 268)
+scale = Vector2(119.99999, 119.99999)
+texture = SubResource("PlaceholderTexture2D_xpdqc")
+
+[node name="BoltsToolToolBar" type="Sprite2D" parent="ToolBar/BoltsTool"]
+position = Vector2(221.125, 265.875)
+scale = Vector2(124.250015, 124.25002)
+texture = SubResource("PlaceholderTexture2D_yxycf")
+
+[node name="Area2D" type="Area2D" parent="ToolBar/BoltsTool/BoltsToolToolBar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/BoltsTool/BoltsToolToolBar/Area2D"]
+position = Vector2(-0.0010056496, -0.015090466)
+shape = SubResource("RectangleShape2D_5m38y")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
+[connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
+[connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
