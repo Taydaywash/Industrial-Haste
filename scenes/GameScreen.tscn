@@ -34,8 +34,7 @@ texture = ExtResource("4_xpdqc")
 wait_time = 2.0
 autostart = true
 
-[node name="MockUpBackground" type="Sprite2D" parent="."]
-position = Vector2(4.777771, 2)
+[node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("5_yxycf")
 
 [node name="Clock" type="Label" parent="."]
