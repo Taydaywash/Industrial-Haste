@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var boxSpeed = 150
-@export var boxTypes: Dictionary = {"Fixed": 50, "Opened": 65, "Tapeless": 100,
+@export var boxTypes: Dictionary = {"Fixed": 50, "Opened": 65, "Tapeless": 70,
 								   "Dirty": 85, "Mislabeled": 90 , "Bulging": 100}
 var boxType
 @onready var box_spawner: Node2D = $"../BoxSpawner"
@@ -54,10 +54,10 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			0: #Hand Tool
 				pass
 			1: #Tape Tool
-				if (boxType == "Tapeless"):
+				if (boxType == "Tapeless" || boxType == "Opened"):
 					print("Fixed Tapeless Box!")
 				else:
-					print("Tool #" + str(tool) + " cannot be used to fix Tapeless Box")
+					print("Tool #" + str(tool) + " cannot be used to fix " + boxType)
 			2: #Wrench Tool
 				pass
 			3: #Bolts Tool
