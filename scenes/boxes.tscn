@@ -23,4 +23,5 @@ position = Vector2(-0.49999952, 1.0000033)
 scale = Vector2(1.95, 2.4)
 texture = ExtResource("2_lb2dd")
 
+[connection signal="input_event" from="Area2D" to="." method="_attempt_tool_use"]
 [connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

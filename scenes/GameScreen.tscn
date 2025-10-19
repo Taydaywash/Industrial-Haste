@@ -54,24 +54,25 @@ autostart = true
 z_index = 2
 script = ExtResource("4_i1jb3")
 
-[node name="ToolOne" type="Node2D" parent="ToolBar"]
+[node name="TapeTool" type="Node2D" parent="ToolBar"]
 
-[node name="ToolOneHeldSprite" type="Sprite2D" parent="ToolBar/ToolOne"]
+[node name="TapeToolHeldSprite" type="Sprite2D" parent="ToolBar/TapeTool"]
 z_index = 1
 position = Vector2(-204, 268)
 scale = Vector2(119.99999, 119.99999)
 texture = SubResource("PlaceholderTexture2D_xpdqc")
 
-[node name="ToolOneToolBar" type="Sprite2D" parent="ToolBar/ToolOne"]
+[node name="TapeToolToolBar" type="Sprite2D" parent="ToolBar/TapeTool"]
 position = Vector2(-201.875, 265.875)
 scale = Vector2(124.250015, 124.25002)
 texture = SubResource("PlaceholderTexture2D_yxycf")
 
-[node name="Area2D" type="Area2D" parent="ToolBar/ToolOne/ToolOneToolBar"]
+[node name="Area2D" type="Area2D" parent="ToolBar/TapeTool/TapeToolToolBar"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/ToolOne/ToolOneToolBar/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/TapeTool/TapeToolToolBar/Area2D"]
 position = Vector2(-0.0010056496, -0.015090466)
 shape = SubResource("RectangleShape2D_5m38y")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]

@@ -13,3 +13,7 @@ config_version=5
 config/name="Industrial Haste"
 run/main_scene="uid://dpbelu56weedw"
 config/features=PackedStringArray("4.5", "Forward Plus")
+
+[autoload]
+
+Global="*res://scripts/global.gd"
