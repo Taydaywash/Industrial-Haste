@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
-[ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scenes/toolController.gd" id="4_i1jb3"]
+[ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
 
@@ -56,7 +56,7 @@ script = ExtResource("4_i1jb3")
 
 [node name="ToolOne" type="Node2D" parent="ToolBar"]
 
-[node name="ToolOneHeld" type="Sprite2D" parent="ToolBar/ToolOne"]
+[node name="ToolOneHeldSprite" type="Sprite2D" parent="ToolBar/ToolOne"]
 z_index = 1
 position = Vector2(-204, 268)
 scale = Vector2(119.99999, 119.99999)
@@ -75,4 +75,3 @@ shape = SubResource("RectangleShape2D_5m38y")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
-[connection signal="input_event" from="ToolBar/ToolOne/ToolOneToolBar/Area2D" to="ToolBar" method="_on_tool_clicked"]
