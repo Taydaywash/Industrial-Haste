@@ -4,23 +4,34 @@ var holdingTool: bool = false
 var heldTool: int = 0
 
 @onready var tapeToolHeldSprite: Sprite2D = $TapeTool/TapeToolHeldSprite
+@onready var wrenchToolHeldSprite: Sprite2D = $WrenchTool/WrenchToolHeldSprite
+@onready var boltsToolHeldSprite: Sprite2D = $BoltsTool/BoltsToolHeldSprite
 
 @onready var tapeToolToolBar: Sprite2D = $TapeTool/TapeToolToolBar
+@onready var wrenchToolToolBar: Sprite2D = $WrenchTool/WrenchToolToolBar
+@onready var boltsToolToolBar: Sprite2D = $BoltsTool/BoltsToolToolBar
 
 
 var toolList = []
-
+var toolPositions = []
 func _ready() -> void:
 	toolList = [
 		"Hand Tool",
-		tapeToolHeldSprite
+		tapeToolHeldSprite,
+		wrenchToolHeldSprite,
+		boltsToolHeldSprite
+	]
+	toolPositions = [
+		tapeToolToolBar,
+		wrenchToolToolBar,
+		boltsToolToolBar
 	]
 
 func _process(_delta: float):
 	if holdingTool:
 		toolList[heldTool].position = get_local_mouse_position()
 	elif heldTool != 0:
-		toolList[heldTool].position = tapeToolToolBar.position
+		toolList[heldTool].position = toolPositions[heldTool - 1].position
 		heldTool = 0
 		Global._set_tool_to(heldTool)
 
