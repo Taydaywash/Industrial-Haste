@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var fixedTexture = preload("res://spirtes/boxSprites/fixedBox.png")
 
 @export var boxSpeed = 150
 @export var boxTypes: Dictionary = {
@@ -43,7 +43,7 @@ func get_box_type():
 func match_box(type: String) -> void:
 	match type:
 		"Fixed":
-			$Area2D/Sprite.modulate = Color("red")
+			$Area2D/Sprite.texture = fixedTexture
 		"Opened":
 			$Area2D/Sprite.modulate = Color("orange")
 		"Tapeless":
