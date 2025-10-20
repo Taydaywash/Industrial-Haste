@@ -1,78 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brvsbjvym27wr"]
+[gd_scene load_steps=7 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
 [ext_resource type="Texture2D" uid="uid://ddjhdu3gyjhdu" path="res://spirtes/square-white.png" id="2_lb2dd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bld75"]
 size = Vector2(230, 230.5)
-
-[sub_resource type="Animation" id="Animation_lb2dd"]
-resource_name = "pushedOffLine"
-length = 0.7515
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(0.53588665, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.745, 0.745)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("Area2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(0.7845841, 1),
-"update": 0,
-"values": [0.0, 0.20245819323134262]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.7),
-"transitions": PackedFloat32Array(0.27739242, 2.2191396, 1.7411013),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 232.075)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.7),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"rotate_box"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_q0xfv"]
 length = 0.001
@@ -123,6 +55,74 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lb2dd"]
+resource_name = "pushedOffLine"
+length = 0.7515
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.53588665, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.745, 0.745)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Area2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(0.7845841, 1),
+"update": 0,
+"values": [0.0, 0.20245819323134265]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.7),
+"transitions": PackedFloat32Array(0.27739242, 2.2191396, 1.7411013),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 232.075)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"rotate_box"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ji21"]

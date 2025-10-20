@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var fixedTexture = preload("res://spirtes/BoxSprites/fixedBox.png")
 
 @export var boxSpeed = 150
 @export var boxTypes: Dictionary = {
