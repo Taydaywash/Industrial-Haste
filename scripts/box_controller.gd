@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
 @export var boxSpeed = 150
 @export var boxTypes: Dictionary = {
 	"Fixed": 50, 
@@ -64,7 +67,8 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)
 		match tool:
 			0: #Hand Tool
-				print("Pushed " + boxType)
+				boxSpeed = 0
+				animation_player.play("pushedOffLine")
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
 					print("Fixed " + boxType)
