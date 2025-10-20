@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=11 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
@@ -16,6 +16,12 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m38y"]
 size = Vector2(0.9979884, 1.0301809)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1jb3"]
+bg_color = Color(0.42745098, 0.16470589, 0, 0.6117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpdqc"]
+bg_color = Color(0.003921569, 0.003921569, 0, 0.8627451)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_osnef")
@@ -38,6 +44,7 @@ autostart = true
 texture = ExtResource("5_yxycf")
 
 [node name="Clock" type="Label" parent="."]
+z_index = 8
 offset_left = 408.0
 offset_top = -312.0
 offset_right = 567.0
@@ -110,6 +117,49 @@ texture = SubResource("PlaceholderTexture2D_yxycf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/BoltsTool/BoltsToolToolBar/Area2D"]
 position = Vector2(-0.0010056496, -0.015090466)
 shape = SubResource("RectangleShape2D_5m38y")
+
+[node name="HangingLight" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -76.58992
+offset_top = -450.12372
+offset_right = -36.58992
+offset_bottom = -410.12372
+rotation = 0.03866909
+pivot_offset = Vector2(76.83565, 4.9263)
+
+[node name="LightOverlay" type="Panel" parent="HangingLight"]
+z_index = 6
+layout_mode = 0
+offset_left = -757.0343
+offset_top = -255.18434
+offset_right = 1048.0292
+offset_bottom = 1272.8054
+rotation = -0.024121076
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i1jb3")
+
+[node name="DarkRight" type="Panel" parent="HangingLight"]
+z_index = 7
+layout_mode = 0
+offset_left = -35.585537
+offset_top = -175.66516
+offset_right = 1091.3223
+offset_bottom = 1352.3246
+rotation = -0.36183813
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xpdqc")
+
+[node name="DarkLeft" type="Panel" parent="HangingLight"]
+z_index = 7
+layout_mode = 0
+offset_left = -318.6065
+offset_top = 1234.3303
+offset_right = 917.90704
+offset_bottom = 2713.2803
+rotation = -2.7962885
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xpdqc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
