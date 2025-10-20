@@ -19,9 +19,10 @@ var boxType
 
 var rng = RandomNumberGenerator.new()
 
-
+var rotationRate = 0
 
 func _process(delta: float):
+	get_child(0).rotation += rotationRate
 	position.x += boxSpeed * delta 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -62,6 +63,7 @@ func match_box(type: String) -> void:
 
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	#mouseup
+	
 	var tool = Global._get_tool()
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
@@ -85,3 +87,6 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			_:
 				pass
+
+func rotate_box():
+	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/1000
