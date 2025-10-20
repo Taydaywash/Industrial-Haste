@@ -29,7 +29,7 @@ script = ExtResource("1_osnef")
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="BoxSpawner" type="Node2D" parent="."]
-position = Vector2(-696.00006, 64)
+position = Vector2(-753, 64)
 scale = Vector2(1156.5, 144)
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
@@ -119,6 +119,7 @@ position = Vector2(-0.0010056496, -0.015090466)
 shape = SubResource("RectangleShape2D_5m38y")
 
 [node name="HangingLight" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -76.58992

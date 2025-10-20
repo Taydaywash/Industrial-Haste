@@ -26,8 +26,8 @@ func _second_passed():
 func _on_timer_timeout() -> void:
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
-	boxInstance.match_box(boxInstance.get_box_type())
 	add_child(boxInstance)
+	boxInstance.match_box(boxInstance.get_box_type())
 	#print("box spawned in")
 	count += 1
 	$Timer.start()
