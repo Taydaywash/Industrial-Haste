@@ -63,12 +63,11 @@ func match_box(type: String) -> void:
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	#mouseup
 	var tool = Global._get_tool()
+	if event is InputEventMouseButton and event.pressed:
+		animation_player.play("pushedOffLine")
 	if event is InputEventMouseButton and !event.pressed:
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)
 		match tool:
-			0: #Hand Tool
-				boxSpeed = 0
-				animation_player.play("pushedOffLine")
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
 					print("Fixed " + boxType)
