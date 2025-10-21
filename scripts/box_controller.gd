@@ -1,7 +1,11 @@
 extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var boxLabel: Label = $Area2D/BoxLabel
 @onready var fixedTexture = preload("res://spirtes/BoxSprites/fixedBox.png")
+@onready var openedTexture = preload("res://spirtes/BoxSprites/openedBox.png")
+@onready var tapelessTexture = preload("res://spirtes/BoxSprites/tapelessBox.png")
+@onready var dirtyTexture = preload("res://spirtes/BoxSprites/dirtyBox.png")
 
 @export var boxSpeed = 150
 @export var boxTypes: Dictionary = {
@@ -45,11 +49,11 @@ func match_box(type: String) -> void:
 		"Fixed":
 			$Area2D/Sprite.texture = fixedTexture
 		"Opened":
-			$Area2D/Sprite.modulate = Color("orange")
+			$Area2D/Sprite.texture = openedTexture
 		"Tapeless":
-			$Area2D/Sprite.modulate = Color("yellow")
+			$Area2D/Sprite.texture = tapelessTexture
 		"Dirty":
-			$Area2D/Sprite.modulate = Color("green")
+			$Area2D/Sprite.texture = dirtyTexture
 		"Mislabeled":
 			$Area2D/Sprite.modulate = Color("blue")
 		"Bulging":
@@ -60,6 +64,9 @@ func match_box(type: String) -> void:
 			$Area2D/Sprite.modulate = Color("white")
 		_:
 			pass
+
+func change_label(count: int) -> void:
+	boxLabel.text = str(count)
 
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	#mouseup
@@ -72,6 +79,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		match tool:
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
+					$Area2D/Sprite.texture = fixedTexture
 					print("Fixed " + boxType)
 				else:
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)

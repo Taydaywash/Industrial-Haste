@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://yu0mnyavm82i"]
+[gd_scene load_steps=9 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
-[ext_resource type="Texture2D" uid="uid://bfyofvbf7ickx" path="res://spirtes/BoxSprites/openedBox.png" id="2_lb2dd"]
+[ext_resource type="Texture2D" uid="uid://0ddkqgs1xn8j" path="res://spirtes/BoxSprites/fixedBox.png" id="2_lb2dd"]
+[ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="3_q0xfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bld75"]
 size = Vector2(230, 230.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lb2dd"]
+font = ExtResource("3_q0xfv")
+font_size = 34
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0.70980394, 0.5019608, 0.24313726, 0.3647059)
 
 [sub_resource type="Animation" id="Animation_q0xfv"]
 length = 0.001
@@ -144,9 +152,18 @@ position = Vector2(-81, -83)
 rect = Rect2(-116, -115, 400, 400)
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
-position = Vector2(-0.49999952, 1.0000033)
+position = Vector2(-3.9999695, -7.000004)
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("2_lb2dd")
+
+[node name="BoxLabel" type="Label" parent="Area2D"]
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 95.0
+offset_bottom = 83.0
+text = "0"
+label_settings = SubResource("LabelSettings_lb2dd")
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
