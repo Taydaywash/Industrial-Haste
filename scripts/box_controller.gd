@@ -99,5 +99,5 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		Global._reset_tool()
 
 func rotate_box():
-	boxSpeed = boxSpeed/10
 	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/20
+	boxSpeed = (boxSpeed * rotationRate)/4
