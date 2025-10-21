@@ -55,7 +55,6 @@ label_settings = SubResource("LabelSettings_i1jb3")
 horizontal_alignment = 2
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
-wait_time = 0.123
 autostart = true
 
 [node name="ToolBar" type="Node2D" parent="."]
@@ -127,7 +126,7 @@ offset_left = -76.58992
 offset_top = -450.12372
 offset_right = -36.58992
 offset_bottom = -410.12372
-rotation = 0.03866909
+rotation = 0.012831296
 pivot_offset = Vector2(76.83565, 4.9263)
 
 [node name="LightOverlay" type="Panel" parent="HangingLight"]
