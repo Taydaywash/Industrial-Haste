@@ -3,6 +3,7 @@ extends Node
 var tool = 0
 
 func _set_tool_to(input):
+	print(input)
 	tool = input
 
 func _get_tool():

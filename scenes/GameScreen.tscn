@@ -1,16 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=13 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
+[ext_resource type="Texture2D" uid="uid://cpjiscg32nlxc" path="res://spirtes/Placeholders/tapePlaceholder.webp" id="5_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
+[ext_resource type="Texture2D" uid="uid://bkxrr1qqx1pkk" path="res://spirtes/Placeholders/wrenchPlaceholder.png" id="6_5m38y"]
+[ext_resource type="Texture2D" uid="uid://bvdbvea54eeu1" path="res://spirtes/Placeholders/boltsPlaceholder.jpg" id="7_nt2i5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
 font_size = 40
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xpdqc"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yxycf"]
 
@@ -65,9 +66,9 @@ script = ExtResource("4_i1jb3")
 
 [node name="TapeToolHeldSprite" type="Sprite2D" parent="ToolBar/TapeTool"]
 z_index = 1
-position = Vector2(-204, 268)
-scale = Vector2(119.99999, 119.99999)
-texture = SubResource("PlaceholderTexture2D_xpdqc")
+position = Vector2(-202.75002, 266.75)
+scale = Vector2(0.30375004, 0.30375004)
+texture = ExtResource("5_xpdqc")
 
 [node name="TapeToolToolBar" type="Sprite2D" parent="ToolBar/TapeTool"]
 position = Vector2(-201.875, 265.875)
@@ -84,9 +85,9 @@ shape = SubResource("RectangleShape2D_5m38y")
 
 [node name="WrenchToolHeldSprite" type="Sprite2D" parent="ToolBar/WrenchTool"]
 z_index = 1
-position = Vector2(-4, 268)
-scale = Vector2(119.99999, 119.99999)
-texture = SubResource("PlaceholderTexture2D_xpdqc")
+position = Vector2(-3, 267)
+scale = Vector2(0.33333337, 0.33333337)
+texture = ExtResource("6_5m38y")
 
 [node name="WrenchToolToolBar" type="Sprite2D" parent="ToolBar/WrenchTool"]
 position = Vector2(-1.875, 265.875)
@@ -103,9 +104,9 @@ shape = SubResource("RectangleShape2D_5m38y")
 
 [node name="BoltsToolHeldSprite" type="Sprite2D" parent="ToolBar/BoltsTool"]
 z_index = 1
-position = Vector2(219, 268)
-scale = Vector2(119.99999, 119.99999)
-texture = SubResource("PlaceholderTexture2D_xpdqc")
+position = Vector2(218.95, 265.5)
+scale = Vector2(0.2997462, 0.3305556)
+texture = ExtResource("7_nt2i5")
 
 [node name="BoltsToolToolBar" type="Sprite2D" parent="ToolBar/BoltsTool"]
 position = Vector2(221.125, 265.875)

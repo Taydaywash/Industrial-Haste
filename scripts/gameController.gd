@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var box = preload("res://scenes/boxes.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
+@onready var clockText: Label = $Clock
 
 var count = 0
-@onready var clockText: Label = $Clock
 var gameTime = 0
 var hour = 6
 var minute = 0
@@ -28,6 +28,8 @@ func _on_timer_timeout() -> void:
 	boxInstance.position = boxSpawner.position
 	add_child(boxInstance)
 	boxInstance.match_box(boxInstance.get_box_type())
+	
 	#print("box spawned in")
 	count += 1
+	boxInstance.change_label(count)
 	$Timer.start()
