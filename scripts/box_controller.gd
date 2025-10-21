@@ -10,7 +10,7 @@ extends Node2D
 @export var boxSpeed = 150
 @export var boxTypes: Dictionary = {
 	"Fixed": 50, 
-	"Opened": 65, 
+	"Opened": 100, 
 	"Tapeless": 70,
 	"Dirty": 85, 
 	"Mislabeled": 90, 
@@ -26,7 +26,7 @@ var rng = RandomNumberGenerator.new()
 var rotationRate = 0
 
 func _process(delta: float):
-	get_child(0).rotation += rotationRate * delta 
+	get_child(1).rotation += rotationRate * delta 
 	position.x += boxSpeed * delta 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -80,7 +80,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		match tool:
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
-					$Area2D/Sprite.texture = fixedTexture
+					animation_player.play("Fixed Box")
 					print("Fixed " + boxType)
 				else:
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
@@ -97,6 +97,9 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			_:
 				pass
 		Global._reset_tool()
+
+func fix_box():
+	$Area2D/Sprite.texture = fixedTexture
 
 func rotate_box():
 	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/20

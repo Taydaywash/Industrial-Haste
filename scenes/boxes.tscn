@@ -1,8 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://yu0mnyavm82i"]
+[gd_scene load_steps=20 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
 [ext_resource type="Texture2D" uid="uid://0ddkqgs1xn8j" path="res://spirtes/BoxSprites/fixedBox.png" id="2_lb2dd"]
+[ext_resource type="Texture2D" uid="uid://d0xovc4gam4rg" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0000.png" id="2_lrcp5"]
+[ext_resource type="Texture2D" uid="uid://dodxpaepr05c7" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0001.png" id="3_hbg7f"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="3_q0xfv"]
+[ext_resource type="Texture2D" uid="uid://brc03nbnx2144" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0002.png" id="4_rn7pf"]
+[ext_resource type="Texture2D" uid="uid://c0aoh6fq0qr15" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0003.png" id="5_pqt68"]
+[ext_resource type="Texture2D" uid="uid://dq8lthadkffb1" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0004.png" id="6_1v4lg"]
+[ext_resource type="Texture2D" uid="uid://d0f3277ifjj01" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0005.png" id="7_48tac"]
+[ext_resource type="Texture2D" uid="uid://b6y73ycoj6m0b" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0006.png" id="8_sxp01"]
+[ext_resource type="Texture2D" uid="uid://ckr6ox2hgvi6x" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0007.png" id="9_lg2pc"]
+[ext_resource type="Texture2D" uid="uid://b60drt2xk512" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0008.png" id="10_r8tui"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0xfv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lrcp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbg7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rn7pf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pqt68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1v4lg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_48tac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sxp01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lg2pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r8tui")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"poofAnimation",
+"speed": 24.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bld75"]
 size = Vector2(230, 230.5)
@@ -63,6 +110,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("poofAnimation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_lb2dd"]
@@ -133,14 +192,68 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_i4skx"]
+resource_name = "Fixed Box"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("poofAnimation:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("poofAnimation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["poofAnimation"],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fix_box"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ji21"]
 _data = {
+&"Fixed Box": SubResource("Animation_i4skx"),
 &"RESET": SubResource("Animation_q0xfv"),
 &"pushedOffLine": SubResource("Animation_lb2dd")
 }
 
 [node name="Boxes" type="Node2D"]
 script = ExtResource("1_hl4tw")
+
+[node name="poofAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(0.175, 0.175)
+sprite_frames = SubResource("SpriteFrames_q0xfv")
+animation = &"poofAnimation"
+frame = 9
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
