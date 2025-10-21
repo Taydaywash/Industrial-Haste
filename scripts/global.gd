@@ -7,3 +7,6 @@ func _set_tool_to(input):
 
 func _get_tool():
 	return tool
+
+func _reset_tool():
+	tool = 0

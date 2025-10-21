@@ -33,7 +33,6 @@ func _process(_delta: float):
 	elif heldTool != 0:
 		toolList[heldTool].position = toolPositions[heldTool - 1].position
 		heldTool = 0
-		Global._set_tool_to(heldTool)
 
 #On MouseUp
 func _input(event):

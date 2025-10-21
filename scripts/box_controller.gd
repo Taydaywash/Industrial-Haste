@@ -65,6 +65,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	#mouseup
 	
 	var tool = Global._get_tool()
+	
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
 	if event is InputEventMouseButton and !event.pressed:
@@ -87,6 +88,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			_:
 				pass
+		Global._reset_tool()
 
 func rotate_box():
 	boxSpeed = boxSpeed/10
