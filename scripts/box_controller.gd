@@ -75,6 +75,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
+		Global._reset_tool()
 	if event is InputEventMouseButton and !event.pressed:
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)
 		match tool:
@@ -100,6 +101,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
+	boxType = "Fixed"
 
 func rotate_box():
 	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/20
