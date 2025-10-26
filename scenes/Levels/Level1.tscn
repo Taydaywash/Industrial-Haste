@@ -25,7 +25,7 @@ bg_color = Color(0.42745098, 0.16470589, 0, 0.6117647)
 bg_color = Color(0.003921569, 0.003921569, 0, 0.8627451)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkyfg"]
-bg_color = Color(0.8666667, 0.43529412, 0.35686275, 0.88235295)
+bg_color = Color(0.87, 0.536355, 0.35670003, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4h7ej"]
 font_size = 30
@@ -181,7 +181,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8nqap")
 
 [node name="PausedScreen" type="Panel" parent="."]
 process_mode = 3
-visible = false
 z_index = 8
 offset_left = -576.0
 offset_top = -324.0
