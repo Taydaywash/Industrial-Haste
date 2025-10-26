@@ -3,11 +3,19 @@ extends Node2D
 @onready var box = preload("res://scenes/boxes.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
+@onready var paused_screen: Panel = $PausedScreen
 
 var count = 0
 var gameTime = 0
 var hour = 6
 var minute = 0
+
+var paused = false
+func _input(event):
+	if event.is_action_pressed("pause"):
+		paused = !paused
+		get_tree().paused = paused
+		paused_screen.visible = paused
 
 func _second_passed():
 	# 30 seconds is 1 minute ingame
@@ -33,3 +41,19 @@ func _on_timer_timeout() -> void:
 	count += 1
 	boxInstance.change_label(count)
 	$Timer.start()
+
+
+func _on_resume_button_pressed() -> void:
+	paused = false
+	get_tree().paused = paused
+	paused_screen.visible = paused
+
+
+func _on_main_menu_button_pressed() -> void:
+	paused = false
+	get_tree().paused = paused
+	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

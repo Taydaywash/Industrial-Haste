@@ -88,6 +88,7 @@ text = "Quit
 "
 
 [node name="LevelSelectBackdrop" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -438.0
 offset_top = -209.0

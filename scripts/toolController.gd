@@ -36,7 +36,7 @@ func _process(_delta: float):
 
 #On MouseUp
 func _input(event):
-	if event is InputEventMouseButton and !event.pressed:
+	if event is InputEventMouseButton and !event.pressed || event.is_action_pressed("pause"):
 		holdingTool = false
 
 #var tool recieved from extra call argument in Area2D

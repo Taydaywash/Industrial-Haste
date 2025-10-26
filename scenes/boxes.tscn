@@ -256,6 +256,7 @@ _data = {
 }
 
 [node name="Boxes" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_hl4tw")
 
 [node name="poofAnimation" type="AnimatedSprite2D" parent="."]
