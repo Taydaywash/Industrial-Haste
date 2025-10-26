@@ -16,5 +16,6 @@ func _on_level_select_button_pressed():
 func _on_level_select_back_button_pressed():
 	level_select_backdrop.visible = false
 
-func _on_level_button_1_pressed():
-	get_tree().change_scene_to_file("res://scenes/LevelOne.tscn")
+func _on_level_button_pressed(level):
+	Global._set_level_to(level)
+	get_tree().change_scene_to_file("res://scenes/Levels/Level"+str(level)+".tscn")

@@ -6,24 +6,26 @@ extends Node2D
 @onready var openedTexture = preload("res://spirtes/BoxSprites/openedBox.png")
 @onready var tapelessTexture = preload("res://spirtes/BoxSprites/tapelessBox.png")
 @onready var dirtyTexture = preload("res://spirtes/BoxSprites/dirtyBox.png")
-
-@export var boxSpeed = 150
-@export var boxTypes: Dictionary = {
-	"Fixed": 50, 
-	"Opened": 100, 
-	"Tapeless": 70,
-	"Dirty": 85, 
-	"Mislabeled": 90, 
-	"Bulging": 100, 
-	"Loose Bolt": 101, #Unused Currently
-	"Boltless": 101 #Unused Currently
-	}
-var boxType
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 
-var rng = RandomNumberGenerator.new()
+var boxSpeed = 150
+var boxTypes: Dictionary = {
+	"Fixed": 0, 
+	"Opened": 0, 
+	"Tapeless": 0,
+	"Dirty": 0, 
+	"Mislabeled": 0, 
+	"Bulging": 0, 
+	"Loose Bolt": 0, 
+	"Boltless": 0 
+	}
+var boxType
 
+var rng = RandomNumberGenerator.new()
 var rotationRate = 0
+
+func _ready() -> void:
+	boxTypes = Global._set_spawn_rates()
 
 func _process(delta: float):
 	get_child(1).rotation += rotationRate * delta 
