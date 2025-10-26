@@ -181,6 +181,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8nqap")
 
 [node name="PausedScreen" type="Panel" parent="."]
 process_mode = 3
+visible = false
 z_index = 8
 offset_left = -576.0
 offset_top = -324.0
