@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ig3sw1u1fany"]
+
+[ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
+[ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
+
+[node name="SoundManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1llj")
+
+[node name="SoundWhoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rupev")
+volume_db = -5.0

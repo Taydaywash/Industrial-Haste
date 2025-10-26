@@ -1,12 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://q2grelqqkw5m"]
+[gd_scene load_steps=17 format=3 uid="uid://q2grelqqkw5m"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_estr2"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="3_l2kow"]
+[ext_resource type="Script" uid="uid://cdqh3u4uhwnxp" path="res://scripts/scoreController.gd" id="4_4h7ej"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_8dw8u"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="4_f0icx"]
 [ext_resource type="Texture2D" uid="uid://cpjiscg32nlxc" path="res://spirtes/Placeholders/tapePlaceholder.webp" id="5_kmdbv"]
 [ext_resource type="Texture2D" uid="uid://bkxrr1qqx1pkk" path="res://spirtes/Placeholders/wrenchPlaceholder.png" id="6_0t3xx"]
 [ext_resource type="Texture2D" uid="uid://bvdbvea54eeu1" path="res://spirtes/Placeholders/boltsPlaceholder.jpg" id="7_kvb8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nqap"]
+font_size = 40
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
 font_size = 40
@@ -57,6 +63,16 @@ autostart = true
 [node name="Background" type="Sprite2D" parent="."]
 process_mode = 1
 texture = ExtResource("4_f0icx")
+
+[node name="Score" type="Label" parent="."]
+offset_left = -568.0
+offset_top = -314.0
+offset_right = -440.0
+offset_bottom = -259.0
+text = "Score: "
+label_settings = SubResource("LabelSettings_8nqap")
+horizontal_alignment = 1
+script = ExtResource("4_4h7ej")
 
 [node name="Clock" type="Label" parent="."]
 process_mode = 1

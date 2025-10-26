@@ -7,6 +7,7 @@ extends Node2D
 @onready var tapelessTexture = preload("res://spirtes/BoxSprites/tapelessBox.png")
 @onready var dirtyTexture = preload("res://spirtes/BoxSprites/dirtyBox.png")
 @onready var box_spawner: Node2D = $"../BoxSpawner"
+@onready var score: Label = $"../Score"
 
 var boxSpeed = 150
 var boxTypes: Dictionary = {
@@ -33,6 +34,10 @@ func _process(delta: float):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	#print("box deleted")
+	if boxType == "Fixed":
+		score.add_points(100)
+	else:
+		score.subtract_points(200)
 	queue_free()
 
 func get_box_type():
@@ -77,6 +82,9 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
+		SoundManager.play_whoosh_sound()
+		if boxType == "Fixed":
+			score.subtract_points(50)
 		Global._reset_tool()
 	if event is InputEventMouseButton and !event.pressed:
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)

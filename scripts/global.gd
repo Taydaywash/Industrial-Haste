@@ -21,8 +21,8 @@ func _set_spawn_rates():
 	match level:
 		0:
 			boxTypesForLevel = {
-		"Fixed": 100, 
-		"Opened": 0, 
+		"Fixed": 50, 
+		"Opened": 100, 
 		"Tapeless": 0,
 		"Dirty": 0, 
 		"Mislabeled": 0, 
