@@ -74,6 +74,7 @@ offset_bottom = -257.0
 text = "6:00"
 label_settings = SubResource("LabelSettings_i1jb3")
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
 autostart = true
@@ -87,6 +88,7 @@ text = "Score: "
 label_settings = SubResource("LabelSettings_5m38y")
 horizontal_alignment = 1
 script = ExtResource("4_nt2i5")
+metadata/_edit_use_anchors_ = true
 
 [node name="ToolBar" type="Node2D" parent="."]
 process_mode = 1
@@ -161,6 +163,7 @@ offset_right = -36.58992
 offset_bottom = -410.12372
 rotation = 0.012831296
 pivot_offset = Vector2(76.83565, 4.9263)
+mouse_filter = 2
 
 [node name="LightOverlay" type="Panel" parent="HangingLight"]
 z_index = 6
