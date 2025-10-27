@@ -9,5 +9,6 @@ func add_points(points):
 
 #Subtracting points from the score
 func subtract_points(points):
-	score = score - points
-	self.text = "Score: " + str(score)
+	if score - points > 0:
+		score = score - points
+		self.text = "Score: " + str(score)

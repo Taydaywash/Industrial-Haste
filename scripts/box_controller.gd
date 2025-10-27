@@ -20,26 +20,16 @@ var boxTypes: Dictionary = {
 	"Loose Bolt": 0, 
 	"Boltless": 0 
 	}
+var safeBoxes: Array = []
 var boxType
 
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
 
+#Box Spawning Behavior
 func _ready() -> void:
-	boxTypes = Global._set_spawn_rates()
-
-func _process(delta: float):
-	get_child(1).rotation += rotationRate * delta 
-	position.x += boxSpeed * delta 
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	#print("box deleted")
-	if boxType == "Fixed":
-		score.add_points(100)
-	else:
-		score.subtract_points(200)
-	queue_free()
-
+	boxTypes = Global._get_spawn_rates()
+	safeBoxes = Global._get_safe_boxes()
 func get_box_type():
 	rng.randomize()
 	
@@ -50,7 +40,6 @@ func get_box_type():
 			#print(item)
 			boxType = n
 			return n
-	
 func match_box(type: String) -> void:
 	match type:
 		"Fixed":
@@ -62,7 +51,7 @@ func match_box(type: String) -> void:
 		"Dirty":
 			$Area2D/Sprite.texture = dirtyTexture
 		"Mislabeled":
-			$Area2D/Sprite.modulate = Color("blue")
+			$Area2D/Sprite.texture = fixedTexture
 		"Bulging":
 			$Area2D/Sprite.modulate = Color("purple")
 		"Loose Bolt":
@@ -71,21 +60,31 @@ func match_box(type: String) -> void:
 			$Area2D/Sprite.modulate = Color("white")
 		_:
 			pass
-
 func change_label(count: int) -> void:
 	boxLabel.text = str(count)
 
+#Point Scoring Behavior
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	#print("box deleted")
+	if boxType == "Fixed" || boxType in safeBoxes:
+		score.add_points(100)
+	else:
+		score.subtract_points(200)
+	queue_free()
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	#mouseup
-	
 	var tool = Global._get_tool()
 	
+	#Mouse Down
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
 		SoundManager.play_whoosh_sound()
-		if boxType == "Fixed":
-			score.subtract_points(50)
+		if boxType == "Fixed" || boxType in safeBoxes:
+			score.subtract_points(200)
+		else:
+			score.add_points(100)
 		Global._reset_tool()
+	
+	#Mouse Up
 	if event is InputEventMouseButton and !event.pressed:
 		print("Attempted to use tool #" + str(tool) + " on " + boxType)
 		match tool:
@@ -108,11 +107,14 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			_:
 				pass
 		Global._reset_tool()
-
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
 	boxType = "Fixed"
 
+#Animation Variations
 func rotate_box():
 	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/20
 	boxSpeed = (boxSpeed * rotationRate)/4
+func _process(delta: float):
+	get_child(1).rotation += rotationRate * delta 
+	position.x += boxSpeed * delta 
