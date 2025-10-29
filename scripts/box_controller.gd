@@ -30,6 +30,7 @@ var boxTypes: Dictionary = {
 	"Boltless": 0 
 	}
 var safeBoxes: Array = []
+var unsafeDiscardBoxes: Array = []
 var boxType
 
 
@@ -54,6 +55,7 @@ var rotationRate = 0
 func _ready() -> void:
 	boxTypes = Global._get_spawn_rates()
 	safeBoxes = Global._get_safe_boxes()
+	unsafeDiscardBoxes = Global._get_unsafe_discard_boxes()
 func get_box_type():
 	rng.randomize()
 	
@@ -146,8 +148,7 @@ func _added_bolt():
 
 #Point Scoring Behavior
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	#print("box deleted")
-	if boxType == "Fixed" || boxType in safeBoxes:
+	if boxType in safeBoxes:
 		score.add_points(100)
 	else:
 		score.subtract_points(200)
@@ -159,7 +160,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
 		SoundManager.play_whoosh_sound()
-		if boxType in safeBoxes:
+		if boxType in safeBoxes || boxType in unsafeDiscardBoxes:
 			score.subtract_points(200)
 		else:
 			score.add_points(100)
@@ -196,7 +197,6 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			_:
 				pass
 		Global._reset_tool()
-
 
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
