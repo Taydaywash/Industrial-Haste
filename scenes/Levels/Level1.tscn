@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q2grelqqkw5m"]
+[gd_scene load_steps=27 format=3 uid="uid://q2grelqqkw5m"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_estr2"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="3_l2kow"]
@@ -9,15 +9,105 @@
 [ext_resource type="Texture2D" uid="uid://bkxrr1qqx1pkk" path="res://spirtes/Placeholders/wrenchPlaceholder.png" id="6_0t3xx"]
 [ext_resource type="Texture2D" uid="uid://bvdbvea54eeu1" path="res://spirtes/Placeholders/boltsPlaceholder.jpg" id="7_kvb8l"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
+font_size = 40
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_8nqap"]
 font_size = 40
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
+[sub_resource type="LabelSettings" id="LabelSettings_5mhgh"]
 font_size = 40
+font_color = Color(0, 1, 0.58333325, 1)
 outline_size = 11
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 1, 0.5500002, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfih8"]
+font_size = 40
+font_color = Color(0.36078432, 1, 0.59607846, 1)
+outline_size = 11
+outline_color = Color(0, 0.5, 0.25, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n31k3"]
+font_size = 40
+font_color = Color(0.74, 1, 0.8830001, 1)
+outline_size = 11
+outline_color = Color(0, 0.26, 0.16900001, 1)
+
+[sub_resource type="Animation" id="Animation_5mhgh"]
+resource_name = "_score_gain"
+length = 0.22
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_5mhgh"), SubResource("LabelSettings_dfih8"), SubResource("LabelSettings_n31k3"), SubResource("LabelSettings_8nqap")]
+}
+
+[sub_resource type="Animation" id="Animation_dfih8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("LabelSettings_8nqap")]
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4ox6"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+outline_size = 11
+outline_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8yur"]
+font_size = 40
+font_color = Color(1, 0.36, 0.36, 1)
+outline_size = 11
+outline_color = Color(0.5, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nu2g1"]
+font_size = 40
+font_color = Color(1, 0.74, 0.74, 1)
+outline_size = 11
+outline_color = Color(0.26, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_n31k3"]
+resource_name = "_score_loss"
+length = 0.22
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_u4ox6"), SubResource("LabelSettings_o8yur"), SubResource("LabelSettings_nu2g1"), SubResource("LabelSettings_8nqap")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jng41"]
+_data = {
+&"RESET": SubResource("Animation_dfih8"),
+&"_score_gain": SubResource("Animation_5mhgh"),
+&"_score_loss": SubResource("Animation_n31k3")
+}
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yxycf"]
 
@@ -64,16 +154,6 @@ autostart = true
 process_mode = 1
 texture = ExtResource("4_f0icx")
 
-[node name="Score" type="Label" parent="."]
-offset_left = -568.0
-offset_top = -314.0
-offset_right = -440.0
-offset_bottom = -259.0
-text = "Score: "
-label_settings = SubResource("LabelSettings_8nqap")
-horizontal_alignment = 1
-script = ExtResource("4_4h7ej")
-
 [node name="Clock" type="Label" parent="."]
 process_mode = 1
 z_index = 8
@@ -87,6 +167,21 @@ horizontal_alignment = 2
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
 autostart = true
+
+[node name="Score" type="Label" parent="."]
+offset_left = -568.0
+offset_top = -314.0
+offset_right = -440.0
+offset_bottom = -259.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_8nqap")
+horizontal_alignment = 1
+script = ExtResource("4_4h7ej")
+
+[node name="ScoreFlashes" type="AnimationPlayer" parent="Score"]
+libraries = {
+&"": SubResource("AnimationLibrary_jng41")
+}
 
 [node name="ToolBar" type="Node2D" parent="."]
 process_mode = 1
