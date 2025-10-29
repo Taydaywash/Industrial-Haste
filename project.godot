@@ -20,6 +20,11 @@ config/icon="uid://b6pu5ln5skign"
 Global="*res://scripts/global.gd"
 SoundManager="*res://scenes/SoundManager.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 pause={
