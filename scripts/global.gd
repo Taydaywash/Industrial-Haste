@@ -21,14 +21,15 @@ func _get_spawn_rates():
 	match level:
 		0:
 			boxTypesForLevel = {
-			"Fixed": 50, 
-			"Opened": 65, 
-			"Tapeless": 70,
-			"Dirty": 85, 
-			"Mislabeled": 90, 
-			"Bulging": 100, 
-			"Loose Bolt": 0, 
-			"Boltless": 0 
+			"Fixed": 0, 
+			"Opened": 0, 
+			"Tapeless": 0,
+			"Dirty": 0, 
+			"Mislabeled": 0, 
+			"Bulging": 0, 
+			"Fixed Crate": 0,
+			"Loose Bolt": 50, 
+			"Boltless": 100 
 			}
 		1:
 			boxTypesForLevel = {
@@ -38,6 +39,7 @@ func _get_spawn_rates():
 			"Dirty": 85, 
 			"Mislabeled": 90, 
 			"Bulging": 100, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -49,6 +51,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -60,6 +63,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -71,6 +75,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -82,6 +87,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -93,6 +99,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -104,6 +111,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
@@ -115,6 +123,7 @@ func _get_spawn_rates():
 			"Dirty": 0, 
 			"Mislabeled": 0, 
 			"Bulging": 0, 
+			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}

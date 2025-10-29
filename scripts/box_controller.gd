@@ -6,6 +6,15 @@ extends Node2D
 @onready var openedTexture = preload("res://spirtes/BoxSprites/openedBox.png")
 @onready var tapelessTexture = preload("res://spirtes/BoxSprites/tapelessBox.png")
 @onready var dirtyTexture = preload("res://spirtes/BoxSprites/dirtyBox.png")
+@onready var fixedCrate = preload("res://spirtes/BoxSprites/fixedCrate.png")
+@onready var boltlessCrate = preload("res://spirtes/BoxSprites/boltlessCrate.png")
+
+@onready var FixedLeftBolt = preload("res://spirtes/bolts/fixedLeftBolt.png")
+@onready var FixedRightBolt = preload("res://spirtes/bolts/fixedRightBolt.png")
+@onready var LooseLeftBolt = preload("res://spirtes/bolts/looseLeftBolt.png")
+@onready var LooseRightBolt = preload("res://spirtes/bolts/looseRightBolt.png")
+
+
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 @onready var score: Label = $"../Score"
 
@@ -22,6 +31,20 @@ var boxTypes: Dictionary = {
 	}
 var safeBoxes: Array = []
 var boxType
+
+
+#Crate Controller
+@onready var bolts: Node2D = $Bolts
+var looseBoltAmt
+var looseBoltPositions: Array =    [0, #Slot 1
+									0, #Slot 2
+									0, #Slot 3
+									0] #Slot 4
+var missingBoltAmt
+var missingBoltPositions: Array =  [0, #Slot 1
+									0, #Slot 2
+									0, #Slot 3
+									0] #Slot 4
 
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
@@ -54,15 +77,46 @@ func match_box(type: String) -> void:
 			$Area2D/Sprite.texture = fixedTexture
 		"Bulging":
 			$Area2D/Sprite.modulate = Color("purple")
+		"Fixed Crate":
+			$Area2D/Sprite.texture = fixedCrate
 		"Loose Bolt":
-			$Area2D/Sprite.modulate = Color("black")
+			$Area2D/Sprite.texture = boltlessCrate
+			looseBoltAmt = randi_range(1,2)
+			looseBoltPositions = _get_bolt_positions(looseBoltAmt)
+			_set_bolt_sprites(looseBoltPositions, "Loose")
+			
 		"Boltless":
-			$Area2D/Sprite.modulate = Color("white")
+			$Area2D/Sprite.texture = boltlessCrate
+			missingBoltAmt = randi_range(1,3)
+			missingBoltPositions = _get_bolt_positions(missingBoltAmt)
+			_set_bolt_sprites(missingBoltPositions, "Missing")
+
 		_:
 			pass
 func change_label(count: int) -> void:
 	boxLabel.text = str(count)
-
+func _get_bolt_positions(boltAmt):
+	var boltPositions: Array = [0,0,0,0]
+	for i in range(0,boltAmt):
+		var boltPos = randi_range(0,3)
+		while boltPositions[boltPos] == 1:
+			boltPos = randi_range(0,3)
+		boltPositions[boltPos] = 1 
+	return boltPositions
+func _set_bolt_sprites(list, type):
+	for index in list:
+		var bolt = bolts.get_child(index)
+		if list[index] == 1:
+			bolt.visible = true
+			match type:
+				"Loose":
+					if index < 2:
+						bolt.texture = LooseLeftBolt
+					else:
+						bolt.texture = LooseRightBolt
+				"Missing":
+					pass
+			
 #Point Scoring Behavior
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	#print("box deleted")
@@ -78,7 +132,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
 		SoundManager.play_whoosh_sound()
-		if boxType == "Fixed" || boxType in safeBoxes:
+		if boxType == "Fixed" || boxType == "Fixed Crate" || boxType in safeBoxes:
 			score.subtract_points(200)
 		else:
 			score.add_points(100)
@@ -96,17 +150,32 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			2: #Wrench Tool
 				if (boxType == "Loose Bolt" || boxType == "Boltless" ):
-					print("Tighted bolt on " + boxType)
+					if (looseBoltAmt > 0):
+						_fixed_bolt()
+						print("Fixed bolt on " + boxType)
+					else:
+						print("Tried to fix bolt on " + boxType + "... but there were no bolts to fix!")
 				else:
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			3: #Bolts Tool
 				if (boxType == "Boltless"):
-					print("Added Bolt to Boltless Crate!!")
+					if (missingBoltAmt > 0):
+						_added_bolt()
+						print("Added bolt to Boltless crate")
+					else:
+						print("Tried to add bolt to " + boxType + "... but there were no bolts to add!")
 				else:
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
 			_:
 				pass
 		Global._reset_tool()
+
+func _fixed_bolt():
+	looseBoltAmt -= 1
+	
+func _added_bolt():
+	looseBoltAmt += 1
+	missingBoltAmt -= 1
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
 	boxType = "Fixed"

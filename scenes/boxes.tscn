@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://yu0mnyavm82i"]
+[gd_scene load_steps=22 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
-[ext_resource type="Texture2D" uid="uid://0ddkqgs1xn8j" path="res://spirtes/BoxSprites/fixedBox.png" id="2_lb2dd"]
 [ext_resource type="Texture2D" uid="uid://d0xovc4gam4rg" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0000.png" id="2_lrcp5"]
 [ext_resource type="Texture2D" uid="uid://dodxpaepr05c7" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0001.png" id="3_hbg7f"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="3_q0xfv"]
@@ -12,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b6y73ycoj6m0b" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0006.png" id="8_sxp01"]
 [ext_resource type="Texture2D" uid="uid://ckr6ox2hgvi6x" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0007.png" id="9_lg2pc"]
 [ext_resource type="Texture2D" uid="uid://b60drt2xk512" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0008.png" id="10_r8tui"]
+[ext_resource type="Texture2D" uid="uid://cuflylxlgyi5c" path="res://spirtes/BoxSprites/boltlessCrate.png" id="11_rn7pf"]
+[ext_resource type="Texture2D" uid="uid://byguaixrf6rb2" path="res://spirtes/bolts/fixedLeftBolt.png" id="13_pqt68"]
+[ext_resource type="Texture2D" uid="uid://bpq5u4adypkx8" path="res://spirtes/bolts/fixedRightBolt.png" id="14_1v4lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q0xfv"]
 animations = [{
@@ -67,7 +69,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("poofAnimation:visible")
+tracks/0/path = NodePath("PoofAnimation:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +81,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("poofAnimation")
+tracks/1/path = NodePath("PoofAnimation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -158,7 +160,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("poofAnimation:visible")
+tracks/3/path = NodePath("PoofAnimation:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -259,7 +261,7 @@ _data = {
 process_mode = 1
 script = ExtResource("1_hl4tw")
 
-[node name="poofAnimation" type="AnimatedSprite2D" parent="."]
+[node name="PoofAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 1
 scale = Vector2(0.175, 0.175)
@@ -282,7 +284,7 @@ rect = Rect2(-116, -115, 400, 400)
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 position = Vector2(-3.9999695, -7.000004)
 scale = Vector2(0.175, 0.175)
-texture = ExtResource("2_lb2dd")
+texture = ExtResource("11_rn7pf")
 
 [node name="BoxLabel" type="Label" parent="Area2D"]
 offset_left = 32.0
@@ -297,6 +299,25 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_3ji21")
 }
+
+[node name="Bolts" type="Node2D" parent="."]
+scale = Vector2(0.175, 0.175)
+
+[node name="bolt1" type="Sprite2D" parent="Bolts"]
+position = Vector2(-445.7143, -445.7143)
+texture = ExtResource("13_pqt68")
+
+[node name="bolt2" type="Sprite2D" parent="Bolts"]
+position = Vector2(-445.7143, 445.71426)
+texture = ExtResource("13_pqt68")
+
+[node name="bolt3" type="Sprite2D" parent="Bolts"]
+position = Vector2(417.14282, -445.7143)
+texture = ExtResource("14_1v4lg")
+
+[node name="bolt4" type="Sprite2D" parent="Bolts"]
+position = Vector2(428.57144, 451.4286)
+texture = ExtResource("14_1v4lg")
 
 [connection signal="input_event" from="Area2D" to="." method="_attempt_tool_use"]
 [connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
