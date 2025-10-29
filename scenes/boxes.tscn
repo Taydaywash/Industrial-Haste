@@ -295,29 +295,33 @@ text = "0"
 label_settings = SubResource("LabelSettings_lb2dd")
 vertical_alignment = 1
 
+[node name="Bolts" type="Node2D" parent="Area2D"]
+scale = Vector2(0.175, 0.175)
+
+[node name="bolt1" type="Sprite2D" parent="Area2D/Bolts"]
+visible = false
+position = Vector2(-445.7143, -445.7143)
+texture = ExtResource("13_pqt68")
+
+[node name="bolt2" type="Sprite2D" parent="Area2D/Bolts"]
+visible = false
+position = Vector2(-445.7143, 445.71426)
+texture = ExtResource("13_pqt68")
+
+[node name="bolt3" type="Sprite2D" parent="Area2D/Bolts"]
+visible = false
+position = Vector2(417.14282, -445.7143)
+texture = ExtResource("14_1v4lg")
+
+[node name="bolt4" type="Sprite2D" parent="Area2D/Bolts"]
+visible = false
+position = Vector2(428.57144, 451.4286)
+texture = ExtResource("14_1v4lg")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_3ji21")
 }
-
-[node name="Bolts" type="Node2D" parent="."]
-scale = Vector2(0.175, 0.175)
-
-[node name="bolt1" type="Sprite2D" parent="Bolts"]
-position = Vector2(-445.7143, -445.7143)
-texture = ExtResource("13_pqt68")
-
-[node name="bolt2" type="Sprite2D" parent="Bolts"]
-position = Vector2(-445.7143, 445.71426)
-texture = ExtResource("13_pqt68")
-
-[node name="bolt3" type="Sprite2D" parent="Bolts"]
-position = Vector2(417.14282, -445.7143)
-texture = ExtResource("14_1v4lg")
-
-[node name="bolt4" type="Sprite2D" parent="Bolts"]
-position = Vector2(428.57144, 451.4286)
-texture = ExtResource("14_1v4lg")
 
 [connection signal="input_event" from="Area2D" to="." method="_attempt_tool_use"]
 [connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

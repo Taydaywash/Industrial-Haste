@@ -34,17 +34,18 @@ var boxType
 
 
 #Crate Controller
-@onready var bolts: Node2D = $Bolts
-var looseBoltAmt
-var looseBoltPositions: Array =    [0, #Slot 1
-									0, #Slot 2
-									0, #Slot 3
-									0] #Slot 4
-var missingBoltAmt
-var missingBoltPositions: Array =  [0, #Slot 1
-									0, #Slot 2
-									0, #Slot 3
-									0] #Slot 4
+@onready var bolts: Node2D = $Area2D/Bolts
+
+var looseBoltAmt = 0
+var missingBoltAmt = 0
+# 0 = Fixed Bolt
+# 1 = Loose Bolt
+# 2 = Missing Bolt
+var boltPositions: Array = [0,
+							0,
+							0,
+							0]
+
 
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
@@ -56,10 +57,10 @@ func _ready() -> void:
 func get_box_type():
 	rng.randomize()
 	
-	var item = rng.randi_range(0,100)
+	var item = rng.randi_range(0,99)
 	
 	for n in boxTypes:
-		if item <= boxTypes[n]:
+		if item < boxTypes[n]:
 			#print(item)
 			boxType = n
 			return n
@@ -79,44 +80,70 @@ func match_box(type: String) -> void:
 			$Area2D/Sprite.modulate = Color("purple")
 		"Fixed Crate":
 			$Area2D/Sprite.texture = fixedCrate
+			boxLabel.visible = false
+			_set_bolt_sprites()
 		"Loose Bolt":
 			$Area2D/Sprite.texture = boltlessCrate
+			boxLabel.visible = false
 			looseBoltAmt = randi_range(1,2)
-			looseBoltPositions = _get_bolt_positions(looseBoltAmt)
-			_set_bolt_sprites(looseBoltPositions, "Loose")
+			_set_bolt_positions(looseBoltAmt, 1)
+			_set_bolt_sprites()
 			
 		"Boltless":
 			$Area2D/Sprite.texture = boltlessCrate
+			boxLabel.visible = false
 			missingBoltAmt = randi_range(1,3)
-			missingBoltPositions = _get_bolt_positions(missingBoltAmt)
-			_set_bolt_sprites(missingBoltPositions, "Missing")
+			_set_bolt_positions(missingBoltAmt, 2)
+			_set_bolt_sprites()
 
 		_:
 			pass
 func change_label(count: int) -> void:
 	boxLabel.text = str(count)
-func _get_bolt_positions(boltAmt):
-	var boltPositions: Array = [0,0,0,0]
+
+#Crate Behaviors
+func _set_bolt_positions(boltAmt, type: int):
+	boltPositions = [0,0,0,0]
 	for i in range(0,boltAmt):
 		var boltPos = randi_range(0,3)
-		while boltPositions[boltPos] == 1:
+		while boltPositions[boltPos] != 0:
 			boltPos = randi_range(0,3)
-		boltPositions[boltPos] = 1 
-	return boltPositions
-func _set_bolt_sprites(list, type):
-	for index in list:
+		boltPositions[boltPos] = type 
+func _set_bolt_sprites():
+	for index in range(0,4):
 		var bolt = bolts.get_child(index)
-		if list[index] == 1:
-			bolt.visible = true
-			match type:
-				"Loose":
-					if index < 2:
-						bolt.texture = LooseLeftBolt
-					else:
-						bolt.texture = LooseRightBolt
-				"Missing":
-					pass
-			
+		bolt.visible = true
+		if boltPositions[index] == 0:
+			if index < 2:
+				bolt.texture = FixedLeftBolt
+			else:
+				bolt.texture = FixedRightBolt
+		elif boltPositions[index] == 1:
+			if index < 2:
+				bolt.texture = LooseLeftBolt
+			else:
+				bolt.texture = LooseRightBolt
+		else:
+			bolt.visible = false
+func _fixed_bolt():
+	looseBoltAmt -= 1
+	for index in range(0,4):
+		if boltPositions[index] > 0:
+			boltPositions[index] -= 1
+			break
+	if looseBoltAmt == 0:
+		boxType = "Fixed"
+	_set_bolt_sprites()
+func _added_bolt():
+	looseBoltAmt += 1
+	missingBoltAmt -= 1
+	for index in range(0,4):
+		if boltPositions[index] == 2:
+			boltPositions[index] = 1
+			break
+	print(boltPositions)
+	_set_bolt_sprites()
+
 #Point Scoring Behavior
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	#print("box deleted")
@@ -132,7 +159,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
 		SoundManager.play_whoosh_sound()
-		if boxType == "Fixed" || boxType == "Fixed Crate" || boxType in safeBoxes:
+		if boxType in safeBoxes:
 			score.subtract_points(200)
 		else:
 			score.add_points(100)
@@ -170,12 +197,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 				pass
 		Global._reset_tool()
 
-func _fixed_bolt():
-	looseBoltAmt -= 1
-	
-func _added_bolt():
-	looseBoltAmt += 1
-	missingBoltAmt -= 1
+
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
 	boxType = "Fixed"

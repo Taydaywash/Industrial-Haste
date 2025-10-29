@@ -21,7 +21,7 @@ func _get_spawn_rates():
 	match level:
 		0:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 10, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -131,6 +131,8 @@ func _get_spawn_rates():
 func _get_safe_boxes():
 	var safeBoxes: Array = []
 	match level:
+		0:
+			safeBoxes = ["Fixed","Fixed Crate","Loose Bolt"]
 		1:
-			safeBoxes = ["Tapeless","Dirty","Mislabeled","Bulging"]
+			safeBoxes = ["Fixed","Fixed Crate","Tapeless","Dirty","Mislabeled","Bulging"]
 	return safeBoxes

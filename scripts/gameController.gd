@@ -35,10 +35,12 @@ func _on_timer_timeout() -> void:
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
 	add_child(boxInstance)
-	boxInstance.match_box(boxInstance.get_box_type())
+	var boxType = boxInstance.get_box_type()
+	boxInstance.match_box(boxType)
 	
 	#print("box spawned in")
-	count += 1
+	if boxType != "Fixed Crate" && boxType != "Boltless" && boxType != "Missing":
+		count += 1
 	boxInstance.change_label(count)
 	$Timer.start()
 
