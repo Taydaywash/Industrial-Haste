@@ -203,82 +203,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.5, 1.5)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Area2D/Bolts/bolt2:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Area2D/Bolts/bolt2:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_rn7pf"]
-resource_name = "Screwed Bolt"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D/Bolts/bolt1:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-2.443460952792061, -1.2217304763960306, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/Bolts/bolt1:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/Bolts/bolt2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.016666695, 0.26666668, 0.51666665),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-2.443460952792061, -1.2217304763960306, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/Bolts/bolt2:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.50000006),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_lb2dd"]
@@ -349,11 +274,38 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_rn7pf"]
+resource_name = "Screwed_Bolt_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Bolts/bolt1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.443460952792061, -1.2217304763960306, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/Bolts/bolt1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ji21"]
 _data = {
 &"Fixed Box": SubResource("Animation_i4skx"),
 &"RESET": SubResource("Animation_q0xfv"),
-&"Screwed Bolt": SubResource("Animation_rn7pf"),
+&"Screwed_Bolt_1": SubResource("Animation_rn7pf"),
 &"pushedOffLine": SubResource("Animation_lb2dd")
 }
 
@@ -399,8 +351,8 @@ vertical_alignment = 1
 scale = Vector2(0.175, 0.175)
 
 [node name="bolt1" type="Sprite2D" parent="Area2D/Bolts"]
+visible = false
 position = Vector2(-445.7143, -445.7143)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_pqt68")
 
 [node name="bolt2" type="Sprite2D" parent="Area2D/Bolts"]
