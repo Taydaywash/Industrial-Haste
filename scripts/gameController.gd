@@ -44,18 +44,15 @@ func _on_timer_timeout() -> void:
 	boxInstance.change_label(count)
 	$Timer.start()
 
-
 func _on_resume_button_pressed() -> void:
 	paused = false
 	get_tree().paused = paused
 	paused_screen.visible = paused
 
-
 func _on_main_menu_button_pressed() -> void:
 	paused = false
 	get_tree().paused = paused
 	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
-
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

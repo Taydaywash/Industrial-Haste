@@ -14,7 +14,6 @@ extends Node2D
 @onready var LooseLeftBolt = preload("res://spirtes/bolts/looseLeftBolt.png")
 @onready var LooseRightBolt = preload("res://spirtes/bolts/looseRightBolt.png")
 
-
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 @onready var score: Label = $"../Score"
 
@@ -33,7 +32,6 @@ var safeBoxes: Array = []
 var unsafeDiscardBoxes: Array = []
 var boxType
 
-
 #Crate Controller
 @onready var bolts: Node2D = $Area2D/Bolts
 
@@ -47,7 +45,6 @@ var boltPositions: Array = [0,
 							0,
 							0]
 
-
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
 
@@ -56,6 +53,7 @@ func _ready() -> void:
 	boxTypes = Global._get_spawn_rates()
 	safeBoxes = Global._get_safe_boxes()
 	unsafeDiscardBoxes = Global._get_unsafe_discard_boxes()
+
 func get_box_type():
 	rng.randomize()
 	
@@ -66,6 +64,7 @@ func get_box_type():
 			#print(item)
 			boxType = n
 			return n
+
 func match_box(type: String) -> void:
 	match type:
 		"Fixed":
@@ -111,6 +110,7 @@ func _set_bolt_positions(boltAmt, type: int):
 		while boltPositions[boltPos] != 0:
 			boltPos = randi_range(0,3)
 		boltPositions[boltPos] = type 
+
 func _set_bolt_sprites():
 	for index in range(0,4):
 		var bolt = bolts.get_child(index)
@@ -127,6 +127,7 @@ func _set_bolt_sprites():
 				bolt.texture = LooseRightBolt
 		else:
 			bolt.visible = false
+
 func _fixed_bolt():
 	looseBoltAmt -= 1
 	for index in range(0,4):
@@ -136,6 +137,7 @@ func _fixed_bolt():
 	if looseBoltAmt == 0:
 		boxType = "Fixed"
 	_set_bolt_sprites()
+
 func _added_bolt():
 	looseBoltAmt += 1
 	missingBoltAmt -= 1
@@ -153,6 +155,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	else:
 		score.subtract_points(200)
 	queue_free()
+
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	var tool = Global._get_tool()
 	
@@ -206,6 +209,7 @@ func fix_box():
 func rotate_box():
 	rotationRate = -((get_local_mouse_position() - get_child(0).position)).x/20
 	boxSpeed = (boxSpeed * rotationRate)/4
+
 func _process(delta: float):
 	get_child(1).rotation += rotationRate * delta 
 	position.x += boxSpeed * delta 

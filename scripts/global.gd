@@ -128,6 +128,7 @@ func _get_spawn_rates():
 			"Boltless": 0 
 			}
 	return boxTypesForLevel
+
 func _get_unsafe_discard_boxes():
 	var unsafeBoxes: Array = []
 	match level:
@@ -136,6 +137,7 @@ func _get_unsafe_discard_boxes():
 		1:
 			unsafeBoxes = ["Opened"]
 	return unsafeBoxes
+
 func _get_safe_boxes():
 	var safeBoxes: Array = []
 	match level:

@@ -11,7 +11,6 @@ var heldTool: int = 0
 @onready var wrenchToolToolBar: Sprite2D = $WrenchTool/WrenchToolToolBar
 @onready var boltsToolToolBar: Sprite2D = $BoltsTool/BoltsToolToolBar
 
-
 var toolList = []
 var toolPositions = []
 func _ready() -> void:
@@ -45,4 +44,3 @@ func _on_tool_clicked(_viewport: Node, event: InputEvent, _shape_idx: int, toolN
 		holdingTool = true
 		heldTool = toolNumber
 		Global._set_tool_to(heldTool)
-	
