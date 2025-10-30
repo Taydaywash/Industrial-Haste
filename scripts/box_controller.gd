@@ -133,8 +133,7 @@ func _fixed_bolt():
 	for index in range(0,4):
 		if boltPositions[index] > 0:
 			boltPositions[index] -= 1
-			if index == 0:
-				animation_player.play("Screwed Bolt")
+			animation_player.play("Screwed_Bolt_"+str(index))
 			break
 	if looseBoltAmt == 0:
 		boxType = "Fixed"
