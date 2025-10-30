@@ -275,7 +275,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rn7pf"]
-resource_name = "Screwed_Bolt_1"
+resource_name = "Screwed_Bolt_0"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -305,7 +305,7 @@ tracks/1/keys = {
 _data = {
 &"Fixed Box": SubResource("Animation_i4skx"),
 &"RESET": SubResource("Animation_q0xfv"),
-&"Screwed_Bolt_1": SubResource("Animation_rn7pf"),
+&"Screwed_Bolt_0": SubResource("Animation_rn7pf"),
 &"pushedOffLine": SubResource("Animation_lb2dd")
 }
 
