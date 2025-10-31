@@ -5,6 +5,7 @@ extends Node2D
 @onready var clockText: Label = $Clock
 @onready var paused_screen: Panel = $PausedScreen
 
+
 var count = 0
 var gameTime = 0
 var hour = 6
@@ -20,6 +21,8 @@ func _input(event):
 func _second_passed():
 	# 30 seconds is 1 minute ingame
 	gameTime += 2
+	Global._change_box_speed_to(gameTime*10)
+	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
 	
 	if (gameTime >= 360):
 		return
@@ -27,6 +30,8 @@ func _second_passed():
 		@warning_ignore("integer_division")
 		hour = (6 + gameTime/60)
 	if (gameTime % 10 == 0):
+		
+		
 		@warning_ignore("integer_division")
 		minute = ((gameTime/10) - (6 * (hour - 6)))
 	clockText.text = str(hour) + ":" + str(minute) + "0"
@@ -39,7 +44,7 @@ func _on_timer_timeout() -> void:
 	boxInstance.match_box(boxType)
 	
 	#print("box spawned in")
-	if boxType != "Fixed Crate" && boxType != "Boltless" && boxType != "Missing":
+	if boxType != "Fixed Crate" && boxType != "Boltless" && boxType != "Loose Bolt":
 		count += 1
 	boxInstance.change_label(count)
 	$Timer.start()

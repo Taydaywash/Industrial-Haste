@@ -17,7 +17,7 @@ extends Node2D
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 @onready var score: Label = $"../Score"
 
-var boxSpeed = 150
+var boxSpeed = Global.currentBoxSpeed
 var boxTypes: Dictionary = {
 	"Fixed": 0, 
 	"Opened": 0, 
@@ -47,12 +47,14 @@ var boltPositions: Array = [0,
 
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
-
+func _set_speed_to(speed):
+	boxSpeed = speed
 #Box Spawning Behavior
 func _ready() -> void:
 	boxTypes = Global._get_spawn_rates()
 	safeBoxes = Global._get_safe_boxes()
 	unsafeDiscardBoxes = Global._get_unsafe_discard_boxes()
+	Global._add_box_to_scene(self)
 
 func get_box_type():
 	rng.randomize()
@@ -93,7 +95,7 @@ func match_box(type: String) -> void:
 		"Boltless":
 			$Area2D/Sprite.texture = boltlessCrate
 			boxLabel.visible = false
-			missingBoltAmt = randi_range(1,3)
+			missingBoltAmt = randi_range(1,2)
 			_set_bolt_positions(missingBoltAmt, 2)
 			_set_bolt_sprites()
 
@@ -214,3 +216,6 @@ func rotate_box():
 func _process(delta: float):
 	get_child(1).rotation += rotationRate * delta 
 	position.x += boxSpeed * delta 
+
+func _exit_tree() -> void:
+	Global._remove_box_from_scene(self)

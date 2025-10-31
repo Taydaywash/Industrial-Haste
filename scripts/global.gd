@@ -1,7 +1,18 @@
 extends Node
 
 var tool = 0
+var boxesInScene: Array = []
+var currentBoxSpeed = 150
 
+func _add_box_to_scene(box):
+	boxesInScene.insert(0,box)
+	print(boxesInScene)
+func _remove_box_from_scene(deletedBox):
+	boxesInScene.remove_at(boxesInScene.find(deletedBox))
+func _change_box_speed_to(speed):
+	for box in boxesInScene:
+		box._set_speed_to(speed)
+		currentBoxSpeed = speed
 func _set_tool_to(input):
 	print(input)
 	tool = input
@@ -33,7 +44,7 @@ func _get_spawn_rates():
 			}
 		1:
 			boxTypesForLevel = {
-			"Fixed": 50, 
+			"Fixed": 30, 
 			"Opened": 65, 
 			"Tapeless": 70,
 			"Dirty": 85, 
@@ -135,14 +146,14 @@ func _get_unsafe_discard_boxes():
 		0:
 			unsafeBoxes = ["Loose Bolt"]
 		1:
-			unsafeBoxes = ["Opened"]
+			unsafeBoxes = [""]
 	return unsafeBoxes
 
 func _get_safe_boxes():
 	var safeBoxes: Array = []
 	match level:
 		0:
-			safeBoxes = ["Fixed","Fixed Crate","Loose Bolt"]
+			safeBoxes = ["Fixed","Fixed Crate"]
 		1:
-			safeBoxes = ["Fixed","Fixed Crate","Tapeless","Dirty","Mislabeled","Bulging"]
+			safeBoxes = ["Fixed","Tapeless","Dirty","Mislabeled","Bulging"]
 	return safeBoxes

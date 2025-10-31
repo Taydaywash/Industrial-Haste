@@ -14,3 +14,6 @@ func subtract_points(points):
 	if score - points > 0:
 		score = score - points
 		self.text = "Score: " + str(score)
+	else:
+		score = 0
+		self.text = "Score: " + str(score)
