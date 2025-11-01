@@ -27,6 +27,7 @@ func _reset_tool():
 var level = 0
 func _set_level_to(number):
 	level = number
+
 func _get_spawn_rates():
 	var boxTypesForLevel: Dictionary
 	match level:
