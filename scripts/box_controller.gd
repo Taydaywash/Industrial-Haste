@@ -48,7 +48,8 @@ var boltPositions: Array = [0,
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
 func _set_speed_to(speed):
-	boxSpeed = speed
+	if rotationRate>0:
+		boxSpeed = speed
 #Box Spawning Behavior
 func _ready() -> void:
 	boxTypes = Global._get_spawn_rates()
