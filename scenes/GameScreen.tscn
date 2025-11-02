@@ -158,11 +158,11 @@ texture = ExtResource("5_yxycf")
 [node name="Clock" type="Label" parent="."]
 process_mode = 1
 z_index = 8
-offset_left = 408.0
+offset_left = 392.0
 offset_top = -312.0
-offset_right = 567.0
+offset_right = 551.0
 offset_bottom = -257.0
-text = "6:00"
+text = "9:00 AM"
 label_settings = SubResource("LabelSettings_i1jb3")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
