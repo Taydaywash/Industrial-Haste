@@ -186,6 +186,7 @@ libraries = {
 
 [node name="ToolBar" type="Node2D" parent="."]
 process_mode = 1
+visible = false
 z_index = 5
 script = ExtResource("4_8dw8u")
 
@@ -335,6 +336,7 @@ offset_bottom = 506.0
 text = "Quit"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
