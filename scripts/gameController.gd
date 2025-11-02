@@ -8,7 +8,7 @@ extends Node2D
 
 var count = 0
 var gameTime = 0
-var hour = 6
+var hour = 9
 var minute = 0
 
 var paused = false
@@ -19,22 +19,29 @@ func _input(event):
 		paused_screen.visible = paused
 
 func _second_passed():
-	# 30 seconds is 1 minute ingame
-	gameTime += 2
-	Global._change_box_speed_to(gameTime*10)
+	# 1 Second = 5 minutes
+	# 12 seconds = 1 hour
+	# 96 seconds = 480 minutes
+	gameTime += 1
 	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
-	
-	if (gameTime >= 360):
-		return
-	if (gameTime % 60 == 0):
-		@warning_ignore("integer_division")
-		hour = (6 + gameTime/60)
-	if (gameTime % 10 == 0):
-		
-		
-		@warning_ignore("integer_division")
-		minute = ((gameTime/10) - (6 * (hour - 6)))
-	clockText.text = str(hour) + ":" + str(minute) + "0"
+	@warning_ignore("integer_division")
+	# Integer Division, 0.5 rounds down to 0
+	minute = (gameTime/2)%6
+	if (gameTime < 48):
+		if (gameTime % 12 == 0):
+			@warning_ignore("integer_division")
+			hour = (9 + (gameTime*5)/60)
+		if gameTime < 36:
+			clockText.text = str(hour) + ":" + str(minute) + "0 AM"
+		else:
+			clockText.text = str(hour) + ":" + str(minute) + "0 PM"
+	elif (gameTime < 96):
+		if (gameTime % 12 == 0):
+			@warning_ignore("integer_division")
+			hour = (0 + (gameTime*5/60)-3)
+		clockText.text = str(hour) + ":" + str(minute) + "0 PM"
+	else:
+		pass
 
 func _on_timer_timeout() -> void:
 	var boxInstance = box.instantiate()

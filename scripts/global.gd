@@ -6,7 +6,6 @@ var currentBoxSpeed = 150
 
 func _add_box_to_scene(box):
 	boxesInScene.insert(0,box)
-	print(boxesInScene)
 func _remove_box_from_scene(deletedBox):
 	boxesInScene.remove_at(boxesInScene.find(deletedBox))
 func _change_box_speed_to(speed):
@@ -14,7 +13,6 @@ func _change_box_speed_to(speed):
 		box._set_speed_to(speed)
 		currentBoxSpeed = speed
 func _set_tool_to(input):
-	print(input)
 	tool = input
 
 func _get_tool():
