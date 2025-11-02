@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
 [ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
-[ext_resource type="AudioStream" uid="uid://dv8gk3m4yj3jh" path="res://Sound Effects/BoltScrewed.mp3" id="3_7h8s6"]
+[ext_resource type="AudioStream" path="res://Sound Effects/BoltScrewed.mp3" id="3_7h8s6"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3

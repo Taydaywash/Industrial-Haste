@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6uox0j1jeo83"
+path="res://.godot/imported/Screwed Bolt.mp3-b83a18654e76d16ad4966f136476e325.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Screwed Bolt.mp3"
+dest_files=["res://.godot/imported/Screwed Bolt.mp3-b83a18654e76d16ad4966f136476e325.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
