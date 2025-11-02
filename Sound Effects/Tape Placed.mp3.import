@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dox4iyke7pt0q"
+path="res://.godot/imported/Tape Placed.mp3-6072f056a2937e79f07b38c0bd12f343.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Tape Placed.mp3"
+dest_files=["res://.godot/imported/Tape Placed.mp3-6072f056a2937e79f07b38c0bd12f343.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

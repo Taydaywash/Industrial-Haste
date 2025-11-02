@@ -136,9 +136,11 @@ func _fixed_bolt():
 		if boltPositions[index] > 0:
 			boltPositions[index] -= 1
 			animation_player.play("Screwed_Bolt_"+str(index))
+			SoundManager.play_bolt_screwed_sound()
 			break
 	if looseBoltAmt == 0:
 		boxType = "Fixed"
+		animation_player.play("Fixed Crate")
 	_set_bolt_sprites()
 
 func _added_bolt():
@@ -150,6 +152,7 @@ func _added_bolt():
 			break
 	print(boltPositions)
 	_set_bolt_sprites()
+	SoundManager.play_bolt_placed_sound()
 
 #Point Scoring Behavior
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -179,6 +182,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			1: #Tape Tool
 				if (boxType == "Tapeless" || boxType == "Opened"):
 					animation_player.play("Fixed Box")
+					SoundManager.play_tape_placed_sound()
 					print("Fixed " + boxType)
 				else:
 					print("Tool #" + str(tool) + " cannot be used on " + boxType)
@@ -207,6 +211,10 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 func fix_box():
 	$Area2D/Sprite.texture = fixedTexture
 	boxType = "Fixed"
+	
+#Method to call in the animation player
+func poof_sound():
+	SoundManager.play_poof_sound()
 
 #Animation Variations
 func rotate_box():
