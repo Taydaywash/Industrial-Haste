@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=38 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
@@ -9,16 +9,191 @@
 [ext_resource type="Texture2D" uid="uid://bkxrr1qqx1pkk" path="res://spirtes/Placeholders/wrenchPlaceholder.png" id="6_5m38y"]
 [ext_resource type="Texture2D" uid="uid://bvdbvea54eeu1" path="res://spirtes/Placeholders/boltsPlaceholder.jpg" id="7_nt2i5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
+bg_color = Color(0, 0, 0, 0.72156864)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nt2i5"]
+bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
+
+[sub_resource type="Animation" id="Animation_wx6og"]
+resource_name = "popUpInstructions"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.65),
+"transitions": PackedFloat32Array(0.49999997, 1.7411013, 1),
+"update": 0,
+"values": [Vector2(-450, 360), Vector2(-450, -360), Vector2(-450, -308)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../darkeningOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_srnt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-584, -328)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../darkeningOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hv6d7"]
+resource_name = "InstructionExit"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.65),
+"transitions": PackedFloat32Array(0.45062527, 1.7411013, 0.49999997),
+"update": 0,
+"values": [Vector2(-450, -308), Vector2(-450, -360), Vector2(-450, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../darkeningOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hshbf"]
+_data = {
+&"InstructionExit": SubResource("Animation_hv6d7"),
+&"RESET": SubResource("Animation_srnt6"),
+&"popUpInstructions": SubResource("Animation_wx6og")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
 font_size = 40
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_mfff6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("LabelSettings_i1jb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["9:00 AM"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(392, -312)]
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_wx6og"]
 font_size = 40
 font_color = Color(1, 0.32799995, 0.27999997, 1)
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_itox2"]
+resource_name = "ShiftEnd"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999),
+"update": 0,
+"values": [Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312)]
+}
 
 [sub_resource type="Animation" id="Animation_1iofb"]
 resource_name = "ShiftStart"
@@ -72,85 +247,6 @@ tracks/3/keys = {
 "args": [],
 "method": &"_start_clock"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_mfff6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("LabelSettings_i1jb3")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["9:00 AM"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(392, -312)]
-}
-
-[sub_resource type="Animation" id="Animation_itox2"]
-resource_name = "ShiftEnd"
-length = 9.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": ["CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
-"transitions": PackedFloat32Array(99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999),
-"update": 0,
-"values": [Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_srnt6"]
@@ -277,6 +373,56 @@ outline_color = Color(0, 0, 0, 1)
 [node name="GameScreen" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_osnef")
+
+[node name="darkeningOverlay" type="Panel" parent="."]
+z_index = 9
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 576.0
+offset_bottom = 328.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
+
+[node name="levelInstructions" type="Panel" parent="."]
+process_mode = 3
+z_index = 10
+offset_left = -584.0
+offset_top = -328.0
+offset_right = 336.0
+offset_bottom = 280.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nt2i5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="levelInstructions"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 880.0
+offset_bottom = 584.0
+theme_override_colors/default_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/normal_font_size = 41
+text = "|Shift #0 | Worker #1012 |Business Co. |
+What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+
+With love,
+Boss"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="levelInstructionAnimations" type="AnimationPlayer" parent="levelInstructions"]
+libraries = {
+&"": SubResource("AnimationLibrary_hshbf")
+}
+autoplay = "popUpInstructions"
+
+[node name="Label" type="Label" parent="levelInstructions"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 552.0
+offset_right = 893.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(0.27, 0.27, 0.27, 1)
+theme_override_font_sizes/font_size = 30
+text = "click anywhere to continue"
 
 [node name="Camera" type="Camera2D" parent="."]
 process_mode = 1

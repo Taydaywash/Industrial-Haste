@@ -12,9 +12,23 @@ var hour = 9
 var minute = 0
 @onready var clock_animations: AnimationPlayer = $Clock/ClockAnimations
 
+@onready var level_instruction_animations: AnimationPlayer = $levelInstructions/levelInstructionAnimations
+var gameIsStarted = false
 var paused = false
+func _ready() -> void:
+	clockText.visible = false
+	$Score.visible = false
+	paused = !paused
+	get_tree().paused = paused
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event is InputEventMouseButton and event.pressed && !gameIsStarted:
+		paused = !paused
+		get_tree().paused = paused
+		level_instruction_animations.play("InstructionExit")
+		clockText.visible = true
+		$Score.visible = true
+		gameIsStarted = true
+	elif event.is_action_pressed("pause"):
 		paused = !paused
 		get_tree().paused = paused
 		paused_screen.visible = paused

@@ -223,7 +223,8 @@ func rotate_box():
 	boxSpeed = (boxSpeed * rotationRate)/4
 
 func _process(delta: float):
-	get_child(1).rotation += rotationRate * delta 
+	if rotationRate > 0:
+		get_child(1).rotation += rotationRate * delta 
 	position.x += boxSpeed * delta 
 
 func _exit_tree() -> void:
