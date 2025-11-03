@@ -31,14 +31,14 @@ func _get_spawn_rates():
 	match level:
 		0:
 			boxTypesForLevel = {
-			"Fixed": 10, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 50, 
+			"Fixed": 0, 
+			"Opened": 30, 
+			"Tapeless": 40,
+			"Dirty": 50, 
+			"Mislabeled": 60, 
+			"Bulging": 70, 
+			"Fixed Crate": 80,
+			"Loose Bolt": 90, 
 			"Boltless": 100 
 			}
 		1:
