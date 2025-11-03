@@ -139,7 +139,7 @@ func _fixed_bolt():
 			animation_player.play("Screwed_Bolt_"+str(index))
 			SoundManager.play_bolt_screwed_sound()
 			break
-	if looseBoltAmt == 0:
+	if boltPositions == [0,0,0,0]:
 		boxType = "Fixed"
 		animation_player.play("Fixed Crate")
 	_set_bolt_sprites()
