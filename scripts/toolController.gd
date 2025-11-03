@@ -25,7 +25,6 @@ func _ready() -> void:
 		wrenchToolToolBar,
 		boltsToolToolBar
 	]
-
 func _process(_delta: float):
 	if holdingTool:
 		toolList[heldTool].position = get_local_mouse_position()

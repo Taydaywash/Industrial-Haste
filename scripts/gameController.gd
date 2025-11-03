@@ -10,6 +10,7 @@ var count = 0
 var gameTime = 0
 var hour = 9
 var minute = 0
+@onready var clock_animations: AnimationPlayer = $Clock/ClockAnimations
 
 var paused = false
 func _input(event):
@@ -17,11 +18,17 @@ func _input(event):
 		paused = !paused
 		get_tree().paused = paused
 		paused_screen.visible = paused
-
+var startClock = false
+var spawnBoxes = true
+func _start_clock():
+	startClock = true
 func _second_passed():
+	if !startClock:
+		return
 	# 1 Second = 5 minutes
 	# 12 seconds = 1 hour
 	# 96 seconds = 480 minutes
+	#at 96, change timer to red, stop spawning boxes
 	gameTime += 1
 	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
 	@warning_ignore("integer_division")
@@ -41,9 +48,15 @@ func _second_passed():
 			hour = (0 + (gameTime*5/60)-3)
 		clockText.text = str(hour) + ":" + str(minute) + "0 PM"
 	else:
-		pass
+		clock_animations.play("ShiftEnd")
+		startClock = false
+		spawnBoxes = false
 
 func _on_timer_timeout() -> void:
+	if spawnBoxes == false:
+		if Global.boxesInScene == []:
+			get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
+		return
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
 	add_child(boxInstance)

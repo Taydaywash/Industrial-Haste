@@ -29,10 +29,13 @@ func _set_level_to(number):
 func _get_spawn_rates():
 	var boxTypesForLevel: Dictionary
 	match level:
+		#4500 points
+		#4000 points
+		#3000 points
 		0:
 			boxTypesForLevel = {
 			"Fixed": 10, 
-			"Opened": 0, 
+			"Opened": 50, 
 			"Tapeless": 0,
 			"Dirty": 0, 
 			"Mislabeled": 0, 

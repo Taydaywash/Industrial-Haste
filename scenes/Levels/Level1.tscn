@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://q2grelqqkw5m"]
+[gd_scene load_steps=32 format=3 uid="uid://q2grelqqkw5m"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_estr2"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="3_l2kow"]
@@ -9,10 +9,156 @@
 [ext_resource type="Texture2D" uid="uid://bkxrr1qqx1pkk" path="res://spirtes/Placeholders/wrenchPlaceholder.png" id="6_0t3xx"]
 [ext_resource type="Texture2D" uid="uid://bvdbvea54eeu1" path="res://spirtes/Placeholders/boltsPlaceholder.jpg" id="7_kvb8l"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jng41"]
+[sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
 font_size = 40
 outline_size = 11
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wx6og"]
+font_size = 40
+font_color = Color(1, 0.32799995, 0.27999997, 1)
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_1iofb"]
+resource_name = "ShiftStart"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["SHIFT START", "9:00 AM", "SHIFT START", "9:00 AM", "SHIFT START", "9:00 AM"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(99999, 99999, 99999, 99999, 99999, 99999),
+"update": 0,
+"values": [Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_clock"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mfff6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("LabelSettings_i1jb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["9:00 AM"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(392, -312)]
+}
+
+[sub_resource type="Animation" id="Animation_itox2"]
+resource_name = "ShiftEnd"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3"), SubResource("LabelSettings_wx6og"), SubResource("LabelSettings_i1jb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM", "CLOCK OUT", "5:00 PM"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999, 99999),
+"update": 0,
+"values": [Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312), Vector2(325, -312), Vector2(318, -312)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_srnt6"]
+_data = {
+&"RESET": SubResource("Animation_mfff6"),
+&"ShiftEnd": SubResource("Animation_itox2"),
+&"ShiftStart": SubResource("Animation_1iofb")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_8nqap"]
 font_size = 40
@@ -162,12 +308,18 @@ offset_top = -312.0
 offset_right = 551.0
 offset_bottom = -257.0
 text = "9:00 AM"
-label_settings = SubResource("LabelSettings_jng41")
+label_settings = SubResource("LabelSettings_i1jb3")
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
 autostart = true
+
+[node name="ClockAnimations" type="AnimationPlayer" parent="Clock"]
+libraries = {
+&"": SubResource("AnimationLibrary_srnt6")
+}
+autoplay = "ShiftStart"
 
 [node name="Score" type="Label" parent="."]
 offset_left = -568.0
