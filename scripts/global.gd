@@ -1,5 +1,7 @@
 extends Node
 
+var levelScores: Array = [0,3550,3330,4550,1110,2220,3330,4440,5550]
+
 var tool = 0
 var boxesInScene: Array = []
 var currentBoxSpeed = 150
@@ -25,6 +27,10 @@ func _reset_tool():
 var level = 0
 func _set_level_to(number):
 	level = number
+func _set_new_score():
+	if levelScores[level] < ScoreController._get_current_score():
+		levelScores[level] = ScoreController._get_current_score()
+
 
 func _get_spawn_rates():
 	var boxTypesForLevel: Dictionary

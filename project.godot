@@ -19,6 +19,7 @@ config/icon="uid://b6pu5ln5skign"
 
 Global="*res://scripts/global.gd"
 SoundManager="*res://scenes/SoundManager.tscn"
+ScoreController="*res://scripts/scoreController.gd"
 
 [display]
 

@@ -158,9 +158,9 @@ func _added_bolt():
 #Point Scoring Behavior
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if boxType in safeBoxes:
-		score.add_points(100)
+		score._add_points(100)
 	else:
-		score.subtract_points(200)
+		score._subtract_points(200)
 	queue_free()
 
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -171,9 +171,9 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		animation_player.play("pushedOffLine")
 		SoundManager.play_whoosh_sound()
 		if boxType in safeBoxes || boxType in unsafeDiscardBoxes:
-			score.subtract_points(200)
+			score._subtract_points(200)
 		else:
-			score.add_points(100)
+			score._add_points(100)
 		Global._reset_tool()
 	
 	#Mouse Up
@@ -223,7 +223,7 @@ func rotate_box():
 	boxSpeed = (boxSpeed * rotationRate)/4
 
 func _process(delta: float):
-	if rotationRate > 0:
+	if rotationRate != 0:
 		get_child(1).rotation += rotationRate * delta 
 	position.x += boxSpeed * delta 
 

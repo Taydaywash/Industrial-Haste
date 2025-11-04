@@ -4,6 +4,7 @@ extends Node2D
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
 @onready var paused_screen: Panel = $PausedScreen
+@onready var Score: Label = $Score
 
 
 var count = 0
@@ -13,22 +14,29 @@ var minute = 0
 @onready var clock_animations: AnimationPlayer = $Clock/ClockAnimations
 
 @onready var level_instruction_animations: AnimationPlayer = $levelInstructions/levelInstructionAnimations
+@onready var level_complete_animations: AnimationPlayer = $levelComplete/levelCompleteAnimations
+
 var gameIsStarted = false
+var shiftIsOver = false
 var paused = false
 func _ready() -> void:
+	ScoreController._reset_score()
 	clockText.visible = false
 	$Score.visible = false
 	paused = !paused
 	get_tree().paused = paused
 func _input(event):
-	if event is InputEventMouseButton and event.pressed && !gameIsStarted:
-		paused = !paused
-		get_tree().paused = paused
-		level_instruction_animations.play("InstructionExit")
-		clockText.visible = true
-		$Score.visible = true
-		gameIsStarted = true
-	elif event.is_action_pressed("pause"):
+	if event is InputEventMouseButton and event.pressed:
+		if !gameIsStarted:
+			paused = false
+			get_tree().paused = paused
+			level_instruction_animations.play("InstructionExit")
+			clockText.visible = true
+			$Score.visible = true
+			gameIsStarted = true
+		elif shiftIsOver:
+			level_complete_animations.play("levelCompleteMainmenu")
+	elif event.is_action_pressed("pause") && !shiftIsOver:
 		paused = !paused
 		get_tree().paused = paused
 		paused_screen.visible = paused
@@ -68,8 +76,8 @@ func _second_passed():
 
 func _on_timer_timeout() -> void:
 	if spawnBoxes == false:
-		if Global.boxesInScene == []:
-			get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
+		if Global.boxesInScene == [] && !shiftIsOver:
+			_shift_complete()
 		return
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
@@ -95,3 +103,34 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _shift_complete() -> void:
+	level_complete_animations.play("levelCompleteEnter")
+	shiftIsOver = true
+	Global._set_new_score()
+	clockText.visible = false
+	$Score.visible = false
+	paused = true
+	get_tree().paused = paused
+@onready var final_score: Label = $levelComplete/RichTextLabel/FinalScore
+@onready var boxes_missed: Label = $levelComplete/RichTextLabel/BoxesMissed
+func _set_final_score():
+	
+	final_score.text = str(Score._get_current_score())
+func _set_boxes_missed():
+	boxes_missed.text = str(Score._get_missed_boxes())
+
+@onready var stars: Node2D = $levelComplete/Stars
+func _try_set_star_visible(starIndex):
+	var star = stars.get_child(starIndex)
+	match starIndex:
+		2:
+			if Score._get_current_score() >= 4500:
+				star.set_deferred("modulate",Color(1,1,1,1))
+		1:
+			if Score._get_current_score() >= 3500:
+				star.set_deferred("modulate",Color(1,1,1,1))
+		0:
+			if Score._get_current_score() >= 3000:
+				star.set_deferred("modulate",Color(1,1,1,1))
+	
