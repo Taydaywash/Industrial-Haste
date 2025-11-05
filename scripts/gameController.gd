@@ -160,7 +160,6 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _shift_complete() -> void:
-	print("shift Complete")
 	level_complete_animations.play("levelCompleteEnter")
 	shiftIsOver = true
 	Global._set_new_score()

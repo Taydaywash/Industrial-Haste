@@ -166,15 +166,12 @@ func _fixed_bolt():
 	_set_bolt_sprites()
 
 func _added_bolt(lastBoltPositions):
-	print(lastBoltPositions)
 	looseBoltAmt += 1
 	missingBoltAmt -= 1
 	for index in range(0,4):
 		if boltPositions[index] == 2:
 			boltPositions[index] = 1
 			break
-	print(lastBoltPositions)
-	print(boltPositions)
 	_set_bolt_sprites()
 	SoundManager.play_bolt_placed_sound()
 
