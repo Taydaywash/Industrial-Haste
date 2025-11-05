@@ -101,20 +101,20 @@ func match_box(type: String) -> void:
 		"Fixed Crate":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
-			_set_bolt_sprites()
+			_set_bolt_sprites([3,3,3,3])
 		"Loose Bolt":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			looseBoltAmt = randi_range(1,2)
 			_set_bolt_positions(looseBoltAmt, 1)
-			_set_bolt_sprites()
+			_set_bolt_sprites([3,3,3,3])
 			
 		"Boltless":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			missingBoltAmt = randi_range(1,2)
 			_set_bolt_positions(missingBoltAmt, 2)
-			_set_bolt_sprites()
+			_set_bolt_sprites([3,3,3,3])
 
 		_:
 			pass
@@ -136,7 +136,7 @@ func _set_bolt_positions(boltAmt, type: int):
 			boltPos = randi_range(0,3)
 		boltPositions[boltPos] = type 
 
-func _set_bolt_sprites():
+func _set_bolt_sprites(lastBoltPositions):
 	for index in range(0,4):
 		var bolt = bolts.get_child(index)
 		bolt.visible = true
@@ -146,16 +146,20 @@ func _set_bolt_sprites():
 				bolt.flip_h = false
 			else:
 				bolt.flip_h = true
-		elif boltPositions[index] == 1:
+		elif boltPositions[index] == 1 && lastBoltPositions[index] != 1:
 			bolt.texture = LooseLeftBolts[randi_range(0,LooseLeftBolts.size()-1)]
 			if index < 2:
 				bolt.flip_h = false
 			else:
 				bolt.flip_h = true
 		else:
-			bolt.visible = false
+			if boltPositions[index] == lastBoltPositions[index]:
+				bolt.visible = true
+			else:
+				bolt.visible = false
 
 func _fixed_bolt():
+	var lastBoltPositions = boltPositions
 	looseBoltAmt -= 1
 	for index in range(0,4):
 		if boltPositions[index] > 0:
@@ -166,9 +170,10 @@ func _fixed_bolt():
 	if boltPositions == [0,0,0,0]:
 		boxType = "Fixed"
 		animation_player.play("Fixed Crate")
-	_set_bolt_sprites()
+	_set_bolt_sprites(lastBoltPositions)
 
 func _added_bolt():
+	var lastBoltPositions = boltPositions
 	looseBoltAmt += 1
 	missingBoltAmt -= 1
 	for index in range(0,4):
@@ -176,7 +181,7 @@ func _added_bolt():
 			boltPositions[index] = 1
 			break
 	print(boltPositions)
-	_set_bolt_sprites()
+	_set_bolt_sprites(lastBoltPositions)
 	SoundManager.play_bolt_placed_sound()
 
 #Point Scoring Behavior
