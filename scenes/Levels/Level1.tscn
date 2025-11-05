@@ -627,7 +627,10 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_font_sizes/normal_font_size = 41
 text = "|Shift #1 | Worker #1012 |Business Co. |
-(placeholder text)"
+Greetings worker 1012,
+I hope you've gotten your bearings during your onboarding because you've got IMPORTANT! work to do today.
+
+All I need you to do is push any boxes that are OPENED off the line. Simple! You will be graded on your performance."
 scroll_active = false
 shortcut_keys_enabled = false
 
