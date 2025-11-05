@@ -101,20 +101,20 @@ func match_box(type: String) -> void:
 		"Fixed Crate":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
-			_set_bolt_sprites([3,3,3,3])
+			_set_bolt_sprites()
 		"Loose Bolt":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			looseBoltAmt = randi_range(1,2)
 			_set_bolt_positions(looseBoltAmt, 1)
-			_set_bolt_sprites([3,3,3,3])
+			_set_bolt_sprites()
 			
 		"Boltless":
 			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			missingBoltAmt = randi_range(1,2)
 			_set_bolt_positions(missingBoltAmt, 2)
-			_set_bolt_sprites([3,3,3,3])
+			_set_bolt_sprites()
 
 		_:
 			pass
@@ -136,30 +136,23 @@ func _set_bolt_positions(boltAmt, type: int):
 			boltPos = randi_range(0,3)
 		boltPositions[boltPos] = type 
 
-func _set_bolt_sprites(lastBoltPositions):
+func _set_bolt_sprites():
 	for index in range(0,4):
 		var bolt = bolts.get_child(index)
 		bolt.visible = true
 		if boltPositions[index] == 0:
 			bolt.texture = boxes.FixedLeftBolt
-			if index < 2:
-				bolt.flip_h = false
-			else:
+			if index >= 2:
 				bolt.flip_h = true
-		elif boltPositions[index] == 1 && lastBoltPositions[index] != 1:
-			bolt.texture = LooseLeftBolts[randi_range(0,LooseLeftBolts.size()-1)]
-			if index < 2:
-				bolt.flip_h = false
-			else:
-				bolt.flip_h = true
+		elif boltPositions[index] == 1:
+			if bolt.texture not in LooseLeftBolts:
+				bolt.texture = LooseLeftBolts[randi_range(0,LooseLeftBolts.size()-1)]
+				if index >= 2:
+					bolt.flip_h = true
 		else:
-			if boltPositions[index] == lastBoltPositions[index]:
-				bolt.visible = true
-			else:
-				bolt.visible = false
+			bolt.visible = false
 
 func _fixed_bolt():
-	var lastBoltPositions = boltPositions
 	looseBoltAmt -= 1
 	for index in range(0,4):
 		if boltPositions[index] > 0:
@@ -170,18 +163,19 @@ func _fixed_bolt():
 	if boltPositions == [0,0,0,0]:
 		boxType = "Fixed"
 		animation_player.play("Fixed Crate")
-	_set_bolt_sprites(lastBoltPositions)
+	_set_bolt_sprites()
 
-func _added_bolt():
-	var lastBoltPositions = boltPositions
+func _added_bolt(lastBoltPositions):
+	print(lastBoltPositions)
 	looseBoltAmt += 1
 	missingBoltAmt -= 1
 	for index in range(0,4):
 		if boltPositions[index] == 2:
 			boltPositions[index] = 1
 			break
+	print(lastBoltPositions)
 	print(boltPositions)
-	_set_bolt_sprites(lastBoltPositions)
+	_set_bolt_sprites()
 	SoundManager.play_bolt_placed_sound()
 
 #Point Scoring Behavior
@@ -228,7 +222,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			3: #Bolts Tool
 				if (boxType == "Boltless"):
 					if (missingBoltAmt > 0):
-						_added_bolt()
+						_added_bolt(boltPositions)
 						print("Added bolt to Boltless crate")
 					else:
 						print("Tried to add bolt to " + boxType + "... but there were no bolts to add!")
