@@ -885,7 +885,7 @@ layout_mode = 0
 offset_left = 234.0
 offset_top = 100.0
 offset_right = 380.0
-offset_bottom = 278.99994
+offset_bottom = 279.00006
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
 text = "0"
@@ -895,10 +895,10 @@ layout_mode = 0
 offset_left = 289.0
 offset_top = 211.0
 offset_right = 362.0
-offset_bottom = 390.0
+offset_bottom = 389.99997
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
-text = "0"
+text = "99"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0

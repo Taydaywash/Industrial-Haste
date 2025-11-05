@@ -53,7 +53,7 @@ extends Node2D
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
 @onready var paused_screen: Panel = $PausedScreen
-@onready var Score: Label = $Score
+@onready var Score = $Score
 
 
 var count = 0
@@ -162,7 +162,7 @@ func _on_quit_button_pressed() -> void:
 func _shift_complete() -> void:
 	level_complete_animations.play("levelCompleteEnter")
 	shiftIsOver = true
-	Global._set_new_score()
+	Global._set_new_score(Score._get_current_score())
 	clockText.visible = false
 	$Score.visible = false
 	paused = true

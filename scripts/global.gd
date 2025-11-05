@@ -27,9 +27,9 @@ func _reset_tool():
 var level = 0
 func _set_level_to(number):
 	level = number
-func _set_new_score():
-	if levelScores[level] < ScoreController._get_current_score():
-		levelScores[level] = ScoreController._get_current_score()
+func _set_new_score(score):
+	if levelScores[level] < score:
+		levelScores[level] = score
 
 
 func _get_spawn_rates():
