@@ -247,11 +247,35 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RichTextLabel/BoxesMissed:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(289, 211)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("RichTextLabel/FinalScore:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["0"]
+}
 
 [sub_resource type="Animation" id="Animation_u4ox6"]
 resource_name = "levelCompleteEnter"
 length = 6.0
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -349,6 +373,58 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.205, 1.205), Vector2(1.205, 1.205), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RichTextLabel/BoxesMissed:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3, 3.3, 3.4666667, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(289, 211), Vector2(289, 211), Vector2(289, 202), Vector2(289, 202), Vector2(289, 211)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RichTextLabel/BoxesMissed:theme_override_colors/font_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3, 3.3, 3.6, 3.7666667),
+"transitions": PackedFloat32Array(1, 0.75785893, 1.0352648, 1, 1),
+"update": 0,
+"values": [Color(0.15, 0.15, 0.15, 1), Color(0.15, 0.15, 0.15, 1), Color(0.78, 0.58239996, 0.03900001, 1), Color(0.78, 0.58239996, 0.03900001, 1), Color(0.15, 0.15, 0.15, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RichTextLabel/FinalScore:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.7, 1.8, 1.9000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["0", "3250
+", "4105
+", "840", "9999"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RichTextLabel/BoxesMissed:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.8999999, 3.0000002, 3.0999997, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["0", "3
+", "37
+", "11", "99"]
 }
 
 [sub_resource type="Animation" id="Animation_8nqap"]
@@ -808,21 +884,21 @@ z_index = 1
 layout_mode = 0
 offset_left = 234.0
 offset_top = 100.0
-offset_right = 274.0
-offset_bottom = 188.0
+offset_right = 380.0
+offset_bottom = 278.99994
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
 text = "0"
 
 [node name="BoxesMissed" type="Label" parent="levelComplete/RichTextLabel"]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 212.0
-offset_right = 330.0
-offset_bottom = 300.0
-theme_override_colors/font_color = Color(0.14, 0.14, 0.14, 1)
+offset_left = 289.0
+offset_top = 211.0
+offset_right = 362.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
-text = "0"
+text = "99"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0
