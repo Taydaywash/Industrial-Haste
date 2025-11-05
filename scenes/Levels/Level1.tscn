@@ -369,7 +369,7 @@ tracks/6/path = NodePath("RichTextLabel/BoxesMissed:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 3, 3.2999997, 3.4666667, 3.6),
+"times": PackedFloat32Array(0, 2.7000003, 3, 3.166667, 3.3000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.205, 1.205), Vector2(1.205, 1.205), Vector2(1, 1)]
@@ -381,7 +381,7 @@ tracks/7/path = NodePath("RichTextLabel/BoxesMissed:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 3, 3.3, 3.4666667, 3.6),
+"times": PackedFloat32Array(0, 2.7000003, 3.0000002, 3.166667, 3.3000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(289, 211), Vector2(289, 211), Vector2(289, 202), Vector2(289, 202), Vector2(289, 211)]
@@ -393,7 +393,7 @@ tracks/8/path = NodePath("RichTextLabel/BoxesMissed:theme_override_colors/font_c
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 3, 3.3, 3.6, 3.7666667),
+"times": PackedFloat32Array(0, 2.7000003, 3.0000002, 3.3000002, 3.466667),
 "transitions": PackedFloat32Array(1, 0.75785893, 1.0352648, 1, 1),
 "update": 0,
 "values": [Color(0.15, 0.15, 0.15, 1), Color(0.15, 0.15, 0.15, 1), Color(0.78, 0.58239996, 0.03900001, 1), Color(0.78, 0.58239996, 0.03900001, 1), Color(0.15, 0.15, 0.15, 1)]
@@ -419,7 +419,7 @@ tracks/10/path = NodePath("RichTextLabel/BoxesMissed:text")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 2.8999999, 3.0000002, 3.0999997, 3.2),
+"times": PackedFloat32Array(0, 2.6499999, 2.7500002, 2.8499997, 2.95),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": ["0", "3
@@ -856,7 +856,7 @@ text = "Loading..."
 
 [node name="GearTransition" type="Sprite2D" parent="levelComplete"]
 modulate = Color(0, 0, 0, 1)
-z_index = 1
+z_index = 2
 position = Vector2(-542, 300)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("2_u4ox6")
@@ -898,7 +898,7 @@ offset_right = 362.0
 offset_bottom = 390.0
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
-text = "99"
+text = "0"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0
