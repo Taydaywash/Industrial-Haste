@@ -165,7 +165,7 @@ func _fixed_bolt():
 		animation_player.play("Fixed Crate")
 	_set_bolt_sprites()
 
-func _added_bolt(lastBoltPositions):
+func _added_bolt():
 	looseBoltAmt += 1
 	missingBoltAmt -= 1
 	for index in range(0,4):
@@ -219,7 +219,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 			3: #Bolts Tool
 				if (boxType == "Boltless"):
 					if (missingBoltAmt > 0):
-						_added_bolt(boltPositions)
+						_added_bolt()
 						print("Added bolt to Boltless crate")
 					else:
 						print("Tried to add bolt to " + boxType + "... but there were no bolts to add!")
