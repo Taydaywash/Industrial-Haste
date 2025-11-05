@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_estr2"]
 [ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_8nqap"]
+[ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="2_u4ox6"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="3_l2kow"]
 [ext_resource type="Script" uid="uid://cdqh3u4uhwnxp" path="res://scripts/scoreController.gd" id="4_4h7ej"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_8dw8u"]
@@ -124,8 +125,6 @@ bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mhgh"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dfih8"]
-
 [sub_resource type="Animation" id="Animation_o8yur"]
 length = 0.001
 tracks/0/type = "value"
@@ -191,7 +190,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("GearBacking/LoadingText:visible")
+tracks/5/path = NodePath("LoadingText:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -292,17 +291,17 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2200, -84), Vector2(-200, -84)]
+"values": [Vector2(-2350, -84), Vector2(-350, -84)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GearBacking/LoadingText:visible")
+tracks/3/path = NodePath("LoadingText:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(401.7072, 1),
 "update": 1,
 "values": [false, true]
 }
@@ -313,7 +312,7 @@ tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.1),
+"times": PackedFloat32Array(1.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -671,21 +670,23 @@ offset_bottom = 684.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5mhgh")
 
-[node name="LoadingText" type="Label" parent="levelComplete/GearBacking"]
+[node name="LoadingText" type="Label" parent="levelComplete"]
 visible = false
+z_index = 2
 layout_mode = 0
-offset_left = 898.0
-offset_top = 632.0
-offset_right = 1047.0
-offset_bottom = 677.0
+offset_left = 833.0
+offset_top = 535.0
+offset_right = 982.0
+offset_bottom = 580.0
 theme_override_font_sizes/font_size = 32
 text = "Loading..."
 
 [node name="GearTransition" type="Sprite2D" parent="levelComplete"]
+modulate = Color(0, 0, 0, 1)
 z_index = 1
 position = Vector2(-542, 300)
-scale = Vector2(800, 800)
-texture = SubResource("PlaceholderTexture2D_dfih8")
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_u4ox6")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelComplete"]
 layout_mode = 0

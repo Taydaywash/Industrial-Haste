@@ -25,6 +25,7 @@ ScoreController="*res://scripts/scoreController.gd"
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [input]
 
