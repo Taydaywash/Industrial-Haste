@@ -89,12 +89,12 @@ func _input(event):
 		paused = !paused
 		get_tree().paused = paused
 		paused_screen.visible = paused
-var startClock = false
+var runClock = false
 var spawnBoxes = true
 func _start_clock():
-	startClock = true
+	runClock = true
 func _second_passed():
-	if !startClock:
+	if !runClock:
 		return
 	# 1 Second = 5 minutes
 	# 12 seconds = 1 hour
@@ -120,15 +120,13 @@ func _second_passed():
 		clockText.text = str(hour) + ":" + str(minute) + "0 PM"
 	else:
 		clock_animations.play("ShiftEnd")
-		startClock = false
+		runClock = false
 		spawnBoxes = false
 
 var lastBoxSpawned = "Mislabeled"
 var boxType 
 func _on_timer_timeout() -> void:
 	if spawnBoxes == false:
-		print(Global.boxesInScene)
-		print(shiftIsOver)
 		if Global.boxesInScene == [] && !shiftIsOver:
 			_shift_complete()
 		return
@@ -146,7 +144,7 @@ func _on_timer_timeout() -> void:
 		count += 1
 	boxInstance.change_label(count)
 	lastBoxSpawned = boxType
-	$Timer.start()
+	#$Timer.start()
 
 func _on_resume_button_pressed() -> void:
 	paused = false

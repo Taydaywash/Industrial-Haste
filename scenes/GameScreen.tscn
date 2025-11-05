@@ -778,7 +778,6 @@ texture = ExtResource("4_xpdqc")
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 2.0
-one_shot = true
 autostart = true
 
 [node name="Background" type="Sprite2D" parent="."]
