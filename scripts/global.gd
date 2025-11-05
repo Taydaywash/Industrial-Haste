@@ -41,13 +41,13 @@ func _get_spawn_rates():
 		0:
 			boxTypesForLevel = {
 			"Fixed": 10, 
-			"Opened": 50, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 50, 
+			"Opened": 20, 
+			"Tapeless": 30,
+			"Dirty": 40, 
+			"Mislabeled": 50, 
+			"Bulging": 60, 
+			"Fixed Crate": 70,
+			"Loose Bolt": 80, 
 			"Boltless": 100 
 			}
 		1:
@@ -152,7 +152,7 @@ func _get_unsafe_discard_boxes():
 	var unsafeBoxes: Array = []
 	match level:
 		0:
-			unsafeBoxes = ["Loose Bolt"]
+			unsafeBoxes = ["Loose Bolt","Boltless","Opened","Tapeless"]
 		1:
 			unsafeBoxes = [""]
 	return unsafeBoxes

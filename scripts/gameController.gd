@@ -1,5 +1,54 @@
 extends Node2D
 
+# Box Textures:
+@onready var fixedTextures = [preload("res://spirtes/BoxSprites/fixedBox.png"),
+								preload("res://spirtes/BoxSprites/fixedBox2.png"),
+								preload("res://spirtes/BoxSprites/fixedBox3.png"),
+								preload("res://spirtes/BoxSprites/fixedBox4.png"),
+								]
+@onready var openedTextures = [preload("res://spirtes/BoxSprites/openedBox.png"),
+								preload("res://spirtes/BoxSprites/openedBox2.png"),
+								preload("res://spirtes/BoxSprites/openedBox3.png"),
+								preload("res://spirtes/BoxSprites/openedBox4.png"),
+								]
+@onready var tapelessTextures = [preload("res://spirtes/BoxSprites/tapelessBox.png"),
+								preload("res://spirtes/BoxSprites/tapelessBox2.png"),
+								preload("res://spirtes/BoxSprites/tapelessBox3.png"),
+								preload("res://spirtes/BoxSprites/tapelessBox4.png"),
+								]
+@onready var dirtyTextures = [preload("res://spirtes/BoxSprites/dirtyBox.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox2.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox3.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox4.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox5.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox6.png"),
+								preload("res://spirtes/BoxSprites/dirtyBox7.png"),
+								]
+@onready var bulgingTextures = [preload("res://spirtes/BoxSprites/bulgingBox.png"),
+								preload("res://spirtes/BoxSprites/bulgingBox2.png"),
+								preload("res://spirtes/BoxSprites/bulgingBox3.png"),
+								preload("res://spirtes/BoxSprites/bulgingBox4.png"),
+								]
+#@onready var fixedCrates = [preload("res://spirtes/BoxSprites/fixedCrate.png"),
+								#
+								#]
+@onready var boltlessCrates = [preload("res://spirtes/BoxSprites/boltlessCrate.png"),
+								preload("res://spirtes/BoxSprites/boltlessCrate2.png"),
+								preload("res://spirtes/BoxSprites/boltlessCrate3.png"),
+								preload("res://spirtes/BoxSprites/boltlessCrate4.png"),
+								]
+@onready var FixedLeftBolt = preload("res://spirtes/bolts/fixedLeftBolt.png")
+#@onready var FixedRightBolt = preload("res://spirtes/bolts/fixedRightBolt.png")
+@onready var LooseLeftBolts = [preload("res://spirtes/bolts/looseLeftBolt.png"),
+								preload("res://spirtes/BoxSprites/bolts/looseLeftBolt2.png"),
+								preload("res://spirtes/BoxSprites/bolts/looseLeftBolt3.png"),
+								]
+#@onready var LooseRightBolts = [preload("res://spirtes/bolts/looseRightBolt.png"),
+								#preload(),
+								#preload(),
+								#preload(),
+								#]
+
 @onready var box = preload("res://scenes/boxes.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
@@ -74,21 +123,29 @@ func _second_passed():
 		startClock = false
 		spawnBoxes = false
 
+var lastBoxSpawned = "Mislabeled"
+var boxType 
 func _on_timer_timeout() -> void:
 	if spawnBoxes == false:
+		print(Global.boxesInScene)
+		print(shiftIsOver)
 		if Global.boxesInScene == [] && !shiftIsOver:
 			_shift_complete()
 		return
 	var boxInstance = box.instantiate()
 	boxInstance.position = boxSpawner.position
 	add_child(boxInstance)
-	var boxType = boxInstance.get_box_type()
+	
+	boxType = boxInstance.get_box_type()
+	while lastBoxSpawned == "Mislabeled" && boxType == "Mislabeled":
+		boxType = boxInstance.get_box_type()
 	boxInstance.match_box(boxType)
 	
 	#print("box spawned in")
 	if boxType != "Fixed Crate" && boxType != "Boltless" && boxType != "Loose Bolt":
 		count += 1
 	boxInstance.change_label(count)
+	lastBoxSpawned = boxType
 	$Timer.start()
 
 func _on_resume_button_pressed() -> void:
@@ -105,6 +162,7 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _shift_complete() -> void:
+	print("shift Complete")
 	level_complete_animations.play("levelCompleteEnter")
 	shiftIsOver = true
 	Global._set_new_score()

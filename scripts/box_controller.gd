@@ -2,17 +2,6 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var boxLabel: Label = $Area2D/BoxLabel
-@onready var fixedTexture = preload("res://spirtes/BoxSprites/fixedBox.png")
-@onready var openedTexture = preload("res://spirtes/BoxSprites/openedBox.png")
-@onready var tapelessTexture = preload("res://spirtes/BoxSprites/tapelessBox.png")
-@onready var dirtyTexture = preload("res://spirtes/BoxSprites/dirtyBox.png")
-@onready var fixedCrate = preload("res://spirtes/BoxSprites/fixedCrate.png")
-@onready var boltlessCrate = preload("res://spirtes/BoxSprites/boltlessCrate.png")
-
-@onready var FixedLeftBolt = preload("res://spirtes/bolts/fixedLeftBolt.png")
-@onready var FixedRightBolt = preload("res://spirtes/bolts/fixedRightBolt.png")
-@onready var LooseLeftBolt = preload("res://spirtes/bolts/looseLeftBolt.png")
-@onready var LooseRightBolt = preload("res://spirtes/bolts/looseRightBolt.png")
 
 @onready var box_spawner: Node2D = $"../BoxSpawner"
 @onready var score: Label = $"../Score"
@@ -35,8 +24,11 @@ var boxType
 #Crate Controller
 @onready var bolts: Node2D = $Area2D/Bolts
 
+
+
 var looseBoltAmt = 0
 var missingBoltAmt = 0
+
 # 0 = Fixed Bolt
 # 1 = Loose Bolt
 # 2 = Missing Bolt
@@ -44,18 +36,42 @@ var boltPositions: Array = [0,
 							0,
 							0,
 							0]
-
 var rng = RandomNumberGenerator.new()
 var rotationRate = 0
-func _set_speed_to(speed):
-	if rotationRate==0:
-		boxSpeed = speed
+
+#Box Textures
+var fixedTextures = []
+var openedTextures = []
+var tapelessTextures = []
+var dirtyTextures = []
+var bulgingTextures = []
+#var fixedCrates = []
+var boltlessCrates = []
+var LooseLeftBolts = []
+var LooseRightBolts = []
+
+var boxLabelNumber = 0
 #Box Spawning Behavior
+var boxes
 func _ready() -> void:
+	boxes = get_parent()
+	fixedTextures = boxes.fixedTextures
+	openedTextures = boxes.openedTextures
+	tapelessTextures = boxes.tapelessTextures
+	dirtyTextures = boxes.dirtyTextures
+	bulgingTextures = boxes.bulgingTextures
+	#fixedCrates = boxes.fixedCrates
+	boltlessCrates = boxes.boltlessCrates
+	LooseLeftBolts = boxes.LooseLeftBolts
+	#LooseRightBolts = boxes.LooseRightBolts
 	boxTypes = Global._get_spawn_rates()
 	safeBoxes = Global._get_safe_boxes()
 	unsafeDiscardBoxes = Global._get_unsafe_discard_boxes()
 	Global._add_box_to_scene(self)
+
+func _set_speed_to(speed):
+	if rotationRate==0:
+		boxSpeed = speed
 
 func get_box_type():
 	rng.randomize()
@@ -71,30 +87,30 @@ func get_box_type():
 func match_box(type: String) -> void:
 	match type:
 		"Fixed":
-			$Area2D/Sprite.texture = fixedTexture
+			$Area2D/Sprite.texture = fixedTextures[randi_range(0,fixedTextures.size()-1)]
 		"Opened":
-			$Area2D/Sprite.texture = openedTexture
+			$Area2D/Sprite.texture = openedTextures[randi_range(0,openedTextures.size()-1)]
 		"Tapeless":
-			$Area2D/Sprite.texture = tapelessTexture
+			$Area2D/Sprite.texture = tapelessTextures[randi_range(0,tapelessTextures.size()-1)]
 		"Dirty":
-			$Area2D/Sprite.texture = dirtyTexture
+			$Area2D/Sprite.texture = dirtyTextures[randi_range(0,dirtyTextures.size()-1)]
 		"Mislabeled":
-			$Area2D/Sprite.texture = fixedTexture
+			$Area2D/Sprite.texture = fixedTextures[randi_range(0,fixedTextures.size()-1)]
 		"Bulging":
-			$Area2D/Sprite.modulate = Color("purple")
+			$Area2D/Sprite.texture = bulgingTextures[randi_range(0,bulgingTextures.size()-1)]
 		"Fixed Crate":
-			$Area2D/Sprite.texture = fixedCrate
+			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			_set_bolt_sprites()
 		"Loose Bolt":
-			$Area2D/Sprite.texture = boltlessCrate
+			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			looseBoltAmt = randi_range(1,2)
 			_set_bolt_positions(looseBoltAmt, 1)
 			_set_bolt_sprites()
 			
 		"Boltless":
-			$Area2D/Sprite.texture = boltlessCrate
+			$Area2D/Sprite.texture = boltlessCrates[randi_range(0,boltlessCrates.size()-1)]
 			boxLabel.visible = false
 			missingBoltAmt = randi_range(1,2)
 			_set_bolt_positions(missingBoltAmt, 2)
@@ -103,7 +119,13 @@ func match_box(type: String) -> void:
 		_:
 			pass
 func change_label(count: int) -> void:
-	boxLabel.text = str(count)
+	if boxType == "Mislabeled":
+		var rand = randi_range(-5,5)
+		if rand == 0:
+			rand = 1
+		boxLabel.text = str(count + rand)
+	else:
+		boxLabel.text = str(count)
 
 #Crate Behaviors
 func _set_bolt_positions(boltAmt, type: int):
@@ -119,15 +141,17 @@ func _set_bolt_sprites():
 		var bolt = bolts.get_child(index)
 		bolt.visible = true
 		if boltPositions[index] == 0:
+			bolt.texture = boxes.FixedLeftBolt
 			if index < 2:
-				bolt.texture = FixedLeftBolt
+				bolt.flip_h = false
 			else:
-				bolt.texture = FixedRightBolt
+				bolt.flip_h = true
 		elif boltPositions[index] == 1:
+			bolt.texture = LooseLeftBolts[randi_range(0,LooseLeftBolts.size()-1)]
 			if index < 2:
-				bolt.texture = LooseLeftBolt
+				bolt.flip_h = false
 			else:
-				bolt.texture = LooseRightBolt
+				bolt.flip_h = true
 		else:
 			bolt.visible = false
 
@@ -210,7 +234,7 @@ func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		Global._reset_tool()
 
 func fix_box():
-	$Area2D/Sprite.texture = fixedTexture
+	$Area2D/Sprite.texture = fixedTextures[randi_range(0,fixedTextures.size()-1)]
 	boxType = "Fixed"
 	
 #Method to call in the animation player

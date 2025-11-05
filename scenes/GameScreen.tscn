@@ -1,6 +1,7 @@
-[gd_scene load_steps=42 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=46 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
+[ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_wx6og"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
 [ext_resource type="Script" uid="uid://cdqh3u4uhwnxp" path="res://scripts/scoreController.gd" id="4_nt2i5"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
@@ -14,121 +15,6 @@ bg_color = Color(0, 0, 0, 0.72156864)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nt2i5"]
 bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
-
-[sub_resource type="Animation" id="Animation_wx6og"]
-resource_name = "popUpInstructions"
-length = 0.65
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.65),
-"transitions": PackedFloat32Array(0.49999997, 1.7411013, 1),
-"update": 0,
-"values": [Vector2(-450, 360), Vector2(-450, -360), Vector2(-450, -308)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../darkeningOverlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_srnt6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.45062527),
-"update": 0,
-"values": [Vector2(-450, -308)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../darkeningOverlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GearTransition:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-542, 300)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GearTransition:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("GearBacking:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2006, -84)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("GearBacking/LoadingText:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_hv6d7"]
 resource_name = "InstructionExit"
@@ -158,9 +44,90 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_nt2i5"]
-resource_name = "levelCompleteScreenEnter"
-length = 3.0
+[sub_resource type="Animation" id="Animation_srnt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.45062527),
+"update": 0,
+"values": [Vector2(-450, -300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../darkeningOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wx6og"]
+resource_name = "popUpInstructions"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.65),
+"transitions": PackedFloat32Array(0.49999997, 1.7411013, 1),
+"update": 0,
+"values": [Vector2(-450, 360), Vector2(-450, -360), Vector2(-450, -308)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../darkeningOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hshbf"]
+_data = {
+&"InstructionExit": SubResource("Animation_hv6d7"),
+&"RESET": SubResource("Animation_srnt6"),
+&"popUpInstructions": SubResource("Animation_wx6og")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iofb"]
+bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfff6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_itox2"]
+
+[sub_resource type="Animation" id="Animation_o8yur"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -168,8 +135,84 @@ tracks/0/path = NodePath("../darkeningOverlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.6372803, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearTransition:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-542, 300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GearTransition:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GearBacking:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2006, -84)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GearBacking/LoadingText:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_u4ox6"]
+resource_name = "levelCompleteEnter"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../darkeningOverlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.40612632, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -180,10 +223,10 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8333333, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2333332, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -192,20 +235,29 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2, 3, 4, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"_set_final_score"
 }, {
 "args": [],
 "method": &"_set_boxes_missed"
+}, {
+"args": [0],
+"method": &"_try_set_star_visible"
+}, {
+"args": [1],
+"method": &"_try_set_star_visible"
+}, {
+"args": [2],
+"method": &"_try_set_star_visible"
 }]
 }
 
-[sub_resource type="Animation" id="Animation_hshbf"]
-resource_name = "levelCompleteMenuTransition"
-length = 2.0
+[sub_resource type="Animation" id="Animation_8nqap"]
+resource_name = "levelCompleteMainmenu"
+length = 2.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -213,10 +265,10 @@ tracks/0/path = NodePath("GearTransition:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0.033333335, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-542, 300), Vector2(1442, 300)]
+"values": [Vector2(-542, 300), Vector2(1500, 300)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -225,7 +277,7 @@ tracks/1/path = NodePath("GearTransition:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0.033333335, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.283185307179586]
@@ -240,7 +292,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2300, -84), Vector2(-250, -84)]
+"values": [Vector2(-2200, -84), Vector2(-200, -84)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -250,7 +302,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(20.39297, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
@@ -261,7 +313,7 @@ tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(2.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -269,19 +321,12 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hshbf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nu2g1"]
 _data = {
-&"InstructionExit": SubResource("Animation_hv6d7"),
-&"RESET": SubResource("Animation_srnt6"),
-&"levelCompleteMenuTransition": SubResource("Animation_hshbf"),
-&"levelCompleteScreenEnter": SubResource("Animation_nt2i5"),
-&"popUpInstructions": SubResource("Animation_wx6og")
+&"RESET": SubResource("Animation_o8yur"),
+&"levelCompleteEnter": SubResource("Animation_u4ox6"),
+&"levelCompleteMainmenu": SubResource("Animation_8nqap")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjvrw"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jtgoe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
 font_size = 40
@@ -553,6 +598,7 @@ process_mode = 3
 script = ExtResource("1_osnef")
 
 [node name="darkeningOverlay" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
 z_index = 9
 offset_left = -576.0
 offset_top = -328.0
@@ -565,9 +611,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
 process_mode = 3
 z_index = 10
 offset_left = -450.0
-offset_top = -308.0
+offset_top = -300.0
 offset_right = 470.0
-offset_bottom = 300.0
+offset_bottom = 308.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nt2i5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelInstructions"]
@@ -576,6 +623,7 @@ offset_left = 56.0
 offset_top = 24.0
 offset_right = 880.0
 offset_bottom = 584.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_font_sizes/normal_font_size = 41
 text = "|Shift #0 | Worker #1012 |Business Co. |
@@ -585,12 +633,6 @@ With love,
 Boss"
 scroll_active = false
 shortcut_keys_enabled = false
-
-[node name="levelInstructionAnimations" type="AnimationPlayer" parent="levelInstructions"]
-libraries = {
-&"": SubResource("AnimationLibrary_hshbf")
-}
-autoplay = "popUpInstructions"
 
 [node name="Label" type="Label" parent="levelInstructions"]
 layout_mode = 0
@@ -602,14 +644,22 @@ theme_override_colors/font_color = Color(0.27, 0.27, 0.27, 1)
 theme_override_font_sizes/font_size = 30
 text = "click anywhere to continue"
 
+[node name="levelInstructionAnimations" type="AnimationPlayer" parent="levelInstructions"]
+libraries = {
+&"": SubResource("AnimationLibrary_hshbf")
+}
+autoplay = "popUpInstructions"
+
 [node name="levelComplete" type="Panel" parent="."]
 process_mode = 3
+modulate = Color(1, 1, 1, 0)
 z_index = 10
 offset_left = -450.0
-offset_top = -308.0
+offset_top = -300.0
 offset_right = 470.0
-offset_bottom = 300.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nt2i5")
+offset_bottom = 308.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1iofb")
 
 [node name="GearBacking" type="Panel" parent="levelComplete"]
 z_index = 2
@@ -618,15 +668,16 @@ offset_left = -2006.0
 offset_top = -84.0
 offset_right = -142.0
 offset_bottom = 684.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_cjvrw")
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
 
 [node name="LoadingText" type="Label" parent="levelComplete/GearBacking"]
 visible = false
 layout_mode = 0
-offset_left = 1060.0
-offset_top = 688.0
-offset_right = 1209.0
-offset_bottom = 733.0
+offset_left = 898.0
+offset_top = 632.0
+offset_right = 1047.0
+offset_bottom = 677.0
 theme_override_font_sizes/font_size = 32
 text = "Loading..."
 
@@ -634,7 +685,7 @@ text = "Loading..."
 z_index = 1
 position = Vector2(-542, 300)
 scale = Vector2(800, 800)
-texture = SubResource("PlaceholderTexture2D_jtgoe")
+texture = SubResource("PlaceholderTexture2D_itox2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelComplete"]
 layout_mode = 0
@@ -642,21 +693,38 @@ offset_left = 56.0
 offset_top = 24.0
 offset_right = 880.0
 offset_bottom = 584.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0.1, 0.1, 0.1, 1)
 theme_override_font_sizes/normal_font_size = 41
 text = "                     | Shift Complete! |
 
-Final Score: 0
+Final Score: 
 
-Boxes Missed: 0
+Boxes Missed: 
 "
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="levelCompleteAnimations" type="AnimationPlayer" parent="levelComplete"]
-libraries = {
-&"": SubResource("AnimationLibrary_hshbf")
-}
+[node name="FinalScore" type="Label" parent="levelComplete/RichTextLabel"]
+z_index = 1
+layout_mode = 0
+offset_left = 234.0
+offset_top = 100.0
+offset_right = 274.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="BoxesMissed" type="Label" parent="levelComplete/RichTextLabel"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 212.0
+offset_right = 330.0
+offset_bottom = 300.0
+theme_override_colors/font_color = Color(0.14, 0.14, 0.14, 1)
+theme_override_font_sizes/font_size = 64
+text = "0"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0
@@ -667,6 +735,32 @@ offset_bottom = 594.0
 theme_override_colors/font_color = Color(0.27, 0.27, 0.27, 1)
 theme_override_font_sizes/font_size = 30
 text = "click anywhere to continue"
+
+[node name="levelCompleteAnimations" type="AnimationPlayer" parent="levelComplete"]
+libraries = {
+&"": SubResource("AnimationLibrary_nu2g1")
+}
+
+[node name="Stars" type="Node2D" parent="levelComplete"]
+position = Vector2(18, -36)
+
+[node name="Star1" type="Sprite2D" parent="levelComplete/Stars"]
+modulate = Color(0.29, 0.29, 0.29, 1)
+position = Vector2(250, 468)
+scale = Vector2(3, 3)
+texture = ExtResource("2_wx6og")
+
+[node name="Star2" type="Sprite2D" parent="levelComplete/Stars"]
+modulate = Color(0.29, 0.29, 0.29, 1)
+position = Vector2(450, 468)
+scale = Vector2(3, 3)
+texture = ExtResource("2_wx6og")
+
+[node name="Star3" type="Sprite2D" parent="levelComplete/Stars"]
+modulate = Color(0.29, 0.29, 0.29, 1)
+position = Vector2(666, 468)
+scale = Vector2(3, 3)
+texture = ExtResource("2_wx6og")
 
 [node name="Camera" type="Camera2D" parent="."]
 process_mode = 1
@@ -704,7 +798,6 @@ horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ClockTimer" type="Timer" parent="Clock"]
-wait_time = 0.126
 autostart = true
 
 [node name="ClockAnimations" type="AnimationPlayer" parent="Clock"]
