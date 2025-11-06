@@ -648,6 +648,45 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfff6"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_jtgoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GearBacking:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2800, -400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearTransition:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-992, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_hshbf"]
 resource_name = "enterScene"
 length = 2.1
@@ -764,21 +803,6 @@ tracks/4/keys = {
 "args": [],
 "method": &"_set_scene_to_title"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_jtgoe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LoadingText:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lk6j4"]
@@ -1144,9 +1168,9 @@ z_index = 12
 
 [node name="GearBacking" type="Panel" parent="LoadingScreen"]
 z_index = 2
-offset_left = -1209.0
+offset_left = -2800.0
 offset_top = -400.0
-offset_right = 655.0012
+offset_right = -935.999
 offset_bottom = 368.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
@@ -1154,12 +1178,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
 [node name="GearTransition" type="Sprite2D" parent="LoadingScreen"]
 modulate = Color(0, 0, 0, 1)
 z_index = 2
-position = Vector2(630.0801, 0)
-rotation = 4.649557
+position = Vector2(-992, 0)
+rotation = 6.2831855
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("2_1iofb")
 
 [node name="LoadingText" type="Label" parent="LoadingScreen"]
+visible = false
 z_index = 2
 offset_left = 360.0
 offset_top = 208.0
