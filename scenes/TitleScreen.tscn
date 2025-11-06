@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=16 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
+[ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
 [ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_ch40n"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_dfj8j"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="4_8k5og"]
@@ -12,10 +13,10 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.31, 0.18269335, 0.0372, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l16e"]
 bg_color = Color(0.7, 0.46666667, 0, 1)
@@ -24,17 +25,26 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.31, 0.18269335, 0.0372, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyuap"]
-bg_color = Color(0.38170326, 0.38170326, 0.3817031, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(0.54901963, 0.3647059, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66w26"]
+bg_color = Color(0.2784314, 0.1764706, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.09, 0.0648, 0.036, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
 bg_color = Color(0.25, 0.18333334, 0.125, 0.7294118)
@@ -200,10 +210,14 @@ text = "Testing"
 
 [node name="LevelSelectButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -256.0
-offset_top = -224.0
-offset_right = 256.0
-offset_bottom = -128.0
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 60.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Level Select
@@ -211,20 +225,28 @@ text = "Level Select
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -256.0
-offset_top = -40.0
-offset_right = 256.0
-offset_bottom = 64.0
+offset_left = -200.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 170.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = -256.0
-offset_top = 152.0
-offset_right = 256.0
-offset_bottom = 256.0
+offset_left = -200.0
+offset_top = 200.0
+offset_right = 200.0
+offset_bottom = 280.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Quit
@@ -233,10 +255,11 @@ text = "Quit
 [node name="LevelSelectBackdrop" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -438.0
-offset_top = -209.0
-offset_right = 437.0
-offset_bottom = 201.0
+offset_left = -506.0
+offset_top = -231.0
+offset_right = 369.0
+offset_bottom = 179.0
+scale = Vector2(1.1515064, 1.1515064)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
 
 [node name="LevelButtons" type="Control" parent="LevelSelectBackdrop"]
@@ -251,6 +274,10 @@ offset_left = 14.0
 offset_top = 16.0
 offset_right = 126.41757
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "1"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton1"]
@@ -274,6 +301,10 @@ offset_left = 137.0
 offset_top = 16.0
 offset_right = 249.41757
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "2"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton2"]
@@ -297,6 +328,10 @@ offset_left = 259.0
 offset_top = 16.0
 offset_right = 371.41757
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "3"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton3"]
@@ -320,6 +355,10 @@ offset_left = 382.0
 offset_top = 16.0
 offset_right = 494.41757
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "4"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton4"]
@@ -343,6 +382,10 @@ offset_left = 504.0
 offset_top = 16.0
 offset_right = 616.4176
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "5"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton5"]
@@ -366,6 +409,10 @@ offset_left = 626.0
 offset_top = 16.0
 offset_right = 738.4176
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "6"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton6"]
@@ -389,6 +436,10 @@ offset_left = 749.0
 offset_top = 16.0
 offset_right = 861.4176
 offset_bottom = 398.0
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "7"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton7"]
@@ -412,6 +463,10 @@ offset_left = 507.0
 offset_top = 410.22726
 offset_right = 861.0
 offset_bottom = 455.68182
+theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "8"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton8"]
@@ -443,6 +498,7 @@ offset_left = 14.0
 offset_top = 361.0
 offset_right = 126.0
 offset_bottom = 393.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 text = "Back"
 
 [node name="TItleBackgroundOverlay" type="Panel" parent="."]
@@ -458,6 +514,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8k5og")
 [node name="TitleBackground" type="Sprite2D" parent="TItleBackgroundOverlay"]
 z_index = -4
 position = Vector2(576, 328)
+scale = Vector2(1.0731893, 1.0731893)
 texture = ExtResource("3_dfj8j")
 
 [node name="GearBacking" type="Panel" parent="."]
@@ -495,6 +552,39 @@ libraries = {
 &"": SubResource("AnimationLibrary_3ej01")
 }
 autoplay = "enterScene"
+
+[node name="backgroundDecorations" type="Node2D" parent="."]
+z_index = -3
+
+[node name="Gear" type="Sprite2D" parent="backgroundDecorations"]
+modulate = Color(0.63, 0.315, 0, 1)
+position = Vector2(-4.000001, 143.00002)
+scale = Vector2(0.29345012, 0.29345012)
+texture = ExtResource("4_8k5og")
+
+[node name="Gear2" type="Sprite2D" parent="backgroundDecorations"]
+modulate = Color(0.63, 0.315, 0, 1)
+position = Vector2(496.9999, 385)
+scale = Vector2(0.385, 0.385)
+texture = ExtResource("4_8k5og")
+
+[node name="Gear3" type="Sprite2D" parent="backgroundDecorations"]
+modulate = Color(0.63, 0.315, 0, 1)
+position = Vector2(-453, 279.00003)
+scale = Vector2(0.24169937, 0.24169937)
+texture = ExtResource("4_8k5og")
+
+[node name="Gear4" type="Sprite2D" parent="backgroundDecorations"]
+modulate = Color(0.63, 0.315, 0, 1)
+position = Vector2(-197, 357)
+scale = Vector2(0.17267106, 0.17267106)
+texture = ExtResource("4_8k5og")
+
+[node name="Gear5" type="Sprite2D" parent="backgroundDecorations"]
+modulate = Color(0.63, 0.315, 0, 1)
+position = Vector2(-543, -289)
+scale = Vector2(0.17267106, 0.17267106)
+texture = ExtResource("4_8k5og")
 
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]

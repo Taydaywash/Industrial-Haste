@@ -4,6 +4,12 @@ extends Control
 func _ready() -> void:
 	get_tree().paused = false
 
+func _process(delta: float) -> void:
+	for i in range(0,5):
+		$backgroundDecorations.get_child(i).rotation += delta
+	@warning_ignore("integer_division")
+	$TItleBackgroundOverlay/TitleBackground.position = get_global_mouse_position()/100 + Vector2(576,328)
+
 #Testing
 func _on_test_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/GameScreen.tscn")
