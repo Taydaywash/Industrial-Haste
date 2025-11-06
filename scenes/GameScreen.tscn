@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=48 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="2_1iofb"]
@@ -86,7 +86,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_wx6og"]
 resource_name = "popUpInstructions"
-length = 0.65
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,7 +94,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.65),
+"times": PackedFloat32Array(1.35, 1.85, 2),
 "transitions": PackedFloat32Array(0.49999997, 1.7411013, 1),
 "update": 0,
 "values": [Vector2(-450, 360), Vector2(-450, -360), Vector2(-450, -308)]
@@ -106,7 +106,7 @@ tracks/1/path = NodePath("../darkeningOverlay:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(1.35, 1.6500001),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -121,9 +121,6 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iofb"]
 bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfff6"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_o8yur"]
 length = 0.001
@@ -154,118 +151,70 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GearTransition:position")
+tracks/2/path = NodePath("RichTextLabel/FinalScore:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-542, 300)]
+"values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GearTransition:rotation")
+tracks/3/path = NodePath("RichTextLabel/FinalScore:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(234, 100)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("GearBacking:position")
+tracks/4/path = NodePath("RichTextLabel/FinalScore:theme_override_colors/font_color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2006, -84)]
+"values": [Color(0.15, 0.15, 0.15, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("LoadingText:visible")
+tracks/5/path = NodePath("RichTextLabel/BoxesMissed:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("RichTextLabel/FinalScore:scale")
+tracks/6/path = NodePath("RichTextLabel/BoxesMissed:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(289, 211)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("RichTextLabel/FinalScore:position")
+tracks/7/path = NodePath("RichTextLabel/FinalScore:text")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(234, 100)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("RichTextLabel/FinalScore:theme_override_colors/font_color")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.15, 0.15, 0.15, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("RichTextLabel/BoxesMissed:scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("RichTextLabel/BoxesMissed:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(289, 211)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("RichTextLabel/FinalScore:text")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -427,77 +376,10 @@ tracks/10/keys = {
 ", "11", "99"]
 }
 
-[sub_resource type="Animation" id="Animation_8nqap"]
-resource_name = "levelCompleteMainmenu"
-length = 2.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GearTransition:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.033333335, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-542, 300), Vector2(1500, 300)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GearTransition:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.283185307179586]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GearBacking:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-2350, -84), Vector2(-350, -84)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LoadingText:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.6),
-"transitions": PackedFloat32Array(401.7072, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_on_main_menu_button_pressed"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nu2g1"]
 _data = {
 &"RESET": SubResource("Animation_o8yur"),
-&"levelCompleteEnter": SubResource("Animation_u4ox6"),
-&"levelCompleteMainmenu": SubResource("Animation_8nqap")
+&"levelCompleteEnter": SubResource("Animation_u4ox6")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1jb3"]
@@ -763,6 +645,149 @@ font_size = 30
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfff6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_hshbf"]
+resource_name = "enterScene"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GearBacking:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.48296818, 1),
+"update": 0,
+"values": [Vector2(-650, -400), Vector2(1000, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GearTransition:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.48296818, 1),
+"update": 0,
+"values": [Vector2(-650, 0), Vector2(1000, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearTransition:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.283185307179586, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoadingText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cjvrw"]
+resource_name = "exitScene"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GearBacking:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2800, -400), Vector2(-650, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GearTransition:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-992, 0), Vector2(1200, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GearTransition:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LoadingText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(401.7072, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_set_scene_to_title"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jtgoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lk6j4"]
+_data = {
+&"RESET": SubResource("Animation_jtgoe"),
+&"enterScene": SubResource("Animation_hshbf"),
+&"exitScene": SubResource("Animation_cjvrw")
+}
+
 [node name="GameScreen" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_osnef")
@@ -831,34 +856,6 @@ offset_bottom = 308.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1iofb")
 
-[node name="GearBacking" type="Panel" parent="levelComplete"]
-z_index = 2
-layout_mode = 0
-offset_left = -2006.0
-offset_top = -84.0
-offset_right = -142.0
-offset_bottom = 684.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
-
-[node name="LoadingText" type="Label" parent="levelComplete"]
-visible = false
-z_index = 2
-layout_mode = 0
-offset_left = 811.0
-offset_top = 548.0
-offset_right = 960.0
-offset_bottom = 593.0
-theme_override_font_sizes/font_size = 32
-text = "Loading..."
-
-[node name="GearTransition" type="Sprite2D" parent="levelComplete"]
-modulate = Color(0, 0, 0, 1)
-z_index = 2
-position = Vector2(-542, 300)
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("2_1iofb")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="levelComplete"]
 layout_mode = 0
 offset_left = 56.0
@@ -893,10 +890,10 @@ layout_mode = 0
 offset_left = 289.0
 offset_top = 211.0
 offset_right = 362.0
-offset_bottom = 390.0
+offset_bottom = 389.99997
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
-text = "99"
+text = "0"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0
@@ -1140,6 +1137,42 @@ offset_top = 442.0
 offset_right = 764.0
 offset_bottom = 506.0
 text = "Quit"
+
+[node name="LoadingScreen" type="Node2D" parent="."]
+process_mode = 3
+z_index = 12
+
+[node name="GearBacking" type="Panel" parent="LoadingScreen"]
+z_index = 2
+offset_left = -1209.0
+offset_top = -400.0
+offset_right = 655.0012
+offset_bottom = 368.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
+
+[node name="GearTransition" type="Sprite2D" parent="LoadingScreen"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(630.0801, 0)
+rotation = 4.649557
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_1iofb")
+
+[node name="LoadingText" type="Label" parent="LoadingScreen"]
+z_index = 2
+offset_left = 360.0
+offset_top = 208.0
+offset_right = 509.0
+offset_bottom = 253.0
+theme_override_font_sizes/font_size = 32
+text = "Loading..."
+
+[node name="loadingScreenAnimator" type="AnimationPlayer" parent="LoadingScreen"]
+libraries = {
+&"": SubResource("AnimationLibrary_lk6j4")
+}
+autoplay = "enterScene"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]

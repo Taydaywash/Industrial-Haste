@@ -64,6 +64,7 @@ var minute = 0
 
 @onready var level_instruction_animations: AnimationPlayer = $levelInstructions/levelInstructionAnimations
 @onready var level_complete_animations: AnimationPlayer = $levelComplete/levelCompleteAnimations
+@onready var loading_screen_animator: AnimationPlayer = $LoadingScreen/loadingScreenAnimator
 
 var gameIsStarted = false
 var shiftIsOver = false
@@ -84,7 +85,7 @@ func _input(event):
 			$Score.visible = true
 			gameIsStarted = true
 		elif shiftIsOver:
-			level_complete_animations.play("levelCompleteMainmenu")
+			loading_screen_animator.play("exitScene")
 	elif event.is_action_pressed("pause") && !shiftIsOver:
 		paused = !paused
 		get_tree().paused = paused
@@ -153,7 +154,10 @@ func _on_resume_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	paused = false
-	get_tree().paused = paused
+	get_tree().paused = false
+	loading_screen_animator.play("exitScene")
+#used in animator
+func _set_scene_to_title():
 	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
 
 func _on_quit_button_pressed() -> void:

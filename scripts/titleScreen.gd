@@ -1,6 +1,9 @@
 extends Control
 @onready var level_select_backdrop: Panel = $LevelSelectBackdrop
 
+func _ready() -> void:
+	get_tree().paused = false
+
 #Testing
 func _on_test_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/GameScreen.tscn")
@@ -37,6 +40,13 @@ func _on_level_select_button_pressed():
 func _on_level_select_back_button_pressed():
 	level_select_backdrop.visible = false
 
+var levelSceneReference
+@onready var loading_screen_animator: AnimationPlayer = $loadingScreenAnimator
+
 func _on_level_button_pressed(level):
 	Global._set_level_to(level)
-	get_tree().change_scene_to_file("res://scenes/Levels/Level"+str(level)+".tscn")
+	levelSceneReference = "res://scenes/Levels/Level"+str(level)+".tscn"
+	loading_screen_animator.play("exitScene")
+
+func _load_scene():
+	get_tree().change_scene_to_file(levelSceneReference)

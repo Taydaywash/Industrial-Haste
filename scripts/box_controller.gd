@@ -183,12 +183,20 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 		score._subtract_points(200)
 	queue_free()
 
+func _spawn_particle_at_cursor(particleReference):
+	var particleInstance = particleReference.instantiate()
+	particleInstance.position = get_local_mouse_position()
+	particleInstance.z_index = 10
+	add_child(particleInstance)
+
+var boxClickedParticle = preload("res://Particles/boxClickedParticle.tscn")
 func _attempt_tool_use(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	var tool = Global._get_tool()
 	
 	#Mouse Down
 	if event is InputEventMouseButton and event.pressed:
 		animation_player.play("pushedOffLine")
+		_spawn_particle_at_cursor(boxClickedParticle)
 		SoundManager.play_whoosh_sound()
 		if boxType in safeBoxes || boxType in unsafeDiscardBoxes:
 			score._subtract_points(200)
