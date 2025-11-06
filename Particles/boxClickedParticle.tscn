@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwufabuy84gb3"]
+
+[sub_resource type="Curve" id="Curve_ttyij"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.9941861, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8245o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.1624138, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_31qyq"]
+offsets = PackedFloat32Array(0.75342464, 1)
+colors = PackedColorArray(0.66, 0.46398002, 0.2244, 1, 0, 0, 0, 0)
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 10
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 160.0
+initial_velocity_min = 250.0
+initial_velocity_max = 400.0
+angle_min = -415.7
+angle_max = 326.6
+angle_curve = SubResource("Curve_ttyij")
+scale_amount_min = 7.0
+scale_amount_max = 15.0
+scale_amount_curve = SubResource("Curve_8245o")
+color_ramp = SubResource("Gradient_31qyq")

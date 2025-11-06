@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://yu0mnyavm82i"]
+[gd_scene load_steps=28 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
 [ext_resource type="Texture2D" uid="uid://d0xovc4gam4rg" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0000.png" id="2_lrcp5"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b6y73ycoj6m0b" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0006.png" id="8_sxp01"]
 [ext_resource type="Texture2D" uid="uid://ckr6ox2hgvi6x" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0007.png" id="9_lg2pc"]
 [ext_resource type="Texture2D" uid="uid://b60drt2xk512" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0008.png" id="10_r8tui"]
-[ext_resource type="Texture2D" uid="uid://cuflylxlgyi5c" path="res://spirtes/BoxSprites/boltlessCrate.png" id="11_rn7pf"]
+[ext_resource type="Texture2D" uid="uid://c5va8pa8cgidj" path="res://spirtes/BoxSprites/tapelessBox.png" id="11_rn7pf"]
 [ext_resource type="Texture2D" uid="uid://byguaixrf6rb2" path="res://spirtes/bolts/fixedLeftBolt.png" id="13_pqt68"]
 [ext_resource type="Texture2D" uid="uid://bpq5u4adypkx8" path="res://spirtes/bolts/fixedRightBolt.png" id="14_1v4lg"]
 
@@ -274,6 +274,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CPUParticles2D:one_shot")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rn7pf"]
 resource_name = "Screwed_Bolt_0"
@@ -450,6 +474,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CPUParticles2D:one_shot")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ji21"]
 _data = {
@@ -462,6 +510,10 @@ _data = {
 &"Screwed_Bolt_3": SubResource("Animation_48tac"),
 &"pushedOffLine": SubResource("Animation_lb2dd")
 }
+
+[sub_resource type="Gradient" id="Gradient_rn7pf"]
+offsets = PackedFloat32Array(0.36301368, 1)
+colors = PackedColorArray(0.28, 0.16352001, 0.061600007, 0.34901962, 0.89, 0.47229338, 0.106800005, 0)
 
 [node name="Boxes" type="Node2D"]
 process_mode = 1
@@ -528,6 +580,22 @@ texture = ExtResource("14_1v4lg")
 libraries = {
 &"": SubResource("AnimationLibrary_3ji21")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 7
+position = Vector2(16, 112)
+amount = 3
+lifetime = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+direction = Vector2(0, -1)
+spread = 32.27
+initial_velocity_min = 132.96
+initial_velocity_max = 223.54
+angle_max = 720.0
+scale_amount_min = 6.4
+scale_amount_max = 6.4
+color_ramp = SubResource("Gradient_rn7pf")
 
 [connection signal="input_event" from="Area2D" to="." method="_attempt_tool_use"]
 [connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
