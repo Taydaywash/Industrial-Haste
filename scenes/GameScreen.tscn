@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4woe10fa36ep" path="res://spirtes/tapeTool.png" id="7_wx6og"]
 [ext_resource type="Texture2D" uid="uid://bd4vk8smu2yo8" path="res://spirtes/wrenchTool.png" id="8_1iofb"]
 [ext_resource type="Texture2D" uid="uid://cv3nevv42dyjv" path="res://spirtes/boltsTool.png" id="9_mfff6"]
-[ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_mfff6"]
+[ext_resource type="PackedScene" path="res://scenes/lightsOffEvent.tscn" id="11_mfff6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -224,7 +224,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_u4ox6"]
 resource_name = "levelCompleteEnter"
-length = 6.0
+length = 5.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -257,7 +257,7 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2, 3, 4, 5, 6),
+"times": PackedFloat32Array(2, 2.95, 4, 4.75, 5.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -899,7 +899,7 @@ layout_mode = 0
 offset_left = 234.0
 offset_top = 100.0
 offset_right = 380.0
-offset_bottom = 278.99994
+offset_bottom = 278.99997
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
 text = "0"
@@ -909,10 +909,10 @@ layout_mode = 0
 offset_left = 289.0
 offset_top = 211.0
 offset_right = 362.0
-offset_bottom = 389.99997
+offset_bottom = 390.00018
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
-text = "0"
+text = "99"
 
 [node name="Label" type="Label" parent="levelComplete"]
 layout_mode = 0
