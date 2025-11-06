@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=14 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_ch40n"]
@@ -148,8 +148,35 @@ tracks/2/keys = {
 "values": [6.283185307179586, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_4l16e"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GearBacking:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1000, -400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GearTransition:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1000, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ej01"]
 _data = {
+&"RESET": SubResource("Animation_4l16e"),
 &"enterScene": SubResource("Animation_8k5og"),
 &"exitScene": SubResource("Animation_66w26")
 }
@@ -436,9 +463,9 @@ texture = ExtResource("3_dfj8j")
 [node name="GearBacking" type="Panel" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = -650.0
+offset_left = 1000.0
 offset_top = -400.0
-offset_right = 1214.0005
+offset_right = 2864.0007
 offset_bottom = 368.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_85feu")
@@ -446,7 +473,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_85feu")
 [node name="GearTransition" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 2
-position = Vector2(-650, 0)
+position = Vector2(1000, 0)
 rotation = 6.2831855
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("4_8k5og")
