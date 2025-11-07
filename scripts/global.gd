@@ -1,7 +1,7 @@
 extends Node
 
-var cursor = preload("res://spirtes/handToolPalmCursor.png")
-var cursor2 = preload("res://spirtes/handToolGraspCursor.png")
+var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
+var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
 var levelScores: Array = [0,3550,3330,4550,1110,2220,3330,4440,5550]
 
@@ -10,14 +10,15 @@ var boxesInScene: Array = []
 var currentBoxSpeed = 150
 
 func _ready():
-	Input.set_custom_mouse_cursor(cursor)
+	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.is_pressed():
-			Input.set_custom_mouse_cursor(cursor2)
+			Input.set_custom_mouse_cursor(cursor2, Input.CURSOR_ARROW, Vector2(16, 16))
 		else: 
-			Input.set_custom_mouse_cursor(cursor)
+			Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
+
 
 func _add_box_to_scene(box):
 	boxesInScene.insert(0,box)
