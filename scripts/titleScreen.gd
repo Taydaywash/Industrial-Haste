@@ -5,14 +5,33 @@ func _ready() -> void:
 	get_tree().paused = false
 
 func _process(delta: float) -> void:
+	if grow && buttonRef.scale.x < 1.1:
+		buttonRef.scale += Vector2(0.1,0.1)*delta
+		buttonRef.position.y -= (buttonRef.scale.y - 1.0)*10*5
 	for i in range(0,5):
-		$backgroundDecorations.get_child(i).rotation += delta
+		$backgroundDecorations.get_child(i).rotation += delta/10
 	@warning_ignore("integer_division")
-	$TItleBackgroundOverlay/TitleBackground.position = get_global_mouse_position()/100 + Vector2(576,328)
+	$TItleBackgroundOverlay/TitleBackground.position = get_global_mouse_position()/200 + Vector2(576,328)
 
 #Testing
 func _on_test_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/GameScreen.tscn")
+
+
+#Level Select
+func _on_level_select_back_button_pressed():
+	level_select_backdrop.visible = false
+
+var levelSceneReference
+@onready var loading_screen_animator: AnimationPlayer = $loadingScreenAnimator
+
+func _on_level_button_pressed(level):
+	Global._set_level_to(level)
+	levelSceneReference = "res://scenes/Levels/Level"+str(level)+".tscn"
+	loading_screen_animator.play("exitScene")
+
+func _load_scene():
+	get_tree().change_scene_to_file(levelSceneReference)
 
 #Main Menu
 func _on_quit_button_pressed() -> void:
@@ -42,17 +61,19 @@ func _on_level_select_button_pressed():
 			
 	level_select_backdrop.visible = true
 
-#Level Select
-func _on_level_select_back_button_pressed():
-	level_select_backdrop.visible = false
+func _on_settings_button_pressed() -> void:
+	pass # Replace with function body.
 
-var levelSceneReference
-@onready var loading_screen_animator: AnimationPlayer = $loadingScreenAnimator
+@onready var buttons: Control = $Buttons
+var grow = false
+var buttonRef
+func _on_button_hovered(button: int) -> void:
+	grow = true
+	buttonRef = buttons.get_child(button)
+	
 
-func _on_level_button_pressed(level):
-	Global._set_level_to(level)
-	levelSceneReference = "res://scenes/Levels/Level"+str(level)+".tscn"
-	loading_screen_animator.play("exitScene")
-
-func _load_scene():
-	get_tree().change_scene_to_file(levelSceneReference)
+func _on_button_unhovered(button: int) -> void:
+	grow = false
+	buttonRef.position.y += (buttonRef.scale.y - 1.0)*50*5
+	buttonRef.scale = Vector2(1,1)
+	
