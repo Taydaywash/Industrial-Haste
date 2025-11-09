@@ -20,19 +20,24 @@ script = ExtResource("1_p1llj")
 [node name="SoundWhoosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_rupev")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="SoundBoltPlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_rs7eg")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="SoundBoltScrewed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yai5u")
+bus = &"SFX"
 
 [node name="SoundPoof" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_yai5u")
 volume_db = -4.0
+bus = &"SFX"
 
 [node name="SoundTapePlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4xaxn")
 volume_db = -10.0
 pitch_scale = 0.9
+bus = &"SFX"
