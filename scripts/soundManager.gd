@@ -1,5 +1,12 @@
 extends Control
 
+func set_master_volume_to(value):
+	AudioServer.set_bus_volume_linear(0,value)
+func set_sfx_volume_to(value):
+	AudioServer.set_bus_volume_linear(1,value)
+func set_music_volume_to(value):
+	AudioServer.set_bus_volume_linear(2,value)
+	
 func play_whoosh_sound():
 	randomize()
 	$SoundWhoosh.pitch_scale = randf_range(.8, 1.2)
