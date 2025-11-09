@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=30 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
 [ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="3_85feu"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_dfj8j"]
+[ext_resource type="Texture2D" uid="uid://cxoqc0jj6astn" path="res://spirtes/BoxSprites/bolts/fixedLeftBolt.png" id="4_3ej01"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="4_8k5og"]
+[ext_resource type="Texture2D" uid="uid://b6okgx15jef2x" path="res://spirtes/BoxSprites/bolts/fixedRightBolt.png" id="5_w20ru"]
 [ext_resource type="Texture2D" uid="uid://bffdbenu4egve" path="res://spirtes/titleIcon.png" id="6_85feu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
@@ -32,6 +34,41 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyuap"]
+bg_color = Color(0.33, 0.229625, 0.089099996, 0.92941177)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w20ru"]
+bg_color = Color(0, 0, 0, 0.30980393)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66w26"]
+bg_color = Color(0.54901963, 0.3647059, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vfo2"]
+bg_color = Color(0.7, 0.46666667, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31, 0.18269335, 0.0372, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjcsb"]
+bg_color = Color(0.7, 0.46666667, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.31, 0.18269335, 0.0372, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ktle"]
 bg_color = Color(0.32941177, 0.23137255, 0.09019608, 1)
 border_width_left = 3
 border_width_top = 3
@@ -39,13 +76,63 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66w26"]
-bg_color = Color(0.2784314, 0.1764706, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.09, 0.0648, 0.036, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_l7b4h"]
+font = ExtResource("2_4l16e")
+font_size = 26
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7b4h"]
+bg_color = Color(0.54901963, 0.3647059, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mdse"]
+bg_color = Color(0.71, 0.47333333, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f48o8"]
+bg_color = Color(0.84, 0.56, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mdse"]
+font = ExtResource("2_4l16e")
+font_size = 50
+font_color = Color(0.54901963, 0.3647059, 0, 1)
+outline_size = 8
+outline_color = Color(0.2784314, 0.1764706, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_85feu"]
+font = ExtResource("2_4l16e")
+font_size = 34
+font_color = Color(0.09019608, 0.06666667, 0.03529412, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
 bg_color = Color(0.25, 0.18333334, 0.125, 0.7294118)
@@ -269,6 +356,7 @@ text = "Quit
 
 [node name="LevelSelectBackdrop" type="Panel" parent="."]
 visible = false
+z_index = 1
 layout_mode = 0
 offset_left = -506.0
 offset_top = -231.0
@@ -276,6 +364,15 @@ offset_right = 369.0
 offset_bottom = 179.0
 scale = Vector2(1.1515064, 1.1515064)
 theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="backgroundDarken" type="Panel" parent="LevelSelectBackdrop"]
+z_index = -1
+layout_mode = 0
+offset_left = -63.395233
+offset_top = -82.50064
+offset_right = 943.1123
+offset_bottom = 487.18784
+theme_override_styles/panel = SubResource("StyleBoxFlat_w20ru")
 
 [node name="LevelButtons" type="Control" parent="LevelSelectBackdrop"]
 anchors_preset = 0
@@ -289,10 +386,11 @@ offset_left = 14.0
 offset_top = 16.0
 offset_right = 126.41757
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "1"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton1"]
@@ -316,10 +414,11 @@ offset_left = 137.0
 offset_top = 16.0
 offset_right = 249.41757
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "2"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton2"]
@@ -343,10 +442,11 @@ offset_left = 259.0
 offset_top = 16.0
 offset_right = 371.41757
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "3"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton3"]
@@ -370,10 +470,11 @@ offset_left = 382.0
 offset_top = 16.0
 offset_right = 494.41757
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "4"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton4"]
@@ -397,10 +498,11 @@ offset_left = 504.0
 offset_top = 16.0
 offset_right = 616.4176
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "5"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton5"]
@@ -424,10 +526,11 @@ offset_left = 626.0
 offset_top = 16.0
 offset_right = 738.4176
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "6"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton6"]
@@ -451,10 +554,11 @@ offset_left = 749.0
 offset_top = 16.0
 offset_right = 861.4176
 offset_bottom = 398.0
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "7"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton7"]
@@ -478,10 +582,11 @@ offset_left = 507.0
 offset_top = 410.22726
 offset_right = 861.0
 offset_bottom = 455.68182
-theme_override_colors/font_color = Color(0.54901963, 0.3647059, 0, 1)
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1vfo2")
 text = "8"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton8"]
@@ -501,10 +606,12 @@ texture = ExtResource("3_85feu")
 
 [node name="WeekLabel" type="Label" parent="LevelSelectBackdrop"]
 layout_mode = 0
-offset_left = 414.0
-offset_top = 365.0
-offset_right = 471.0
-offset_bottom = 388.0
+offset_left = 403.81885
+offset_top = 370.8186
+offset_right = 475.81885
+offset_bottom = 393.8186
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 24
 text = "Week 1"
 
 [node name="LevelSelectBackButton" type="Button" parent="LevelSelectBackdrop"]
@@ -513,35 +620,213 @@ offset_left = 14.0
 offset_top = 361.0
 offset_right = 126.0
 offset_bottom = 393.0
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
 text = "Back"
 
-[node name="LevelSelectBackdrop2" type="Panel" parent="."]
-visible = false
+[node name="SettingMenu" type="Panel" parent="."]
 layout_mode = 0
 offset_left = -506.0
 offset_top = -231.0
 offset_right = 369.0
 offset_bottom = 179.0
 scale = Vector2(1.1515064, 1.1515064)
-theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ktle")
 
-[node name="WeekLabel" type="Label" parent="LevelSelectBackdrop2"]
+[node name="SettingsLabel" type="Label" parent="SettingMenu"]
 layout_mode = 0
-offset_left = 414.0
+offset_left = 385.58188
 offset_top = 365.0
-offset_right = 471.0
-offset_bottom = 388.0
+offset_right = 534.5819
+offset_bottom = 398.0
 text = "Settings"
+label_settings = SubResource("LabelSettings_l7b4h")
 
-[node name="LevelSelectBackButton" type="Button" parent="LevelSelectBackdrop2"]
+[node name="SettingsBackButton" type="Button" parent="SettingMenu"]
 layout_mode = 0
 offset_left = 14.0
-offset_top = 361.0
-offset_right = 126.0
+offset_top = 350.84476
+offset_right = 155.44855
 offset_bottom = 393.0
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
 text = "Back"
+
+[node name="MasterVolumeText" type="HSlider" parent="SettingMenu"]
+layout_mode = 0
+offset_left = 23.447546
+offset_top = 108.55345
+offset_right = 2415.9448
+offset_bottom = 248.55345
+scale = Vector2(0.34265274, 0.34265274)
+theme_override_icons/grabber = ExtResource("4_3ej01")
+theme_override_icons/grabber_highlight = ExtResource("4_3ej01")
+theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
+value = 50.0
+
+[node name="volumeText" type="Label" parent="SettingMenu/MasterVolumeText"]
+layout_mode = 0
+offset_left = 10.137695
+offset_top = -179.94418
+offset_right = 377.1377
+offset_bottom = -134.94418
+scale = Vector2(2.317901, 2.317901)
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="volumeNumber" type="Label" parent="SettingMenu/MasterVolumeText"]
+layout_mode = 0
+offset_left = 965.6159
+offset_top = -179.94418
+offset_right = 1332.616
+offset_bottom = -134.94418
+scale = Vector2(2.317901, 2.317901)
+text = "50"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="Music Volume" type="HSlider" parent="SettingMenu"]
+layout_mode = 0
+offset_left = 23.447546
+offset_top = 234.47548
+offset_right = 1229.6738
+offset_bottom = 374.47546
+scale = Vector2(0.34125826, 0.34125826)
+theme_override_icons/grabber = ExtResource("4_3ej01")
+theme_override_icons/grabber_highlight = ExtResource("4_3ej01")
+theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
+value = 50.0
+
+[node name="musicText" type="Label" parent="SettingMenu/Music Volume"]
+layout_mode = 0
+offset_left = 10.179077
+offset_top = -147.59735
+offset_right = 339.17908
+offset_bottom = -102.59735
+scale = Vector2(2.323286, 2.323286)
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="musicNumber" type="Label" parent="SettingMenu/Music Volume"]
+layout_mode = 0
+offset_left = 969.56165
+offset_top = -147.59735
+offset_right = 1298.5616
+offset_bottom = -102.59735
+scale = Vector2(2.323286, 2.323286)
+text = "50"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="SFX Volume" type="HSlider" parent="SettingMenu"]
+layout_mode = 0
+offset_left = 456.79294
+offset_top = 233.60704
+offset_right = 1596.855
+offset_bottom = 373.60706
+scale = Vector2(0.34125826, 0.34125826)
+theme_override_icons/grabber = ExtResource("4_3ej01")
+theme_override_icons/grabber_highlight = ExtResource("4_3ej01")
+theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
+theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
+value = 50.0
+
+[node name="SFXText" type="Label" parent="SettingMenu/SFX Volume"]
+layout_mode = 0
+offset_left = 10.179127
+offset_top = -147.59735
+offset_right = 286.17914
+offset_bottom = -102.59735
+scale = Vector2(2.323286, 2.323286)
+text = "SFX Volume"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="SFXNumber" type="Label" parent="SettingMenu/SFX Volume"]
+layout_mode = 0
+offset_left = 911.0317
+offset_top = -147.59735
+offset_right = 1187.0317
+offset_bottom = -102.59735
+scale = Vector2(2.323286, 2.323286)
+text = "50"
+label_settings = SubResource("LabelSettings_3mdse")
+
+[node name="ResetButton" type="Button" parent="SettingMenu"]
+layout_mode = 0
+offset_left = 712.97906
+offset_top = 350.84476
+offset_right = 854.4276
+offset_bottom = 393.0
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
+text = "Reset Data"
+
+[node name="QuitConfirm" type="Panel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -337.0
+offset_top = -101.0
+offset_right = 240.5044
+offset_bottom = 50.97484
+scale = Vector2(1.1515064, 1.1515064)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="backgroundDarken" type="Panel" parent="QuitConfirm"]
+z_index = -1
+layout_mode = 0
+offset_left = -210.15948
+offset_top = -196.26465
+offset_right = 796.3481
+offset_bottom = 373.42383
+theme_override_styles/panel = SubResource("StyleBoxFlat_w20ru")
+
+[node name="quitConfirmText" type="Label" parent="QuitConfirm"]
+layout_mode = 0
+offset_left = 34.737114
+offset_top = 16.500122
+offset_right = 728.7371
+offset_bottom = 57.500122
+text = "Are you sure you want to quit?"
+label_settings = SubResource("LabelSettings_85feu")
+
+[node name="quitConfirm" type="Button" parent="QuitConfirm"]
+layout_mode = 0
+offset_left = 22.579117
+offset_top = 77.290054
+offset_right = 225.79118
+offset_bottom = 132.73761
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+text = "Get me out!"
+
+[node name="quitCancel" type="Button" parent="QuitConfirm"]
+layout_mode = 0
+offset_left = 353.45007
+offset_top = 77.290054
+offset_right = 556.57935
+offset_bottom = 131.13255
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+text = "Nah nevermind"
 
 [node name="TItleBackgroundOverlay" type="Panel" parent="."]
 z_index = -2
@@ -654,4 +939,10 @@ texture = ExtResource("6_85feu")
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_level_button_pressed" binds= [7]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_level_button_pressed" binds= [8]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]
-[connection signal="pressed" from="LevelSelectBackdrop2/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]
+[connection signal="pressed" from="SettingMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="value_changed" from="SettingMenu/MasterVolumeText" to="." method="_on_master_volume_text_value_changed"]
+[connection signal="value_changed" from="SettingMenu/Music Volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="SettingMenu/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="pressed" from="SettingMenu/ResetButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="pressed" from="QuitConfirm/quitConfirm" to="." method="_on_quit_confirm_pressed"]
+[connection signal="pressed" from="QuitConfirm/quitCancel" to="." method="_on_quit_cancel_pressed"]

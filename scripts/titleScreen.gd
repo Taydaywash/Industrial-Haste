@@ -1,5 +1,7 @@
 extends Control
 @onready var level_select_backdrop: Panel = $LevelSelectBackdrop
+@onready var setting_menu: Panel = $SettingMenu
+@onready var quit_confirm: Panel = $QuitConfirm
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -32,13 +34,10 @@ func _load_scene():
 	get_tree().change_scene_to_file(levelSceneReference)
 
 #Main Menu
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-	
 func _on_level_select_button_pressed():
 	for childIndex in range (0,8):
 		for starIndex in range (0,3):
-			var star = level_select_backdrop.get_child(0).get_child(childIndex).get_child(starIndex)
+			var star = level_select_backdrop.get_child(1).get_child(childIndex).get_child(starIndex)
 			match starIndex:
 				2:
 					if Global.levelScores[childIndex+1] >= 4500:
@@ -60,4 +59,28 @@ func _on_level_select_button_pressed():
 	level_select_backdrop.visible = true
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	setting_menu.visible = true
+func _on_settings_back_button_pressed() -> void:
+	setting_menu.visible = false
+
+func _on_quit_button_pressed() -> void:
+	quit_confirm.visible = true
+func _on_quit_confirm_pressed() -> void:
+	get_tree().quit()
+func _on_quit_cancel_pressed() -> void:
+	quit_confirm.visible = false
+
+@onready var volume_number: Label = $SettingMenu/MasterVolumeText/volumeNumber
+func _on_master_volume_text_value_changed(value: int) -> void:
+	SoundManager. play_bolt_placed_sound()
+	volume_number.text = str(value)
+
+@onready var music_number: Label = $"SettingMenu/Music Volume/musicNumber"
+func _on_music_volume_value_changed(value: int) -> void:
+	SoundManager. play_bolt_placed_sound()
+	music_number.text = str(value)
+
+@onready var sfx_number: Label = $"SettingMenu/SFX Volume/SFXNumber"
+func _on_sfx_volume_value_changed(value: int) -> void:
+	SoundManager. play_bolt_placed_sound()
+	sfx_number.text = str(value)
