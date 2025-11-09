@@ -30,7 +30,7 @@ stream = ExtResource("4_yai5u")
 
 [node name="SoundPoof" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_yai5u")
-volume_db = -2.0
+volume_db = -4.0
 
 [node name="SoundTapePlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4xaxn")
