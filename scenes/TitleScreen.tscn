@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=18 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
 [ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_ch40n"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_dfj8j"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="4_8k5og"]
+[ext_resource type="Texture2D" uid="uid://bffdbenu4egve" path="res://spirtes/titleIcon.png" id="6_85feu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
 bg_color = Color(0.55, 0.36666667, 0, 1)
@@ -191,6 +192,14 @@ _data = {
 &"exitScene": SubResource("Animation_66w26")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ej01"]
+bg_color = Color(0.54901963, 0.3647059, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
+
 [node name="mainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -208,12 +217,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Testing"
 
-[node name="LevelSelectButton" type="Button" parent="."]
+[node name="buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 68.0
+
+[node name="LevelSelectButton" type="Button" parent="buttons"]
 layout_mode = 0
 offset_left = -200.0
-offset_top = -20.0
+offset_top = 60.0
 offset_right = 200.0
-offset_bottom = 60.0
+offset_bottom = 120.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
@@ -223,12 +238,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Level Select
 "
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="SettingsButton" type="Button" parent="buttons"]
 layout_mode = 0
 offset_left = -200.0
-offset_top = 90.0
+offset_top = 130.0
 offset_right = 200.0
-offset_bottom = 170.0
+offset_bottom = 190.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
@@ -237,12 +252,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="buttons"]
 layout_mode = 0
 offset_left = -200.0
 offset_top = 200.0
 offset_right = 200.0
-offset_bottom = 280.0
+offset_bottom = 260.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
 theme_override_fonts/font = ExtResource("2_4l16e")
@@ -558,7 +573,7 @@ z_index = -3
 
 [node name="Gear" type="Sprite2D" parent="backgroundDecorations"]
 modulate = Color(0.63, 0.315, 0, 1)
-position = Vector2(-4.000001, 143.00002)
+position = Vector2(71, 267)
 scale = Vector2(0.29345012, 0.29345012)
 texture = ExtResource("4_8k5og")
 
@@ -586,9 +601,23 @@ position = Vector2(-543, -289)
 scale = Vector2(0.17267106, 0.17267106)
 texture = ExtResource("4_8k5og")
 
+[node name="buttonsBackground" type="Panel" parent="backgroundDecorations"]
+offset_left = -171.0
+offset_top = 67.0
+offset_right = 171.0
+offset_bottom = 337.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ej01")
+
+[node name="titleIcon" type="Sprite2D" parent="backgroundDecorations"]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_85feu")
+
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
-[connection signal="pressed" from="LevelSelectButton" to="." method="_on_level_select_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="buttons/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_level_button_pressed" binds= [1]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_on_level_button_pressed" binds= [2]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_on_level_button_pressed" binds= [3]]
