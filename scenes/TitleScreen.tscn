@@ -670,7 +670,9 @@ theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
 theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="volumeText" type="Label" parent="SettingMenu/MasterVolumeText"]
 layout_mode = 0
@@ -705,7 +707,9 @@ theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
 theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="musicText" type="Label" parent="SettingMenu/Music Volume"]
 layout_mode = 0
@@ -740,7 +744,9 @@ theme_override_icons/grabber_disabled = ExtResource("5_w20ru")
 theme_override_styles/slider = SubResource("StyleBoxFlat_l7b4h")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3mdse")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_f48o8")
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="SFXText" type="Label" parent="SettingMenu/SFX Volume"]
 layout_mode = 0

@@ -71,16 +71,20 @@ func _on_quit_cancel_pressed() -> void:
 	quit_confirm.visible = false
 
 @onready var volume_number: Label = $SettingMenu/MasterVolumeText/volumeNumber
-func _on_master_volume_text_value_changed(value: int) -> void:
+func _on_master_volume_text_value_changed(value: float) -> void:
 	SoundManager. play_bolt_placed_sound()
-	volume_number.text = str(value)
-
-@onready var music_number: Label = $"SettingMenu/Music Volume/musicNumber"
-func _on_music_volume_value_changed(value: int) -> void:
-	SoundManager. play_bolt_placed_sound()
-	music_number.text = str(value)
+	SoundManager.set_master_volume_to(value)
+	
+	volume_number.text = str(int(value*100))
 
 @onready var sfx_number: Label = $"SettingMenu/SFX Volume/SFXNumber"
-func _on_sfx_volume_value_changed(value: int) -> void:
+func _on_sfx_volume_value_changed(value: float) -> void:
 	SoundManager. play_bolt_placed_sound()
-	sfx_number.text = str(value)
+	SoundManager.set_sfx_volume_to(value)
+	sfx_number.text = str(int(value*100))
+
+@onready var music_number: Label = $"SettingMenu/Music Volume/musicNumber"
+func _on_music_volume_value_changed(value: float) -> void:
+	SoundManager. play_bolt_placed_sound()
+	SoundManager.set_music_volume_to(value)
+	music_number.text = str(int(value*100))
