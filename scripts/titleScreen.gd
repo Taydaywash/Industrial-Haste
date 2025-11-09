@@ -9,6 +9,7 @@ func _process(delta: float) -> void:
 		$backgroundDecorations.get_child(i).rotation += delta
 	@warning_ignore("integer_division")
 	$TItleBackgroundOverlay/TitleBackground.position = get_global_mouse_position()/500 + Vector2(576,328)
+	$backgroundDecorations/titleIcon.rotation = get_global_mouse_position().x/100000
 
 #Testing
 func _on_test_button_pressed() -> void:

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
-[ext_resource type="Texture2D" uid="uid://bv2ukofa0vr2b" path="res://spirtes/LevelSelectStarPlacholder.png" id="2_ch40n"]
+[ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="3_85feu"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_dfj8j"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="4_8k5og"]
 [ext_resource type="Texture2D" uid="uid://bffdbenu4egve" path="res://spirtes/titleIcon.png" id="6_85feu"]
@@ -32,7 +32,7 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qyuap"]
-bg_color = Color(0.54901963, 0.3647059, 0, 1)
+bg_color = Color(0.32941177, 0.23137255, 0.09019608, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -297,18 +297,18 @@ text = "1"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton1"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton1"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton1"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton2" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -324,18 +324,18 @@ text = "2"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton2"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton2"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton2"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton3" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -351,18 +351,18 @@ text = "3"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton3"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton3"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton3"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton4" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -378,18 +378,18 @@ text = "4"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton4"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton4"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton4"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton5" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -405,18 +405,18 @@ text = "5"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton5"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton5"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton5"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton6" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -432,18 +432,18 @@ text = "6"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton6"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton6"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton6"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton7" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -459,18 +459,18 @@ text = "7"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton7"]
 position = Vector2(21, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton7"]
 position = Vector2(56, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton7"]
 position = Vector2(91, 354.45453)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="LevelButton8" type="Button" parent="LevelSelectBackdrop/LevelButtons"]
 layout_mode = 0
@@ -486,18 +486,18 @@ text = "8"
 
 [node name="Star1" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton8"]
 position = Vector2(265.24036, 23.789845)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star2" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton8"]
 position = Vector2(300.24036, 23.789845)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="Star3" type="Sprite2D" parent="LevelSelectBackdrop/LevelButtons/LevelButton8"]
 position = Vector2(335.24036, 23.789845)
-scale = Vector2(-0.61914533, 0.6964621)
-texture = ExtResource("2_ch40n")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_85feu")
 
 [node name="WeekLabel" type="Label" parent="LevelSelectBackdrop"]
 layout_mode = 0
@@ -508,6 +508,33 @@ offset_bottom = 388.0
 text = "Week 1"
 
 [node name="LevelSelectBackButton" type="Button" parent="LevelSelectBackdrop"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 361.0
+offset_right = 126.0
+offset_bottom = 393.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+text = "Back"
+
+[node name="LevelSelectBackdrop2" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -506.0
+offset_top = -231.0
+offset_right = 369.0
+offset_bottom = 179.0
+scale = Vector2(1.1515064, 1.1515064)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="WeekLabel" type="Label" parent="LevelSelectBackdrop2"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 365.0
+offset_right = 471.0
+offset_bottom = 388.0
+text = "Settings"
+
+[node name="LevelSelectBackButton" type="Button" parent="LevelSelectBackdrop2"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 361.0
@@ -627,3 +654,4 @@ texture = ExtResource("6_85feu")
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_level_button_pressed" binds= [7]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_level_button_pressed" binds= [8]]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]
+[connection signal="pressed" from="LevelSelectBackdrop2/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]
