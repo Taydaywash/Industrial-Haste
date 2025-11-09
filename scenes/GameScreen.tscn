@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=49 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="2_1iofb"]
@@ -632,6 +632,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m38y"]
 size = Vector2(0.9979884, 1.0301809)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mfff6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itox2"]
+size = Vector2(2.0100002, 2.0100002)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m38y"]
 bg_color = Color(0.87, 0.536355, 0.35670003, 1)
 
@@ -1068,6 +1073,22 @@ scale = Vector2(124.250015, 124.25002)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToolBar/BoltsTool/BoltsToolToolBar/Area2D"]
 position = Vector2(-0.0010056496, -0.015090466)
 shape = SubResource("RectangleShape2D_5m38y")
+
+[node name="LightSwtichBar" type="Node2D" parent="."]
+z_index = 7
+
+[node name="LightSwtich" type="Area2D" parent="LightSwtichBar"]
+position = Vector2(413.99997, 255)
+scale = Vector2(50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="LightSwtichBar/LightSwtich"]
+position = Vector2(-2.9802322e-07, 6.183982e-07)
+scale = Vector2(2, 2)
+texture = SubResource("PlaceholderTexture2D_mfff6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwtichBar/LightSwtich"]
+position = Vector2(5.5879354e-07, -1.5646219e-07)
+shape = SubResource("RectangleShape2D_itox2")
 
 [node name="PausedScreen" type="Panel" parent="."]
 process_mode = 3

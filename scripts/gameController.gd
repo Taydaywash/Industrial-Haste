@@ -50,11 +50,11 @@ extends Node2D
 								#]
 
 @onready var box = preload("res://scenes/boxes.tscn")
+@onready var lights = preload("res://scenes/lightsOffEvent.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
 @onready var paused_screen: Panel = $PausedScreen
 @onready var Score = $Score
-
 
 var count = 0
 var gameTime = 0
@@ -75,6 +75,9 @@ func _ready() -> void:
 	$Score.visible = false
 	paused = !paused
 	get_tree().paused = paused
+	
+	add_child(lights.instantiate())
+	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if !gameIsStarted:

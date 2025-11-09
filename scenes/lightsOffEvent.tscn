@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvcdsprxqm6d1"]
+[gd_scene load_steps=11 format=3 uid="uid://cvcdsprxqm6d1"]
 
-[ext_resource type="Texture2D" uid="uid://ds2nfl2cycbw1" path="res://spirtes/handToolGraspCursor.png" id="1_x4xra"]
+[ext_resource type="Script" uid="uid://denuvqirtfbvi" path="res://lightsOffEvent.gd" id="1_rlo6g"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="2_rlo6g"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_4hmjt"]
 
@@ -10,18 +10,63 @@ bg_color = Color(0.42745098, 0.16470589, 0, 0.6117647)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wix3"]
 bg_color = Color(0.003921569, 0.003921569, 0, 0.8627451)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4hmjt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeh74"]
+size = Vector2(2.0100002, 2.0100002)
+
+[sub_resource type="Animation" id="Animation_rlo6g"]
+resource_name = "Swinging_Light"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HangingLight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 1.5, 3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.040142573, 0.0, 0.040142573, 0.08028515, 0.040142573]
+}
+
+[sub_resource type="Animation" id="Animation_4hmjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HangingLight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.040142573]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qeh74"]
+_data = {
+&"RESET": SubResource("Animation_4hmjt"),
+&"Swinging_Light": SubResource("Animation_rlo6g")
+}
+
+[node name="LightsOff" type="Node2D"]
 z_index = -2
+script = ExtResource("1_rlo6g")
 
 [node name="HangingLight" type="Control" parent="."]
 process_mode = 1
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_left = -76.58992
-offset_top = -450.12372
+offset_top = -478.12375
 offset_right = -36.58992
-offset_bottom = -410.12372
-rotation = 0.03954866
+offset_bottom = -438.12375
+rotation = 0.040142573
 pivot_offset = Vector2(76.83565, 4.9263)
 mouse_filter = 2
 
@@ -58,17 +103,31 @@ rotation = -2.7962885
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5wix3")
 
-[node name="lightSwitch" type="Sprite2D" parent="."]
-z_index = 7
-position = Vector2(474, 252)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_x4xra")
+[node name="Background" type="Sprite2D" parent="."]
+process_mode = 1
+visible = false
+texture = ExtResource("3_4hmjt")
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
 process_mode = 1
-z_index = 4
+visible = false
 texture = ExtResource("2_rlo6g")
 
-[node name="Background" type="Sprite2D" parent="."]
-process_mode = 1
-texture = ExtResource("3_4hmjt")
+[node name="LightSwtich" type="Area2D" parent="."]
+visible = false
+position = Vector2(413.99997, 255)
+scale = Vector2(50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="LightSwtich"]
+position = Vector2(-2.9802322e-07, 6.183982e-07)
+scale = Vector2(2, 2)
+texture = SubResource("PlaceholderTexture2D_4hmjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightSwtich"]
+position = Vector2(0, 4.7683716e-07)
+shape = SubResource("RectangleShape2D_qeh74")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qeh74")
+}
