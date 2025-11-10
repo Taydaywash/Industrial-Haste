@@ -627,6 +627,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
 text = "Back"
 
 [node name="SettingMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -506.0
 offset_top = -231.0
