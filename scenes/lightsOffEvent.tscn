@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cvcdsprxqm6d1"]
 
-[ext_resource type="Script" uid="uid://denuvqirtfbvi" path="res://lightsOffEvent.gd" id="1_rlo6g"]
+[ext_resource type="Script" path="res://scripts/lightsOffEvent.gd" id="1_rlo6g"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="2_rlo6g"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="3_4hmjt"]
 
@@ -15,23 +15,6 @@ bg_color = Color(0.003921569, 0.003921569, 0, 0.8627451)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qeh74"]
 size = Vector2(2.0100002, 2.0100002)
 
-[sub_resource type="Animation" id="Animation_rlo6g"]
-resource_name = "Swinging_Light"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HangingLight:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 1.5, 3, 4.5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.040142573, 0.0, 0.040142573, 0.08028515, 0.040142573]
-}
-
 [sub_resource type="Animation" id="Animation_4hmjt"]
 length = 0.001
 tracks/0/type = "value"
@@ -45,6 +28,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.040142573]
+}
+
+[sub_resource type="Animation" id="Animation_rlo6g"]
+resource_name = "Swinging_Light"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HangingLight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 1.5, 3, 4.5, 6),
+"transitions": PackedFloat32Array(1, 0.6597541, 1.4142138, 0.6155722, 1.5691684, 1),
+"update": 0,
+"values": [0.040142573, 0.03926991, 0.0, 0.040142573, 0.08028515, 0.040142573]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qeh74"]
