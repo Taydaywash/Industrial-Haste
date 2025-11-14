@@ -3,7 +3,7 @@ extends Node
 var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
-var levelScores: Array = [0,3550,3330,4550,1110,2220,3330,4440,5550]
+var levelScores: Array = [0,0,0,0,0,0,0,0,0]
 
 var tool = 0
 var boxesInScene: Array = []
@@ -78,7 +78,7 @@ func _get_spawn_rates():
 			}
 		2:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -90,7 +90,7 @@ func _get_spawn_rates():
 			}
 		3:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -102,7 +102,7 @@ func _get_spawn_rates():
 			}
 		4:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -114,7 +114,7 @@ func _get_spawn_rates():
 			}
 		5:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -126,7 +126,7 @@ func _get_spawn_rates():
 			}
 		6:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -138,7 +138,7 @@ func _get_spawn_rates():
 			}
 		7:
 			boxTypesForLevel = {
-			"Fixed": 0, 
+			"Fixed": 100, 
 			"Opened": 0, 
 			"Tapeless": 0,
 			"Dirty": 0, 
@@ -150,15 +150,15 @@ func _get_spawn_rates():
 			}
 		8:
 			boxTypesForLevel = {
-			"Fixed": 0, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
-			"Boltless": 0 
+			"Fixed": 5, 
+			"Opened": 15, 
+			"Tapeless": 25,
+			"Dirty": 40, 
+			"Mislabeled": 50, 
+			"Bulging": 60, 
+			"Fixed Crate": 70,
+			"Loose Bolt": 85, 
+			"Boltless": 100 
 			}
 	return boxTypesForLevel
 
