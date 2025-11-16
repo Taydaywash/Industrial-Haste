@@ -76,7 +76,7 @@ func _ready() -> void:
 	paused = !paused
 	get_tree().paused = paused
 	
-	add_child(lights.instantiate())
+	#add_child(lights.instantiate())
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
