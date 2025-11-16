@@ -169,6 +169,20 @@ func _get_unsafe_discard_boxes():
 			unsafeBoxes = ["Loose Bolt","Boltless","Opened","Tapeless"]
 		1:
 			unsafeBoxes = [""]
+		2:
+			unsafeBoxes = [""]
+		3:
+			unsafeBoxes = ["Opened","Tapeless"]
+		4:
+			unsafeBoxes = ["Opened","Tapeless"]
+		5:
+			unsafeBoxes = ["Opened","Tapeless","Loose Bolt"]
+		6:
+			unsafeBoxes = ["Opened","Tapeless","Loose Bolt"]
+		7:
+			unsafeBoxes = ["Opened","Tapeless","Loose Bolt","Boltless"]
+		8:
+			unsafeBoxes = ["Opened","Tapeless","Loose Bolt","Boltless"]
 	return unsafeBoxes
 
 func _get_safe_boxes():
@@ -177,5 +191,19 @@ func _get_safe_boxes():
 		0:
 			safeBoxes = ["Fixed","Fixed Crate"]
 		1:
-			safeBoxes = ["Fixed","Tapeless","Dirty","Mislabeled","Bulging"]
+			safeBoxes = ["Fixed","Fixed Crate","Tapeless","Dirty","Mislabeled","Bulging","Loose Bolt","Boltless"]
+		2:
+			safeBoxes = ["Fixed","Fixed Crate","Tapeless","Mislabeled","Bulging","Loose Bolt","Boltless"]
+		3:
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Bulging","Loose Bolt","Boltless"]
+		4:
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
+		5:
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
+		6:
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
+		7:
+			safeBoxes = ["Fixed","Fixed Crate"]
+		8:
+			safeBoxes = ["Fixed","Fixed Crate"]
 	return safeBoxes
