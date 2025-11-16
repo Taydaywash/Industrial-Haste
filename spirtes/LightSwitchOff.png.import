@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpq5u4adypkx8"
-path="res://.godot/imported/fixedRightBolt.png-d37782516397cfa17c50e5aeb78a1955.ctex"
+uid="uid://cpk28r2el7y4g"
+path="res://.godot/imported/LightSwitchOff.png-3756c3306ff76f7bd9859aeaa35d7277.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spirtes/bolts/fixedRightBolt.png"
-dest_files=["res://.godot/imported/fixedRightBolt.png-d37782516397cfa17c50e5aeb78a1955.ctex"]
+source_file="res://spirtes/LightSwitchOff.png"
+dest_files=["res://.godot/imported/LightSwitchOff.png-3756c3306ff76f7bd9859aeaa35d7277.ctex"]
 
 [params]
 

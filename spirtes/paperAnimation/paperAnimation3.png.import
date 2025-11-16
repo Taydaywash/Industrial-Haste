@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfayadr4w47hq"
-path="res://.godot/imported/looseLeftBolt.png-56ca866d1e8c561cc2f3e16168177fe1.ctex"
+uid="uid://bei2qpcx8w5pn"
+path="res://.godot/imported/paperAnimation3.png-393636a667bae2dfd526f45497916b0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spirtes/bolts/looseLeftBolt.png"
-dest_files=["res://.godot/imported/looseLeftBolt.png-56ca866d1e8c561cc2f3e16168177fe1.ctex"]
+source_file="res://spirtes/paperAnimation/paperAnimation3.png"
+dest_files=["res://.godot/imported/paperAnimation3.png-393636a667bae2dfd526f45497916b0a.ctex"]
 
 [params]
 
