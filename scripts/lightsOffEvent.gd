@@ -9,7 +9,6 @@ var target
 var switchOn = true
 const LIGHT_SWITCH_OFF = preload("res://spirtes/LightSwitchOff.png")
 const LIGHT_SWITCH_ON = preload("res://spirtes/LightSwitchOn.png")
-@onready var light_swtich: Sprite2D = $"../LightSwtichBar/LightSwtich/LightSwtich"
 
 
 func _ready():
@@ -30,9 +29,7 @@ func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx
 	if event is InputEventMouseButton and event.pressed:
 		switchOn = !switchOn
 		if switchOn:
-			light_swtich.texture = LIGHT_SWITCH_ON
 			add_count()
 		else:
-			light_swtich.texture = LIGHT_SWITCH_OFF
 			self.visible = true
 		check_count()

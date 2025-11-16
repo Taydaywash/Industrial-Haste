@@ -9,6 +9,9 @@ var tool = 0
 var boxesInScene: Array = []
 var currentBoxSpeed = 150
 
+var level = 0
+var boxSpeeds: Array = [150,150,150,150,150,150,150,150,150]
+
 func _ready():
 	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	
@@ -38,7 +41,7 @@ func _reset_tool():
 	tool = 0
 
 # Box Spawn Rates
-var level = 0
+
 func _set_level_to(number):
 	level = number
 func _set_new_score(score):
