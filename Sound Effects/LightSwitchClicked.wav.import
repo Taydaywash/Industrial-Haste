@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu4jq8t317i8o"
+path="res://.godot/imported/LightSwitchClicked.wav-a9af8dbd8a88fd0a23c12fe360ac3224.sample"
+
+[deps]
+
+source_file="res://Sound Effects/LightSwitchClicked.wav"
+dest_files=["res://.godot/imported/LightSwitchClicked.wav-a9af8dbd8a88fd0a23c12fe360ac3224.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=12840
+edit/loop_end=24584
+compress/mode=2
