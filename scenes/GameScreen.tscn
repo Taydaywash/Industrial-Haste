@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=57 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="2_1iofb"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cv3nevv42dyjv" path="res://spirtes/boltsTool.png" id="9_mfff6"]
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_mfff6"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_hla2o"]
+[ext_resource type="PackedScene" uid="uid://t7te06076nft" path="res://scenes/flashingEvent.tscn" id="20_qv4wl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -1127,7 +1128,7 @@ libraries = {
 autoplay = "ShiftStart"
 
 [node name="Score" type="Label" parent="."]
-z_index = 7
+z_index = 8
 offset_left = -568.0
 offset_top = -314.0
 offset_right = -440.0
@@ -1286,10 +1287,13 @@ autoplay = "enterScene"
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_hla2o")]
 
+[node name="FlashingEvent" parent="." instance=ExtResource("20_qv4wl")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="ConveyorSpeedUp" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="FlashingEvent" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
