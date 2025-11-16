@@ -73,8 +73,7 @@ func _ready() -> void:
 	ScoreController._reset_score()
 	clockText.visible = false
 	$Score.visible = false
-	paused = !paused
-	get_tree().paused = paused
+	get_tree().paused = true
 	
 	#add_child(lights.instantiate())
 	
