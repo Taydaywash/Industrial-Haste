@@ -78,6 +78,9 @@ func _ready() -> void:
 	
 	#add_child(lights.instantiate())
 	
+func _process(_delta: float) -> void:
+	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
+
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if !gameIsStarted:
@@ -105,7 +108,7 @@ func _second_passed():
 	# 96 seconds = 480 minutes
 	#at 96, change timer to red, stop spawning boxes
 	gameTime += 1
-	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
+	
 	@warning_ignore("integer_division")
 	# Integer Division, 0.5 rounds down to 0
 	minute = (gameTime/2)%6
