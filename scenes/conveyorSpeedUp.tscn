@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b37q67j2rokc2"]
 
-[ext_resource type="Script" uid="uid://nps4au1eygld" path="res://conveyorSpeedUp.gd" id="1_8tuvx"]
+[ext_resource type="Script" uid="uid://nps4au1eygld" path="res://scripts/conveyorSpeedUp.gd" id="1_8tuvx"]
 [ext_resource type="Texture2D" uid="uid://daj6merk2wvw8" path="res://spirtes/gearHole.png" id="1_mtvei"]
 
 [sub_resource type="Curve" id="Curve_8tuvx"]
@@ -14,7 +14,6 @@ size = Vector2(145, 118)
 script = ExtResource("1_8tuvx")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-z_index = 6
 position = Vector2(-476, 245)
 amount = 7
 lifetime = 1.84
