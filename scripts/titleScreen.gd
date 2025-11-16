@@ -36,8 +36,24 @@ func _load_scene():
 #Main Menu
 func _on_level_select_button_pressed():
 	for childIndex in range (0,8):
+		if childIndex < 7:
+			if Global.levelScores[childIndex] >= 3000:
+				level_select_backdrop.get_child(1).get_child(childIndex).visible = true
+			else:
+				level_select_backdrop.get_child(1).get_child(childIndex).visible = false
+		else:
+			var threeStarsInAll = true
+			for score in range (0,8):
+				if Global.levelScores[score] < 3500:
+					threeStarsInAll = false
+			print(threeStarsInAll)
+			if threeStarsInAll:
+				level_select_backdrop.get_child(1).get_child(childIndex).visible = true
+			else:
+				level_select_backdrop.get_child(1).get_child(childIndex).visible = false
 		for starIndex in range (0,3):
 			var star = level_select_backdrop.get_child(1).get_child(childIndex).get_child(starIndex)
+			
 			match starIndex:
 				2:
 					if Global.levelScores[childIndex+1] >= 4500:
