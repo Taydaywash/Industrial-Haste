@@ -3,7 +3,7 @@ extends Node
 var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
-var levelScores: Array = [0,0,0,0,0,0,0,0,0]
+var levelScores: Array = [9999,0,0,0,0,0,0,0,0]
 
 var tool = 0
 var boxesInScene: Array = []
@@ -78,75 +78,75 @@ func _get_spawn_rates():
 			}
 		2:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
+			"Fixed": 30, 
+			"Opened": 60, 
+			"Tapeless": 65,
+			"Dirty": 85, 
+			"Mislabeled":90, 
+			"Bulging": 100, 
 			"Fixed Crate": 0,
 			"Loose Bolt": 0, 
 			"Boltless": 0 
 			}
 		3:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
+			"Fixed": 25, 
+			"Opened": 40, 
+			"Tapeless": 50,
+			"Dirty": 70, 
+			"Mislabeled": 75, 
+			"Bulging": 90, 
+			"Fixed Crate": 95,
+			"Loose Bolt": 100, 
 			"Boltless": 0 
 			}
 		4:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
+			"Fixed": 20, 
+			"Opened": 25, 
+			"Tapeless": 30,
+			"Dirty": 45, 
+			"Mislabeled": 55, 
+			"Bulging": 75, 
+			"Fixed Crate": 85,
+			"Loose Bolt": 100, 
 			"Boltless": 0 
 			}
 		5:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
-			"Boltless": 0 
+			"Fixed": 10, 
+			"Opened": 15, 
+			"Tapeless": 20,
+			"Dirty": 35, 
+			"Mislabeled": 55, 
+			"Bulging": 75, 
+			"Fixed Crate": 85,
+			"Loose Bolt": 95, 
+			"Boltless": 100 
 			}
 		6:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
-			"Boltless": 0 
+			"Fixed": 10, 
+			"Opened": 15, 
+			"Tapeless": 20,
+			"Dirty": 35, 
+			"Mislabeled": 55, 
+			"Bulging": 70, 
+			"Fixed Crate": 80,
+			"Loose Bolt": 90, 
+			"Boltless": 100 
 			}
 		7:
 			boxTypesForLevel = {
-			"Fixed": 100, 
-			"Opened": 0, 
-			"Tapeless": 0,
-			"Dirty": 0, 
-			"Mislabeled": 0, 
-			"Bulging": 0, 
-			"Fixed Crate": 0,
-			"Loose Bolt": 0, 
-			"Boltless": 0 
+			"Fixed": 10, 
+			"Opened": 15, 
+			"Tapeless": 20,
+			"Dirty": 30, 
+			"Mislabeled": 55, 
+			"Bulging": 70, 
+			"Fixed Crate": 80,
+			"Loose Bolt": 90, 
+			"Boltless": 100 
 			}
 		8:
 			boxTypesForLevel = {
