@@ -5,7 +5,7 @@ func _ready() -> void:
 	defaultBoxSpeed = Global.boxSpeeds[Global.level]
 
 func _process(delta: float) -> void:
-	for i in range(0,3):
+	for i in range(0,15):
 		if i%2 == 0:
 			get_child(1).get_child(1+i).rotation += Global.currentBoxSpeed * delta * 0.01
 		else:
@@ -23,6 +23,6 @@ func _on_tool_used(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 var fiveMinutes = 0
 func _on_clock_timer_timeout() -> void:
 	fiveMinutes+=1
-	if Global.level > 4:
-		if fiveMinutes%3 == 0:
+	if Global.level > 4 || Global.level == 0:
+		if fiveMinutes % (3) == 0:
 			Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
