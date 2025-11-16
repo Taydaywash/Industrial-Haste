@@ -8,10 +8,6 @@ var seconds = 0
 
 func _ready():
 	pass
-	
-func _process(delta):
-	while not $Timer.is_stopped():
-		flash_pulse()
 
 func flash_pulse():
 	var tween = create_tween()
