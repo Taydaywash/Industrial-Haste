@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b37q67j2rokc2"]
 
-[ext_resource type="Script" uid="uid://nps4au1eygld" path="res://scenes/conveyorSpeedUp.gd" id="1_8tuvx"]
+[ext_resource type="Script" uid="uid://nps4au1eygld" path="res://conveyorSpeedUp.gd" id="1_8tuvx"]
 [ext_resource type="Texture2D" uid="uid://daj6merk2wvw8" path="res://spirtes/gearHole.png" id="1_mtvei"]
 
 [sub_resource type="Curve" id="Curve_8tuvx"]
