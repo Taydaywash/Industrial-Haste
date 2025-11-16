@@ -1171,7 +1171,6 @@ libraries = {
 autoplay = "enterScene"
 
 [node name="LightsOffEvent" parent="." instance=ExtResource("11_mfff6")]
-visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
