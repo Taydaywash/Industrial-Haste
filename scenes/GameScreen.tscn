@@ -1,22 +1,56 @@
-[gd_scene load_steps=49 format=3 uid="uid://b2y061y0fry5a"]
+[gd_scene load_steps=57 format=3 uid="uid://b2y061y0fry5a"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_osnef"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="2_1iofb"]
+[ext_resource type="Texture2D" uid="uid://dx1a62cwwdpog" path="res://spirtes/paperAnimation/paperAnimation0.png" id="2_lk6j4"]
 [ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="2_mfff6"]
 [ext_resource type="Script" uid="uid://kiinvk6erjty" path="res://scripts/toolController.gd" id="4_i1jb3"]
 [ext_resource type="Script" uid="uid://cdqh3u4uhwnxp" path="res://scripts/scoreController.gd" id="4_nt2i5"]
+[ext_resource type="Texture2D" uid="uid://1t7sqh605m0v" path="res://spirtes/paperAnimation/paperAnimation2.png" id="4_qv4wl"]
 [ext_resource type="Texture2D" uid="uid://y8fg71fr8b7o" path="res://spirtes/Game_Background_Industrial_Haste_Belt.png" id="4_xpdqc"]
 [ext_resource type="Texture2D" uid="uid://c65cqdikpve5l" path="res://spirtes/Game_Background_Industrial_Haste.png" id="5_yxycf"]
+[ext_resource type="Texture2D" uid="uid://dahpdm8qgy0g3" path="res://spirtes/paperAnimation/paperAnimation4.png" id="6_qgxpl"]
+[ext_resource type="Texture2D" uid="uid://r4ulj1tbuw7p" path="res://spirtes/paperAnimation/paperAnimation5.png" id="7_gl8f2"]
+[ext_resource type="FontFile" uid="uid://ooifg6fbxiq5" path="res://spirtes/Fonts/Pencilant Script.ttf" id="7_lk6j4"]
 [ext_resource type="Texture2D" uid="uid://4woe10fa36ep" path="res://spirtes/tapeTool.png" id="7_wx6og"]
 [ext_resource type="Texture2D" uid="uid://bd4vk8smu2yo8" path="res://spirtes/wrenchTool.png" id="8_1iofb"]
+[ext_resource type="Texture2D" uid="uid://di1glfb2nkdv" path="res://spirtes/paperAnimation/paperAnimation6.png" id="8_bpgbe"]
+[ext_resource type="FontFile" uid="uid://ycfcapu1bkr5" path="res://spirtes/Fonts/VanillaCreamOx-Regular.otf" id="8_hla2o"]
 [ext_resource type="Texture2D" uid="uid://cv3nevv42dyjv" path="res://spirtes/boltsTool.png" id="9_mfff6"]
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_mfff6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nt2i5"]
-bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6sp0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ro48"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lk6j4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qv4wl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qgxpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gl8f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bpgbe")
+}],
+"loop": false,
+"name": &"paperAnimation",
+"speed": 12.0
+}]
 
 [sub_resource type="Animation" id="Animation_hv6d7"]
 resource_name = "InstructionExit"
@@ -84,10 +118,46 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("paperAnimation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("paperAnimation:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_wx6og"]
 resource_name = "popUpInstructions"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -111,6 +181,59 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("paperAnimation:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("paperAnimation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0, 0.0],
+"method": &"set_frame_and_progress"
+}, {
+"args": [&"paperAnimation"],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.1333332, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("paperAnimation:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-12.583823906879116, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hshbf"]
@@ -834,16 +957,24 @@ offset_top = 360.0
 offset_right = 470.0
 offset_bottom = 968.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nt2i5")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c6sp0")
+
+[node name="paperAnimation" type="AnimatedSprite2D" parent="levelInstructions"]
+modulate = Color(0.84, 0.77504, 0.7056, 1)
+position = Vector2(457.00003, 300)
+scale = Vector2(1.2180213, 1.3380212)
+sprite_frames = SubResource("SpriteFrames_5ro48")
+animation = &"paperAnimation"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelInstructions"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 24.0
-offset_right = 880.0
-offset_bottom = 584.0
+offset_right = 889.0
+offset_bottom = 596.99194
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
+theme_override_fonts/normal_font = ExtResource("7_lk6j4")
 theme_override_font_sizes/normal_font_size = 41
 text = "|Shift #0 | Worker #1012 |Business Co. |
 What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
@@ -853,14 +984,15 @@ Boss"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="Label" type="Label" parent="levelInstructions"]
+[node name="Label" type="Label" parent="levelInstructions/RichTextLabel"]
 layout_mode = 0
-offset_left = 504.0
-offset_top = 552.0
-offset_right = 893.0
-offset_bottom = 594.0
+offset_left = 417.0
+offset_top = 528.0
+offset_right = 826.0
+offset_bottom = 582.0
 theme_override_colors/font_color = Color(0.27, 0.27, 0.27, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("8_hla2o")
+theme_override_font_sizes/font_size = 37
 text = "click anywhere to continue"
 
 [node name="levelInstructionAnimations" type="AnimationPlayer" parent="levelInstructions"]

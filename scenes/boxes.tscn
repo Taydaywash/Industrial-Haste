@@ -12,8 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://ckr6ox2hgvi6x" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0007.png" id="9_lg2pc"]
 [ext_resource type="Texture2D" uid="uid://b60drt2xk512" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0008.png" id="10_r8tui"]
 [ext_resource type="Texture2D" uid="uid://c5va8pa8cgidj" path="res://spirtes/BoxSprites/tapelessBox.png" id="11_rn7pf"]
-[ext_resource type="Texture2D" uid="uid://byguaixrf6rb2" path="res://spirtes/bolts/fixedLeftBolt.png" id="13_pqt68"]
-[ext_resource type="Texture2D" uid="uid://bpq5u4adypkx8" path="res://spirtes/bolts/fixedRightBolt.png" id="14_1v4lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q0xfv"]
 animations = [{
@@ -62,6 +60,12 @@ font_size = 34
 font_color = Color(0, 0, 0, 1)
 outline_size = 1
 outline_color = Color(0.70980394, 0.5019608, 0.24313726, 0.3647059)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lrcp5"]
+load_path = "res://.godot/imported/fixedLeftBolt.png-22b2fe2cf3d2f50a7f17e36ebebc37fe.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hbg7f"]
+load_path = "res://.godot/imported/fixedRightBolt.png-d37782516397cfa17c50e5aeb78a1955.ctex"
 
 [sub_resource type="Animation" id="Animation_i4skx"]
 resource_name = "Fixed Box"
@@ -559,22 +563,22 @@ scale = Vector2(0.175, 0.175)
 [node name="bolt1" type="Sprite2D" parent="Area2D/Bolts"]
 visible = false
 position = Vector2(-445.7143, -445.7143)
-texture = ExtResource("13_pqt68")
+texture = SubResource("CompressedTexture2D_lrcp5")
 
 [node name="bolt2" type="Sprite2D" parent="Area2D/Bolts"]
 visible = false
 position = Vector2(-445.7143, 445.71426)
-texture = ExtResource("13_pqt68")
+texture = SubResource("CompressedTexture2D_lrcp5")
 
 [node name="bolt3" type="Sprite2D" parent="Area2D/Bolts"]
 visible = false
 position = Vector2(417.14282, -445.7143)
-texture = ExtResource("14_1v4lg")
+texture = SubResource("CompressedTexture2D_hbg7f")
 
 [node name="bolt4" type="Sprite2D" parent="Area2D/Bolts"]
 visible = false
 position = Vector2(428.57144, 451.4286)
-texture = ExtResource("14_1v4lg")
+texture = SubResource("CompressedTexture2D_hbg7f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

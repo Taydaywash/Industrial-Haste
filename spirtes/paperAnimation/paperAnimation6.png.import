@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpq5u4adypkx8"
-path="res://.godot/imported/fixedRightBolt.png-d37782516397cfa17c50e5aeb78a1955.ctex"
+uid="uid://di1glfb2nkdv"
+path="res://.godot/imported/paperAnimation6.png-c4af1495a7ab8bbd01fdc95c262cb99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spirtes/bolts/fixedRightBolt.png"
-dest_files=["res://.godot/imported/fixedRightBolt.png-d37782516397cfa17c50e5aeb78a1955.ctex"]
+source_file="res://spirtes/paperAnimation/paperAnimation6.png"
+dest_files=["res://.godot/imported/paperAnimation6.png-c4af1495a7ab8bbd01fdc95c262cb99a.ctex"]
 
 [params]
 

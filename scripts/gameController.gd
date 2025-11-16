@@ -37,9 +37,9 @@ extends Node2D
 								preload("res://spirtes/BoxSprites/boltlessCrate3.png"),
 								preload("res://spirtes/BoxSprites/boltlessCrate4.png"),
 								]
-@onready var FixedLeftBolt = preload("res://spirtes/bolts/fixedLeftBolt.png")
+@onready var FixedLeftBolt = preload("res://spirtes/BoxSprites/bolts/fixedLeftBolt.png")
 #@onready var FixedRightBolt = preload("res://spirtes/bolts/fixedRightBolt.png")
-@onready var LooseLeftBolts = [preload("res://spirtes/bolts/looseLeftBolt.png"),
+@onready var LooseLeftBolts = [preload("res://spirtes/BoxSprites/bolts/looseLeftBolt.png"),
 								preload("res://spirtes/BoxSprites/bolts/looseLeftBolt2.png"),
 								preload("res://spirtes/BoxSprites/bolts/looseLeftBolt3.png"),
 								]
