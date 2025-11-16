@@ -7,6 +7,18 @@ func set_sfx_volume_to(value):
 func set_music_volume_to(value):
 	AudioServer.set_bus_volume_linear(2,value)
 	
+func play_lights_off_ambience():
+	randomize()
+	$LightsOffAmbience.pitch_scale = randf_range(.8, 1.2)
+	$LightsOffAmbience.play()
+func stop_ambience():
+	$LightsOffAmbience.stop()
+
+func play_lights_switch_clicked():
+	randomize()
+	$LightSwitchClicked.pitch_scale = randf_range(.8, 1.2)
+	$LightSwitchClicked.play()
+
 func play_whoosh_sound():
 	randomize()
 	$SoundWhoosh.pitch_scale = randf_range(.8, 1.2)

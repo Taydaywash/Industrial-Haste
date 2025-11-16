@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ig3sw1u1fany"]
+[gd_scene load_steps=9 format=3 uid="uid://ig3sw1u1fany"]
 
 [ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
 [ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://6uox0j1jeo83" path="res://Sound Effects/Screwed Bolt.mp3" id="4_yai5u"]
 [ext_resource type="AudioStream" uid="uid://dx6xc8k505xh4" path="res://Sound Effects/Poof.mp3" id="5_yai5u"]
 [ext_resource type="AudioStream" uid="uid://dox4iyke7pt0q" path="res://Sound Effects/Tape Placed.mp3" id="6_4xaxn"]
+[ext_resource type="AudioStream" uid="uid://bofe076r2htly" path="res://Sound Effects/LightsOffAmbience.wav" id="7_vvvww"]
+[ext_resource type="AudioStream" uid="uid://cu4jq8t317i8o" path="res://Sound Effects/LightSwitchClicked.wav" id="8_pry7e"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3
@@ -38,6 +40,18 @@ bus = &"SFX"
 
 [node name="SoundTapePlaced" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4xaxn")
+volume_db = -10.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="LightsOffAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vvvww")
+volume_db = -10.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="LightSwitchClicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pry7e")
 volume_db = -10.0
 pitch_scale = 0.9
 bus = &"SFX"
