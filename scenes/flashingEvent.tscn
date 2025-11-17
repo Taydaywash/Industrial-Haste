@@ -21,7 +21,7 @@ texture = ExtResource("3_3otoq")
 
 [node name="FlashingOverlay" type="Panel" parent="."]
 visible = false
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 0.49803922)
 z_index = 7
 z_as_relative = false
 offset_left = -644.0
