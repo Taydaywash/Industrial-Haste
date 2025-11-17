@@ -1289,7 +1289,6 @@ libraries = {
 autoplay = "enterScene"
 
 [node name="LightsOff" parent="." instance=ExtResource("18_sq7sj")]
-visible = false
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_tf0rn")]
 

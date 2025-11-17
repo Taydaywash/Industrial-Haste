@@ -1286,13 +1286,13 @@ libraries = {
 autoplay = "enterScene"
 
 [node name="LightsOffEvent" parent="." instance=ExtResource("11_b3i6f")]
-visible = false
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_cipgu")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="ConveyorSpeedUp" method="_on_clock_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

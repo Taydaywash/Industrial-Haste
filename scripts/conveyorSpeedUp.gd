@@ -23,6 +23,9 @@ func _on_tool_used(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 var fiveMinutes = 0
 func _on_clock_timer_timeout() -> void:
 	fiveMinutes+=1
-	if Global.level > 4 || Global.level == 0:
-		if fiveMinutes % (3) == 0:
+	if Global.level >= 4 || Global.level == 0:
+		if Global.level == 4:
+			if fiveMinutes > 70 && fiveMinutes % (3) == 0:
+				Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
+		elif fiveMinutes % (3) == 0:
 			Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
