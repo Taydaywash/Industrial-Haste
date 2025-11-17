@@ -22,7 +22,7 @@ func start_light_swinging():
 func set_target():
 	
 	randomize()
-	target = randi_range(2, 5)
+	target = randi_range(2, 4)
 
 func check_count():
 	print(count)
@@ -48,7 +48,7 @@ func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx
 func _on_timer_timeout():
 	randomize()
 	seconds += 1
-	if seconds % 10 == 0:
+	if seconds % 1 == 0:
 		if randi_range(1, 100) <= spawn_chance:
 			set_target()
 			animation_player.play("lightsOff")
@@ -56,4 +56,4 @@ func _on_timer_timeout():
 			spawn_chance = Global.lightEventRarity[Global.level]
 			light.visible = true
 		else:
-			spawn_chance *= 1.1
+			spawn_chance *= 1.4

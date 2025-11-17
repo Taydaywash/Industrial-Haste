@@ -972,11 +972,16 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_sfku4")
 theme_override_font_sizes/normal_font_size = 41
-text = "| Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+text = "| Shift #1 | Worker #1012 |Business Co. |
 
-With love,
-Boss"
+Welcome to Business Co! Your task here is simple:
+Clock in at 9:00 PM, follow my orders, clock out at 5!
+
+All you have to do today is give any of those boxes
+that are opened up and big ol' shove off the line. We'll
+handle the rest later.
+You will be scored on your performance so do your best!
+-Boss"
 scroll_active = false
 shortcut_keys_enabled = false
 

@@ -972,11 +972,12 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_vpk81")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
-
-With love,
-Boss"
+text = "|Shift #2 | Worker #1012 |Business Co. |
+Welcome back worker! You did well on your last shift.
+Today's going to be more of the same, but with a little extra:
+You are going to need to start dealing with those boxes that are covered in dirt and gunk and whatnot. 
+We've been getting complaints. Also, we've implemented a new lighting system, so if the lights ever go out, just go ahead and turn it off and on again a couple of times.
+-Boss"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -1289,6 +1290,7 @@ autoplay = "enterScene"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOff" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

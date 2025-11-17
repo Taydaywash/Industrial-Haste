@@ -972,11 +972,12 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_2c648")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+text = "|Shift #3 | Worker #1012 |Business Co. |
+What's popping worker #1012, Boss here. I've got a new tool for you. Some tape:
+You notice how some of those boxes haven't got any tape on them? Well apparenlty that's a problem nowadays so
+you gotta fix those up. Just put the tape on there. And make sure you stop discarding boxes that can be fixed!
 
-With love,
-Boss"
+Put tape on the boxes without it, and tape up the opened ones!"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -1291,6 +1292,7 @@ visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

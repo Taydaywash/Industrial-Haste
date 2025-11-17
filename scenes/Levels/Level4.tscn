@@ -972,10 +972,12 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_okxe8")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+text = "|Shift #4 | Worker #1012 |Business Co. |
+Hey hey hey how's it hanging? Another day another new problem to solve at The Business Co.
+Well you know those terrible looking destroyed and crushed and otherwise unusable boxes?
+Well we gotta throw those out, no two ways about it.
 
-With love,
+That's about it this time around,
 Boss"
 scroll_active = false
 shortcut_keys_enabled = false
