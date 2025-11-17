@@ -973,6 +973,7 @@ theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_okxe8")
 theme_override_font_sizes/normal_font_size = 41
 text = "|Shift #4 | Worker #1012 |Business Co. |
+
 Hey hey hey how's it hanging? Another day another new problem to solve at The Business Co.
 Well you know those terrible looking destroyed and crushed and otherwise unusable boxes?
 Well we gotta throw those out, no two ways about it.
@@ -1293,6 +1294,7 @@ visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

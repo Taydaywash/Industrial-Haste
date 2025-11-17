@@ -972,11 +972,13 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_8a5tv")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
-
-With love,
-Boss"
+text = "|Shift #5 | Worker #1012 |Business Co. |
+Hey! How're you holding up after that last one? Sorry about that! But, on the bright side
+I've got another fun tool for ya. A Wrench!
+You can use it on those gears at the left of the conveyor belt and it'll slow it back down.
+Also, while you're at it, you need to tighten the bolts on those crates with loose ones.
+Apparenlty they're breaking down the line.
+Best, Boss"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -1290,6 +1292,7 @@ visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
