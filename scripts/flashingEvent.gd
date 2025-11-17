@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var flash: Panel = $"FlashingOverlay"
 
-var spawn_chance = Global.flashingEventRarity[Global.level]
+var chance = Global.flashingEventRarity[Global.level]
+var spawn_chance = chance
 var seconds = 0
 
 func _ready():
@@ -16,13 +17,13 @@ func flash_pulse():
 func _on_timer_timeout():
 	randomize()
 	seconds += 1
-	if seconds%15 == 0:
+	if seconds%12 == 0:
 		if randi_range(1, 100) <= spawn_chance:
 			spawn_chance = Global.flashingEventRarity[Global.level]
 			flash.visible = true
 			$Timer.start()
 		else:
-			spawn_chance *= 1.5
+			spawn_chance = chance * 2
 	
 	if not $Timer.is_stopped():
 		flash_pulse()

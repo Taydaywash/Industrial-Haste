@@ -6,7 +6,8 @@ extends Node2D
 
 var count = 0
 var target
-var spawn_chance = Global.lightEventRarity[Global.level]
+var chance = Global.lightEventRarity[Global.level]
+var spawn_chance = chance
 var seconds = 0
 
 var switchOn = true
@@ -22,7 +23,7 @@ func start_light_swinging():
 func set_target():
 	
 	randomize()
-	target = randi_range(2, 5)
+	target = randi_range(2, 4)
 
 func check_count():
 	print(count)
@@ -56,4 +57,4 @@ func _on_timer_timeout():
 			spawn_chance = Global.lightEventRarity[Global.level]
 			light.visible = true
 		else:
-			spawn_chance *= 1.1
+			spawn_chance += chance * 2
