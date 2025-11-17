@@ -162,11 +162,15 @@ func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	loading_screen_animator.play("exitScene")
 #used in animator
-func _set_scene_to_title():
-	get_tree().change_scene_to_file("res://scenes/TitleScreen.tscn")
+var sceneTo = "res://scenes/TitleScreen.tscn"
+func _set_scene_to_():
+	get_tree().change_scene_to_file(sceneTo)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+func _on_restart_button_pressed() -> void:
+	sceneTo = "res://scenes/Levels/Level"+str(Global.level)+".tscn"
+	loading_screen_animator.play("exitScene")
 
 func _shift_complete() -> void:
 	level_complete_animations.play("levelCompleteEnter")
@@ -183,6 +187,7 @@ func _set_final_score():
 	final_score.text = str(Score._get_current_score())
 func _set_boxes_missed():
 	boxes_missed.text = str(Score._get_missed_boxes())
+
 
 @onready var stars: Node2D = $levelComplete/Stars
 func _try_set_star_visible(starIndex):
