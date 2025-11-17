@@ -4,8 +4,8 @@ var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
 var levelScores: Array = [9999,9990,9990,0,0,0,0,0,0]
-var lightEventRarity: Array = [10,0,10,0,0,0,0,0,0]
-var flashingEventRarity: Array = [10,0,0,0,0,0,0,0,0]
+var lightEventRarity: Array = [10,0,20,20,30,30,40,40,50]
+var flashingEventRarity: Array = [10,0,0,0,0,0,30,40,50]
 
 var tool = 0
 var boxesInScene: Array = []
