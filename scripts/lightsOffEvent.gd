@@ -6,7 +6,8 @@ extends Node2D
 
 var count = 0
 var target
-var spawn_chance = Global.lightEventRarity[Global.level]
+var chance = Global.lightEventRarity[Global.level]
+var spawn_chance = chance
 var seconds = 0
 
 var switchOn = true
@@ -48,7 +49,7 @@ func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx
 func _on_timer_timeout():
 	randomize()
 	seconds += 1
-	if seconds % 1 == 0:
+	if seconds % 10 == 0:
 		if randi_range(1, 100) <= spawn_chance:
 			set_target()
 			animation_player.play("lightsOff")
@@ -56,4 +57,4 @@ func _on_timer_timeout():
 			spawn_chance = Global.lightEventRarity[Global.level]
 			light.visible = true
 		else:
-			spawn_chance *= 1.4
+			spawn_chance += chance * 2
