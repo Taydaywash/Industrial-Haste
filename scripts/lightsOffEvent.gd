@@ -33,6 +33,8 @@ func check_count():
 
 func _play_ambience():
 	SoundManager.play_lights_off_ambience()
+func _play_flicker():
+	SoundManager.play_light_flicker()
 
 func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -49,7 +51,7 @@ func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx
 func _on_timer_timeout():
 	randomize()
 	seconds += 1
-	if seconds % 10 == 0:
+	if seconds % 8 == 0:
 		if randi_range(1, 100) <= spawn_chance:
 			set_target()
 			animation_player.play("lightsOff")

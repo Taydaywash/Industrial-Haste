@@ -81,6 +81,7 @@ func _ready() -> void:
 	
 	#add_child(lights.instantiate())
 
+
 func _process(_delta: float) -> void:
 	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
 
@@ -101,6 +102,7 @@ func _input(event):
 func flip_pause_status():
 	paused = !paused
 	get_tree().paused = paused
+	SoundManager.play_sliding_paper()
 	paused_screen.visible = paused
 func set_next_screen_to_load_to(scene):
 	sceneTo = scene
@@ -171,6 +173,7 @@ func _on_timer_timeout() -> void:
 @onready var boxes_missed: Label = $levelComplete/RichTextLabel/BoxesMissed
 @onready var stars: Node2D = $levelComplete/Stars
 func _shift_complete() -> void:
+	SoundManager.stop_ambience()
 	level_complete_animations.play("levelCompleteEnter")
 	shiftIsOver = true
 	Global._set_new_score(Score._get_current_score())

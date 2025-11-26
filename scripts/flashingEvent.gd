@@ -12,7 +12,7 @@ func _ready():
 func flash_pulse():
 	var tween = create_tween()
 	tween.tween_property(flash, "self_modulate:a", 0.5, 0.5)
-	tween.tween_property(flash, "self_modulate:a", 0.9, 0.5)
+	tween.tween_property(flash, "self_modulate:a", 1, 0.5)
 
 func _on_timer_timeout():
 	randomize()

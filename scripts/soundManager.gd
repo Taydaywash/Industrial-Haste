@@ -19,6 +19,16 @@ func play_light_flicker():
 	$LightOnFlicker.pitch_scale = randf_range(.8, 1.2)
 	$LightOnFlicker.play()
 
+func play_sliding_paper():
+	randomize()
+	$SlidingPaper.pitch_scale = randf_range(.8, 1.2)
+	$SlidingPaper.play()
+
+func play_sliding_book():
+	randomize()
+	$SlidingBook.pitch_scale = randf_range(.8, 1.2)
+	$SlidingBook.play()
+
 func play_lights_switch_clicked():
 	randomize()
 	$LightSwitchClicked.pitch_scale = randf_range(.8, 1.2)

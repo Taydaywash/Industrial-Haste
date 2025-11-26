@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://bhns8m0mfebj8"]
+[gd_scene load_steps=53 format=3 uid="uid://bhns8m0mfebj8"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_c7fb8"]
+[ext_resource type="Script" uid="uid://b4boslph2mi0l" path="res://scripts/levelInstructionsFunctions.gd" id="2_3ps0n"]
 [ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="2_05ku0"]
 [ext_resource type="Texture2D" uid="uid://dx1a62cwwdpog" path="res://spirtes/paperAnimation/paperAnimation0.png" id="2_n3fvl"]
 [ext_resource type="Texture2D" uid="uid://1t7sqh605m0v" path="res://spirtes/paperAnimation/paperAnimation2.png" id="3_dhfmm"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4vk8smu2yo8" path="res://spirtes/wrenchTool.png" id="8_n3fvl"]
 [ext_resource type="FontFile" uid="uid://ycfcapu1bkr5" path="res://spirtes/Fonts/VanillaCreamOx-Regular.otf" id="8_w2t11"]
 [ext_resource type="Texture2D" uid="uid://cv3nevv42dyjv" path="res://spirtes/boltsTool.png" id="9_dhfmm"]
+[ext_resource type="AnimationLibrary" uid="uid://bmuefu7nqhf4m" path="res://animations/LevelInstructionsAnimations.res" id="10_1tij3"]
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="10_hpel6"]
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_hbq5q"]
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_hpel6"]
@@ -53,197 +55,6 @@ animations = [{
 "name": &"paperAnimation",
 "speed": 12.0
 }]
-
-[sub_resource type="Animation" id="Animation_hv6d7"]
-resource_name = "InstructionExit"
-length = 0.65
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.65),
-"transitions": PackedFloat32Array(0.45062527, 1.7411013, 0.49999997),
-"update": 0,
-"values": [Vector2(-450, -308), Vector2(-450, -360), Vector2(-450, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../darkeningOverlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.65),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_srnt6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-450, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../darkeningOverlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("paperAnimation:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RichTextLabel:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("paperAnimation:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_wx6og"]
-resource_name = "popUpInstructions"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.35, 1.85, 2),
-"transitions": PackedFloat32Array(1, 0.49999997, 1.7411013, 1),
-"update": 0,
-"values": [Vector2(-450, 360), Vector2(-450, 360), Vector2(-450, -360), Vector2(-450, -308)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../darkeningOverlay:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.35, 1.6500001),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("paperAnimation:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("paperAnimation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.9333333),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [0, 0.0],
-"method": &"set_frame_and_progress"
-}, {
-"args": [&"paperAnimation"],
-"method": &"play"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RichTextLabel:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.1333332, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("paperAnimation:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-12.583823906879116, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hshbf"]
-_data = {
-&"InstructionExit": SubResource("Animation_hv6d7"),
-&"RESET": SubResource("Animation_srnt6"),
-&"popUpInstructions": SubResource("Animation_wx6og")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iofb"]
 bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
@@ -947,6 +758,7 @@ offset_right = 470.0
 offset_bottom = 968.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sonym")
+script = ExtResource("2_3ps0n")
 
 [node name="paperAnimation" type="AnimatedSprite2D" parent="levelInstructions"]
 modulate = Color(0.84, 0.77504, 0.7056, 1)
@@ -986,7 +798,7 @@ text = "click anywhere to continue"
 
 [node name="levelInstructionAnimations" type="AnimationPlayer" parent="levelInstructions"]
 libraries = {
-&"": SubResource("AnimationLibrary_hshbf")
+&"": ExtResource("10_1tij3")
 }
 autoplay = "popUpInstructions"
 
