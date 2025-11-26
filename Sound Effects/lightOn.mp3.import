@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmenus1ea6rf5"
+path="res://.godot/imported/lightOn.mp3-0231e82d4506ad212c9764882b441589.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/lightOn.mp3"
+dest_files=["res://.godot/imported/lightOn.mp3-0231e82d4506ad212c9764882b441589.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

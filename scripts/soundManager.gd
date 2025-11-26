@@ -14,6 +14,11 @@ func play_lights_off_ambience():
 func stop_ambience():
 	$LightsOffAmbience.stop()
 
+func play_light_flicker():
+	randomize()
+	$LightOnFlicker.pitch_scale = randf_range(.8, 1.2)
+	$LightOnFlicker.play()
+
 func play_lights_switch_clicked():
 	randomize()
 	$LightSwitchClicked.pitch_scale = randf_range(.8, 1.2)
