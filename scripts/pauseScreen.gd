@@ -12,6 +12,7 @@ var paused = false
 func _on_main_menu_button_pressed() -> void:
 	paused = false
 	get_tree().paused = false
+	gameScreen.set_next_screen_to_load_to("res://scenes/TitleScreen.tscn")
 	loading_screen_animator.play("exitScene")
 
 func _on_resume_button_pressed() -> void:

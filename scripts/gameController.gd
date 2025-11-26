@@ -96,7 +96,7 @@ func _input(event):
 			gameIsStarted = true
 		elif shiftIsOver:
 			loading_screen_animator.play("exitScene")
-	elif event.is_action_pressed("pause") && !shiftIsOver:
+	elif event.is_action_pressed("pause") && !shiftIsOver && gameIsStarted:
 		flip_pause_status()
 func flip_pause_status():
 	paused = !paused
