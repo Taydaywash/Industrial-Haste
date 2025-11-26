@@ -24,8 +24,6 @@ var boxType
 #Crate Controller
 @onready var bolts: Node2D = $Area2D/Bolts
 
-
-
 var looseBoltAmt = 0
 var missingBoltAmt = 0
 
