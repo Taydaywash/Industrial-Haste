@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfgsy7v82wqyl"]
+
+[ext_resource type="Texture2D" uid="uid://di1glfb2nkdv" path="res://spirtes/paperAnimation/paperAnimation6.png" id="1_mnj8e"]
+[ext_resource type="Script" uid="uid://bkjoodu273tck" path="res://scripts/pauseScreen.gd" id="2_1pyk0"]
+[ext_resource type="FontFile" uid="uid://ooifg6fbxiq5" path="res://spirtes/Fonts/Pencilant Script.ttf" id="2_82k8w"]
+[ext_resource type="FontFile" uid="uid://ycfcapu1bkr5" path="res://spirtes/Fonts/VanillaCreamOx-Regular.otf" id="3_1pyk0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qv4wl"]
+texture = ExtResource("1_mnj8e")
+expand_margin_left = 280.0
+expand_margin_top = 78.0
+expand_margin_right = 273.0
+expand_margin_bottom = 105.0
+modulate_color = Color(0.85882354, 0.7764706, 0.7411765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt2i5"]
+font = ExtResource("2_82k8w")
+font_size = 115
+font_color = Color(0.28, 0.28, 0.28, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qv4wl"]
+
+[node name="PausedScreen" type="Panel"]
+process_mode = 3
+visible = false
+z_index = 8
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qv4wl")
+script = ExtResource("2_1pyk0")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 660.0
+
+[node name="pausedText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 36.0
+offset_right = 847.0
+offset_bottom = 184.0
+text = "Game Paused"
+label_settings = SubResource("LabelSettings_nt2i5")
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 208.0
+offset_right = 764.0
+offset_bottom = 272.0
+theme_override_colors/font_color = Color(0.31, 0.31, 0.31, 1)
+theme_override_colors/font_focus_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_colors/font_pressed_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_fonts/font = ExtResource("3_1pyk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qv4wl")
+text = "Resume"
+
+[node name="MainMenubutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 324.0
+offset_right = 764.0
+offset_bottom = 426.0
+theme_override_colors/font_color = Color(0.31, 0.31, 0.31, 1)
+theme_override_colors/font_focus_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_colors/font_pressed_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_fonts/font = ExtResource("3_1pyk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qv4wl")
+text = "Main  Menu"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 444.0
+offset_right = 764.0
+offset_bottom = 546.0
+theme_override_colors/font_color = Color(0.31, 0.31, 0.31, 1)
+theme_override_colors/font_focus_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_colors/font_pressed_color = Color(0.44, 0.44, 0.44, 1)
+theme_override_fonts/font = ExtResource("3_1pyk0")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qv4wl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qv4wl")
+text = "Restart"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainMenubutton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

@@ -53,7 +53,7 @@ extends Node2D
 @onready var lights = preload("res://scenes/lightsOffEvent.tscn")
 @onready var boxSpawner : Node2D = $"BoxSpawner"
 @onready var clockText: Label = $Clock
-@onready var paused_screen: Panel = $PausedScreen
+
 @onready var Score = $Score
 
 var count = 0
@@ -68,7 +68,11 @@ var minute = 0
 
 var gameIsStarted = false
 var shiftIsOver = false
+
 var paused = false
+@onready var paused_screen: Panel = $PausedScreen
+var sceneTo = "res://scenes/TitleScreen.tscn"
+
 func _ready() -> void:
 	ScoreController._reset_score()
 	clockText.visible = false
@@ -76,10 +80,11 @@ func _ready() -> void:
 	get_tree().paused = true
 	
 	#add_child(lights.instantiate())
-	
+
 func _process(_delta: float) -> void:
 	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
 
+#Pause
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if !gameIsStarted:
@@ -92,11 +97,18 @@ func _input(event):
 		elif shiftIsOver:
 			loading_screen_animator.play("exitScene")
 	elif event.is_action_pressed("pause") && !shiftIsOver:
-		paused = !paused
-		get_tree().paused = paused
-		paused_screen.visible = paused
+		flip_pause_status()
+func flip_pause_status():
+	paused = !paused
+	get_tree().paused = paused
+	paused_screen.visible = paused
+func set_next_screen_to_load_to(scene):
+	sceneTo = scene
+func _set_scene_to_(): #used in animator
+	get_tree().change_scene_to_file(sceneTo)
+
+#Clock Spawning
 var runClock = false
-var spawnBoxes = true
 func _start_clock():
 	runClock = true
 func _second_passed():
@@ -129,6 +141,8 @@ func _second_passed():
 		runClock = false
 		spawnBoxes = false
 
+#Box Spawning
+var spawnBoxes = true
 var lastBoxSpawned = "Mislabeled"
 var boxType 
 func _on_timer_timeout() -> void:
@@ -152,26 +166,10 @@ func _on_timer_timeout() -> void:
 	lastBoxSpawned = boxType
 	#$Timer.start()
 
-func _on_resume_button_pressed() -> void:
-	paused = false
-	get_tree().paused = paused
-	paused_screen.visible = paused
-
-func _on_main_menu_button_pressed() -> void:
-	paused = false
-	get_tree().paused = false
-	loading_screen_animator.play("exitScene")
-#used in animator
-var sceneTo = "res://scenes/TitleScreen.tscn"
-func _set_scene_to_():
-	get_tree().change_scene_to_file(sceneTo)
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-func _on_restart_button_pressed() -> void:
-	sceneTo = "res://scenes/Levels/Level"+str(Global.level)+".tscn"
-	loading_screen_animator.play("exitScene")
-
+#End Screen
+@onready var final_score: Label = $levelComplete/RichTextLabel/FinalScore
+@onready var boxes_missed: Label = $levelComplete/RichTextLabel/BoxesMissed
+@onready var stars: Node2D = $levelComplete/Stars
 func _shift_complete() -> void:
 	level_complete_animations.play("levelCompleteEnter")
 	shiftIsOver = true
@@ -180,16 +178,11 @@ func _shift_complete() -> void:
 	$Score.visible = false
 	paused = true
 	get_tree().paused = paused
-@onready var final_score: Label = $levelComplete/RichTextLabel/FinalScore
-@onready var boxes_missed: Label = $levelComplete/RichTextLabel/BoxesMissed
 func _set_final_score():
 	
 	final_score.text = str(Score._get_current_score())
 func _set_boxes_missed():
 	boxes_missed.text = str(Score._get_missed_boxes())
-
-
-@onready var stars: Node2D = $levelComplete/Stars
 func _try_set_star_visible(starIndex):
 	var star = stars.get_child(starIndex)
 	match starIndex:
@@ -202,4 +195,3 @@ func _try_set_star_visible(starIndex):
 		0:
 			if Score._get_current_score() >= 3000:
 				star.set_deferred("modulate",Color(1,1,1,1))
-	
