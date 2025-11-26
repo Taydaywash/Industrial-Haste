@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://yu0mnyavm82i"]
+[gd_scene load_steps=30 format=3 uid="uid://yu0mnyavm82i"]
 
 [ext_resource type="Script" uid="uid://ckrbeq05qbvgh" path="res://scripts/box_controller.gd" id="1_hl4tw"]
 [ext_resource type="Texture2D" uid="uid://d0xovc4gam4rg" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0000.png" id="2_lrcp5"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b6y73ycoj6m0b" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0006.png" id="8_sxp01"]
 [ext_resource type="Texture2D" uid="uid://ckr6ox2hgvi6x" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0007.png" id="9_lg2pc"]
 [ext_resource type="Texture2D" uid="uid://b60drt2xk512" path="res://spirtes/BoxSprites/puffAnimation/puffAnimation0008.png" id="10_r8tui"]
+[ext_resource type="Material" uid="uid://chrk0ogmoqqgx" path="res://Shaders/hiddenShader.tres" id="11_pqt68"]
 [ext_resource type="Texture2D" uid="uid://c5va8pa8cgidj" path="res://spirtes/BoxSprites/tapelessBox.png" id="11_rn7pf"]
+[ext_resource type="Script" uid="uid://dmpqstbamvamc" path="res://scripts/boxOutlineController.gd" id="13_1v4lg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q0xfv"]
 animations = [{
@@ -544,9 +546,11 @@ position = Vector2(-81, -83)
 rect = Rect2(-116, -115, 400, 400)
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
+material = ExtResource("11_pqt68")
 position = Vector2(-3.9999695, -7.000004)
 scale = Vector2(0.175, 0.175)
 texture = ExtResource("11_rn7pf")
+script = ExtResource("13_1v4lg")
 
 [node name="BoxLabel" type="Label" parent="Area2D"]
 offset_left = 32.0
@@ -602,4 +606,6 @@ scale_amount_max = 6.4
 color_ramp = SubResource("Gradient_rn7pf")
 
 [connection signal="input_event" from="Area2D" to="." method="_attempt_tool_use"]
+[connection signal="mouse_entered" from="Area2D" to="Area2D/Sprite" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="Area2D/Sprite" method="_on_area_2d_mouse_exited"]
 [connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

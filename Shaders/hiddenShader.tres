@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://chrk0ogmoqqgx"]
+
+[ext_resource type="Shader" uid="uid://bvr4r4ouj85sr" path="res://Shaders/boxOutline.gdshader" id="1_i12m7"]
+
+[resource]
+shader = ExtResource("1_i12m7")
+shader_parameter/line_color = Color(1, 1, 0.06999999, 0)
+shader_parameter/line_thickness = 15.0000007125
