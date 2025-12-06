@@ -61,7 +61,7 @@ func play_tape_placed_sound():
 	
 func play_transition_sound():
 	randomize()
-	$ScreenTransition.pitch_scale = randf_range(.95, 1.05)
+	$ScreenTransition.pitch_scale = randf_range(0.6, 0.85)
 	$ScreenTransition.play()
 	
 func play_hover_sound():
@@ -71,5 +71,5 @@ func play_hover_sound():
 	
 func play_paper_hover_sound():
 	randomize()
-	$PaperHover.pitch_scale = randf_range(.8, 1.2)
+	$PaperHover.pitch_scale = randf_range(1.2, 1.6)
 	$PaperHover.play()

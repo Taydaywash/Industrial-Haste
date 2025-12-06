@@ -47,7 +47,6 @@ func _on_level_select_button_pressed():
 			for score in range (0,8):
 				if Global.levelScores[score] < 3500:
 					threeStarsInAll = false
-			print(threeStarsInAll)
 			if threeStarsInAll:
 				level_select_backdrop.get_child(1).get_child(childIndex).visible = true
 			else:
@@ -106,8 +105,15 @@ func _on_music_volume_value_changed(value: float) -> void:
 	SoundManager.set_music_volume_to(value)
 	music_number.text = str(int(value*100))
 
+@onready var level_stats: Panel = $LevelSelectBackdrop/LevelStats
+@onready var level_score: Label = $LevelSelectBackdrop/LevelStats/LevelScore
 func _on_element_entered() -> void:
 	SoundManager.play_hover_sound()
+func _show_level_score(level):
+	level_stats.visible = true
+	level_score.text = "Score: " + str(Global.levelScores[level])
+func _hide_level_score():
+	level_stats.visible = false
 
 func play_animation_sound():
 	SoundManager.play_transition_sound()
