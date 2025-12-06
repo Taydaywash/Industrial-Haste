@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ig3sw1u1fany"]
+[gd_scene load_steps=17 format=3 uid="uid://ig3sw1u1fany"]
 
 [ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
 [ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://dmhfuxmx0rn7" path="res://Sound Effects/ScreenTransition.mp3" id="12_57gaw"]
 [ext_resource type="AudioStream" uid="uid://brkowh6yyuxbc" path="res://Sound Effects/HoverClick.mp3" id="13_dylgb"]
 [ext_resource type="AudioStream" uid="uid://g5taerseb3ds" path="res://Sound Effects/Paper Hover.mp3" id="14_thbj3"]
+[ext_resource type="AudioStream" uid="uid://wgllqhoteaxw" path="res://Sound Effects/Welcome to Factory Town.mp3" id="15_qsl2i"]
+[ext_resource type="AudioStream" uid="uid://b4mxcdts2imc2" path="res://Sound Effects/Clocking In Hot (Unloopable).mp3" id="16_yu3b1"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3
@@ -98,8 +100,22 @@ pitch_scale = 0.9
 stream = ExtResource("13_dylgb")
 volume_db = -5.0
 max_polyphony = 4
+bus = &"SFX"
 
 [node name="PaperHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_thbj3")
 volume_db = -2.0
 max_polyphony = 4
+bus = &"SFX"
+
+[node name="WelcomeToFactoryTown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_qsl2i")
+volume_db = -13.0
+bus = &"Music"
+
+[node name="ClockingInHot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_yu3b1")
+volume_db = -13.0
+bus = &"Music"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]

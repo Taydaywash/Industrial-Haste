@@ -74,6 +74,7 @@ var paused = false
 var sceneTo = "res://scenes/TitleScreen.tscn"
 
 func _ready() -> void:
+	SoundManager.play_clocking_in_hot()
 	ScoreController._reset_score()
 	clockText.visible = false
 	$Score.visible = false

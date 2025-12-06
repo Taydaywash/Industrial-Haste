@@ -73,3 +73,16 @@ func play_paper_hover_sound():
 	randomize()
 	$PaperHover.pitch_scale = randf_range(.8, 1.2)
 	$PaperHover.play()
+	
+func play_clocking_in_hot():
+	$WelcomeToFactoryTown.stop()
+	$ClockingInHot.play()
+	
+func play_welcome_to_factory_town():
+	$ClockingInHot.stop()
+	$WelcomeToFactoryTown.play()
+	
+func play_button_clicked():
+	randomize()
+	$ButtonClick.pitch_scale = randf_range(.8, 1.2)
+	$ButtonClick.play()

@@ -4,6 +4,7 @@ extends Control
 @onready var quit_confirm: Panel = $QuitConfirm
 
 func _ready() -> void:
+	SoundManager.play_welcome_to_factory_town()
 	Global.loadData()
 	get_tree().paused = false
 
