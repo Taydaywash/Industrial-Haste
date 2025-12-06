@@ -17,17 +17,20 @@ func _process(delta: float) -> void:
 
 #Testing
 func _on_test_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	get_tree().change_scene_to_file("res://scenes/GameScreen.tscn")
 
 
 #Level Select
 func _on_level_select_back_button_pressed():
+	SoundManager.play_button_clicked()
 	level_select_backdrop.visible = false
 
 var levelSceneReference
 @onready var loading_screen_animator: AnimationPlayer = $loadingScreenAnimator
 
 func _on_level_button_pressed(level):
+	SoundManager.play_button_clicked()
 	Global._set_level_to(level)
 	levelSceneReference = "res://scenes/Levels/Level"+str(level)+".tscn"
 	loading_screen_animator.play("exitScene")
@@ -37,6 +40,7 @@ func _load_scene():
 
 #Main Menu
 func _on_level_select_button_pressed():
+	SoundManager.play_button_clicked()
 	for childIndex in range (0,8):
 		if childIndex < 7:
 			if Global.levelScores[childIndex] >= 3000:
@@ -76,15 +80,20 @@ func _on_level_select_button_pressed():
 	level_select_backdrop.visible = true
 
 func _on_settings_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	setting_menu.visible = true
 func _on_settings_back_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	setting_menu.visible = false
 
 func _on_quit_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	quit_confirm.visible = true
 func _on_quit_confirm_pressed() -> void:
+	SoundManager.play_button_clicked()
 	get_tree().quit()
 func _on_quit_cancel_pressed() -> void:
+	SoundManager.play_button_clicked()
 	quit_confirm.visible = false
 
 @onready var volume_number: Label = $SettingMenu/MasterVolumeText/volumeNumber
@@ -122,10 +131,13 @@ func play_animation_sound():
 @onready var reset_button_confirm: Panel = $SettingMenu/ResetButton/ResetButtonConfirm
 
 func _on_reset_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	reset_button_confirm.visible = true
 func _on_reset_cancel_pressed() -> void:
+	SoundManager.play_button_clicked()
 	reset_button_confirm.visible = false
 func _on_reset_confirm_pressed() -> void:
+	SoundManager.play_button_clicked()
 	Global.reset_data()
 	reset_button_confirm.visible = false
 	setting_menu.visible = false

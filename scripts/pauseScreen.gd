@@ -8,15 +8,18 @@ func _ready() -> void:
 	levelTexts.text = levelTexts.get_level_text(Global.level)
 	
 func _on_main_menu_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	SoundManager.stop_ambience()
 	paused = false
 	get_tree().paused = false
 	gameScreen.set_next_screen_to_load_to("res://scenes/TitleScreen.tscn")
 	loading_screen_animator.play("exitScene")
 func _on_resume_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	gameScreen.flip_pause_status()
 var sceneTo
 func _on_restart_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	SoundManager.stop_ambience()
 	gameScreen.set_next_screen_to_load_to( "res://scenes/Levels/Level"+str(Global.level)+".tscn")
 	if Global.level == 0:
@@ -40,10 +43,12 @@ func _on_help_book_collider_mouse_exited() -> void:
 
 func _on_help_book_collider_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		SoundManager.play_button_clicked()
 		hoverableBook = false
 		help_book_animator.play("openBook")
 
 func on_back_button_pressed() -> void:
+	SoundManager.play_button_clicked()
 	if !hoverableBook:
 		hoverableBook = true
 		help_book_animator.play("closeBook")
