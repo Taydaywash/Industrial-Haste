@@ -61,8 +61,6 @@ func _set_new_score(score):
 		levelScores[level] = score
 		saveData()
 
-
-
 func _get_spawn_rates():
 	var boxTypesForLevel: Dictionary
 	match level:
@@ -238,7 +236,6 @@ func loadData():
 		
 		var save_data = data.duplicate()
 		levelScores = save_data
-		print("Loaded scores: " + str(levelScores))
 
 func reset_data():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)

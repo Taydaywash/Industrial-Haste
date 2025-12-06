@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=32 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
@@ -68,6 +68,10 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.31, 0.18269335, 0.0372, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w20ru"]
+font = ExtResource("2_4l16e")
+font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ktle"]
 bg_color = Color(0.32941177, 0.23137255, 0.09019608, 1)
@@ -680,6 +684,23 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
 text = "Back"
 
+[node name="LevelStats" type="Panel" parent="LevelSelectBackdrop"]
+visible = false
+layout_mode = 0
+offset_top = -69.47421
+offset_right = 872.7698
+offset_bottom = -8.631943
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="LevelScore" type="Label" parent="LevelSelectBackdrop/LevelStats"]
+layout_mode = 0
+offset_left = 16.500124
+offset_top = 17.368551
+offset_right = 283.10742
+offset_bottom = 57.368553
+text = "Score: "
+label_settings = SubResource("LabelSettings_w20ru")
+
 [node name="SettingMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 0
@@ -1049,20 +1070,36 @@ script = ExtResource("9_w20ru")
 [connection signal="mouse_entered" from="buttons/QuitButton" to="." method="_on_element_entered"]
 [connection signal="pressed" from="buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_show_level_score" binds= [1]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_level_button_pressed" binds= [1]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_show_level_score" binds= [2]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_on_level_button_pressed" binds= [2]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_show_level_score" binds= [3]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_on_level_button_pressed" binds= [3]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_show_level_score" binds= [4]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_on_level_button_pressed" binds= [4]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_show_level_score" binds= [5]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_on_level_button_pressed" binds= [5]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_show_level_score" binds= [6]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_on_level_button_pressed" binds= [6]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_show_level_score" binds= [7]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_level_button_pressed" binds= [7]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_element_entered"]
+[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_show_level_score" binds= [8]]
+[connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_hide_level_score"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_level_button_pressed" binds= [8]]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_element_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]

@@ -26,7 +26,6 @@ func set_target():
 	target = randi_range(2, 4)
 
 func check_count():
-	print(count)
 	if count >= target:
 		SoundManager.stop_ambience()
 		light.visible = false
