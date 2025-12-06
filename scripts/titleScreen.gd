@@ -106,52 +106,7 @@ func _on_music_volume_value_changed(value: float) -> void:
 	SoundManager.set_music_volume_to(value)
 	music_number.text = str(int(value*100))
 
-func _on_level_select_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_settings_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_quit_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_1_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_2_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_3_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_4_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_5_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_6_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_7_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_button_8_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_level_select_back_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_settings_back_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_reset_button_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_quit_confirm_mouse_entered() -> void:
-	SoundManager.play_hover_sound()
-
-func _on_quit_cancel_mouse_entered() -> void:
+func _on_element_entered() -> void:
 	SoundManager.play_hover_sound()
 
 @onready var reset_button_confirm: Panel = $SettingMenu/ResetButton/ResetButtonConfirm
@@ -164,4 +119,3 @@ func _on_reset_confirm_pressed() -> void:
 	Global.reset_data()
 	reset_button_confirm.visible = false
 	setting_menu.visible = false
-
