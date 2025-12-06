@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b7btii1iw4176"]
+[gd_scene load_steps=54 format=3 uid="uid://b7btii1iw4176"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_4dyl1"]
 [ext_resource type="Texture2D" uid="uid://dx1a62cwwdpog" path="res://spirtes/paperAnimation/paperAnimation0.png" id="2_84hcr"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_tf0rn"]
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="18_sq7sj"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_tf0rn"]
+[ext_resource type="Script" uid="uid://klx3boht0rs" path="res://scripts/LoadingTransition.gd" id="21_sfku4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -568,7 +569,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5m38y"]
 size = Vector2(0.9979884, 1.0301809)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfff6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfku4"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_jtgoe"]
@@ -661,6 +662,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("loadingScreenAnimator")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cjvrw"]
 resource_name = "exitScene"
@@ -725,6 +740,20 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"_set_scene_to_"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("loadingScreenAnimator")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
 }]
 }
 
@@ -1015,6 +1044,10 @@ shape = SubResource("RectangleShape2D_5m38y")
 
 [node name="PausedScreen" parent="." instance=ExtResource("17_tf0rn")]
 
+[node name="LightsOff" parent="." instance=ExtResource("18_sq7sj")]
+
+[node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_tf0rn")]
+
 [node name="LoadingScreen" type="Node2D" parent="."]
 process_mode = 3
 z_index = 12
@@ -1026,7 +1059,8 @@ offset_top = -400.0
 offset_right = -935.999
 offset_bottom = 368.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mfff6")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfku4")
+metadata/_edit_use_anchors_ = true
 
 [node name="GearTransition" type="Sprite2D" parent="LoadingScreen"]
 modulate = Color(0, 0, 0, 1)
@@ -1050,10 +1084,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_lk6j4")
 }
 autoplay = "enterScene"
-
-[node name="LightsOff" parent="." instance=ExtResource("18_sq7sj")]
-
-[node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_tf0rn")]
+script = ExtResource("21_sfku4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]

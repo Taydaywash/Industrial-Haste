@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c7j5bvfsvltos"]
+[gd_scene load_steps=55 format=3 uid="uid://c7j5bvfsvltos"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_yi10d"]
 [ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="2_275mg"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_17jxx"]
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_tccsq"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_crlyu"]
+[ext_resource type="Script" uid="uid://klx3boht0rs" path="res://scripts/LoadingTransition.gd" id="21_0gesw"]
 [ext_resource type="PackedScene" uid="uid://t7te06076nft" path="res://scenes/flashingEvent.tscn" id="23_aev2d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
@@ -662,6 +663,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("loadingScreenAnimator")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cjvrw"]
 resource_name = "exitScene"
@@ -726,6 +741,20 @@ tracks/4/keys = {
 "values": [{
 "args": [],
 "method": &"_set_scene_to_"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("loadingScreenAnimator")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
 }]
 }
 
@@ -1049,6 +1078,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_lk6j4")
 }
 autoplay = "enterScene"
+script = ExtResource("21_0gesw")
 
 [node name="LightsOffEvent" parent="." instance=ExtResource("11_17jxx")]
 

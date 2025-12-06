@@ -58,3 +58,13 @@ func play_tape_placed_sound():
 	randomize()
 	$SoundTapePlaced.pitch_scale = randf_range(.8, 1.2)
 	$SoundTapePlaced.play()
+	
+func play_transition_sound():
+	randomize()
+	$ScreenTransition.pitch_scale = randf_range(.95, 1.05)
+	$ScreenTransition.play()
+	
+func play_hover_sound():
+	randomize()
+	$Hover.pitch_scale = randf_range(.8, 1.2)
+	$Hover.play()
