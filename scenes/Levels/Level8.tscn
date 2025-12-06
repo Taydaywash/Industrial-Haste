@@ -58,8 +58,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iofb"]
-bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2t11"]
+texture = ExtResource("6_3ps0n")
+expand_margin_left = 245.0
+expand_margin_top = 107.0
+expand_margin_right = 239.0
+expand_margin_bottom = 102.0
+modulate_color = Color(1, 0.934, 0.78, 1)
 
 [sub_resource type="Animation" id="Animation_o8yur"]
 length = 0.001
@@ -842,7 +847,7 @@ offset_top = -300.0
 offset_right = 470.0
 offset_bottom = 308.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1iofb")
+theme_override_styles/panel = SubResource("StyleBoxTexture_w2t11")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelComplete"]
 layout_mode = 0

@@ -57,8 +57,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iofb"]
-bg_color = Color(0.7412758, 0.68982893, 0.6475708, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfku4"]
+texture = ExtResource("6_7886b")
+expand_margin_left = 245.0
+expand_margin_top = 107.0
+expand_margin_right = 239.0
+expand_margin_bottom = 102.0
+modulate_color = Color(1, 0.934, 0.78, 1)
 
 [sub_resource type="Animation" id="Animation_o8yur"]
 length = 0.001
@@ -782,9 +787,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
 process_mode = 3
 z_index = 10
 offset_left = -450.0
-offset_top = 360.0
+offset_top = -308.0
 offset_right = 470.0
-offset_bottom = 968.0
+offset_bottom = 300.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k70aa")
 script = ExtResource("2_7886b")
@@ -845,7 +850,7 @@ offset_top = -300.0
 offset_right = 470.0
 offset_bottom = 308.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1iofb")
+theme_override_styles/panel = SubResource("StyleBoxTexture_sfku4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="levelComplete"]
 layout_mode = 0
@@ -869,9 +874,9 @@ shortcut_keys_enabled = false
 z_index = 1
 layout_mode = 0
 offset_left = 234.0
-offset_top = 100.0
+offset_top = 91.586006
 offset_right = 380.0
-offset_bottom = 278.99997
+offset_bottom = 270.58603
 theme_override_colors/font_color = Color(0.15, 0.15, 0.15, 1)
 theme_override_font_sizes/font_size = 64
 text = "0"
