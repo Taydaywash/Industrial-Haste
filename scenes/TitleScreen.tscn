@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=30 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://15tw823sn636" path="res://spirtes/gear.png" id="4_8k5og"]
 [ext_resource type="Texture2D" uid="uid://b6okgx15jef2x" path="res://spirtes/BoxSprites/bolts/fixedRightBolt.png" id="5_w20ru"]
 [ext_resource type="Texture2D" uid="uid://bffdbenu4egve" path="res://spirtes/titleIcon.png" id="6_85feu"]
-[ext_resource type="Script" uid="uid://klx3boht0rs" path="res://scripts/LoadingTransition.gd" id="9_w20ru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfj8j"]
 bg_color = Color(0.55, 0.36666667, 0, 1)
@@ -132,7 +131,7 @@ outline_color = Color(0.2784314, 0.1764706, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_85feu"]
 font = ExtResource("2_4l16e")
-font_size = 34
+font_size = 21
 font_color = Color(0.09019608, 0.06666667, 0.03529412, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k5og"]
@@ -141,54 +140,33 @@ bg_color = Color(0.25, 0.18333334, 0.125, 0.7294118)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85feu"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ej01"]
-bg_color = Color(0.54901963, 0.3647059, 0, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
-
-[sub_resource type="Animation" id="Animation_jtgoe"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_4l16e"]
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LoadingText:visible")
+tracks/0/path = NodePath("GearBacking:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1000, -400)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GearBacking:position")
+tracks/1/path = NodePath("GearTransition:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2800, -400)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GearTransition:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-992, 0)]
+"values": [Vector2(1000, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hshbf"]
+[sub_resource type="Animation" id="Animation_8k5og"]
 resource_name = "enterScene"
 length = 2.1
 tracks/0/type = "value"
@@ -227,34 +205,8 @@ tracks/2/keys = {
 "update": 0,
 "values": [6.283185307179586, 0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LoadingText:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("loadingScreenAnimator")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_sound"
-}]
-}
 
-[sub_resource type="Animation" id="Animation_cjvrw"]
+[sub_resource type="Animation" id="Animation_66w26"]
 resource_name = "exitScene"
 length = 2.1
 tracks/0/type = "value"
@@ -308,25 +260,11 @@ tracks/3/keys = {
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("loadingScreenAnimator")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_sound"
-}]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.6333),
+"times": PackedFloat32Array(1.6333333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -334,12 +272,20 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lk6j4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ej01"]
 _data = {
-&"RESET": SubResource("Animation_jtgoe"),
-&"enterScene": SubResource("Animation_hshbf"),
-&"exitScene": SubResource("Animation_cjvrw")
+&"RESET": SubResource("Animation_4l16e"),
+&"enterScene": SubResource("Animation_8k5og"),
+&"exitScene": SubResource("Animation_66w26")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ej01"]
+bg_color = Color(0.54901963, 0.3647059, 0, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.30980393, 0.18431373, 0.03529412, 1)
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -836,6 +782,61 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
 text = "Reset Data"
 
+[node name="ResetButtonConfirm" type="Panel" parent="SettingMenu/ResetButton"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -613.10986
+offset_top = -266.60727
+offset_right = -35.60547
+offset_bottom = -114.63243
+scale = Vector2(1.1515064, 1.1515064)
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="backgroundDarken" type="Panel" parent="SettingMenu/ResetButton/ResetButtonConfirm"]
+z_index = -1
+layout_mode = 0
+offset_left = -210.15948
+offset_top = -196.26465
+offset_right = 796.3481
+offset_bottom = 373.42383
+theme_override_styles/panel = SubResource("StyleBoxFlat_w20ru")
+
+[node name="ResetConfirmText" type="Label" parent="SettingMenu/ResetButton/ResetButtonConfirm"]
+layout_mode = 0
+offset_left = -61.087532
+offset_top = 16.500122
+offset_right = 632.9125
+offset_bottom = 63.500122
+text = "Are you sure you want to clear all level scores?
+(this action cannot be undone)"
+label_settings = SubResource("LabelSettings_85feu")
+horizontal_alignment = 1
+
+[node name="ResetConfirm" type="Button" parent="SettingMenu/ResetButton/ResetButtonConfirm"]
+layout_mode = 0
+offset_left = 14.329117
+offset_top = 77.290054
+offset_right = 272.5791
+offset_bottom = 132.73761
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+text = "I really want to start over!"
+
+[node name="ResetCancel" type="Button" parent="SettingMenu/ResetButton/ResetButtonConfirm"]
+layout_mode = 0
+offset_left = 323.5374
+offset_top = 77.290054
+offset_right = 562.5874
+offset_bottom = 131.13255
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+text = "I want to keep my scores!"
+
 [node name="QuitConfirm" type="Panel" parent="."]
 visible = false
 z_index = 1
@@ -908,9 +909,9 @@ texture = ExtResource("3_dfj8j")
 [node name="GearBacking" type="Panel" parent="."]
 z_index = 2
 layout_mode = 0
-offset_left = -2800.0
+offset_left = 1000.0
 offset_top = -400.0
-offset_right = -935.99927
+offset_right = 2864.0007
 offset_bottom = 368.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_85feu")
@@ -918,7 +919,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_85feu")
 [node name="GearTransition" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 2
-position = Vector2(-992, 0)
+position = Vector2(1000, 0)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("4_8k5og")
 
@@ -932,6 +933,13 @@ offset_right = 509.0
 offset_bottom = 253.0
 theme_override_font_sizes/font_size = 32
 text = "Loading..."
+
+[node name="loadingScreenAnimator" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_3ej01")
+}
+autoplay = "enterScene"
 
 [node name="backgroundDecorations" type="Node2D" parent="."]
 z_index = -3
@@ -979,46 +987,25 @@ z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_85feu")
 
-[node name="loadingScreenAnimator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_lk6j4")
-}
-autoplay = "enterScene"
-script = ExtResource("9_w20ru")
-
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
-[connection signal="mouse_entered" from="buttons/LevelSelectButton" to="." method="_on_level_select_button_mouse_entered"]
 [connection signal="pressed" from="buttons/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
-[connection signal="mouse_entered" from="buttons/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="mouse_entered" from="buttons/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="buttons/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_level_button_1_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_level_button_pressed" binds= [1]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_on_level_button_2_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton2" to="." method="_on_level_button_pressed" binds= [2]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_on_level_button_3_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton3" to="." method="_on_level_button_pressed" binds= [3]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_on_level_button_4_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton4" to="." method="_on_level_button_pressed" binds= [4]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_on_level_button_5_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton5" to="." method="_on_level_button_pressed" binds= [5]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_on_level_button_6_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton6" to="." method="_on_level_button_pressed" binds= [6]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_level_button_7_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton7" to="." method="_on_level_button_pressed" binds= [7]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_level_button_8_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelButtons/LevelButton8" to="." method="_on_level_button_pressed" binds= [8]]
-[connection signal="mouse_entered" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_level_select_back_button_mouse_entered"]
 [connection signal="pressed" from="LevelSelectBackdrop/LevelSelectBackButton" to="." method="_on_level_select_back_button_pressed"]
-[connection signal="mouse_entered" from="SettingMenu/SettingsBackButton" to="." method="_on_settings_back_button_mouse_entered"]
 [connection signal="pressed" from="SettingMenu/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
 [connection signal="value_changed" from="SettingMenu/MasterVolumeText" to="." method="_on_master_volume_text_value_changed"]
 [connection signal="value_changed" from="SettingMenu/Music Volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="SettingMenu/SFX Volume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="mouse_entered" from="SettingMenu/ResetButton" to="." method="_on_reset_button_mouse_entered"]
-[connection signal="pressed" from="SettingMenu/ResetButton" to="." method="_on_settings_back_button_pressed"]
-[connection signal="mouse_entered" from="QuitConfirm/quitConfirm" to="." method="_on_quit_confirm_mouse_entered"]
+[connection signal="pressed" from="SettingMenu/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="SettingMenu/ResetButton/ResetButtonConfirm/ResetConfirm" to="." method="_on_reset_confirm_pressed"]
+[connection signal="pressed" from="SettingMenu/ResetButton/ResetButtonConfirm/ResetCancel" to="." method="_on_reset_cancel_pressed"]
 [connection signal="pressed" from="QuitConfirm/quitConfirm" to="." method="_on_quit_confirm_pressed"]
-[connection signal="mouse_entered" from="QuitConfirm/quitCancel" to="." method="_on_quit_cancel_mouse_entered"]
 [connection signal="pressed" from="QuitConfirm/quitCancel" to="." method="_on_quit_cancel_pressed"]

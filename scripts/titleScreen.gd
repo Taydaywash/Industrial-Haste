@@ -4,6 +4,7 @@ extends Control
 @onready var quit_confirm: Panel = $QuitConfirm
 
 func _ready() -> void:
+	Global.loadData()
 	get_tree().paused = false
 
 func _process(delta: float) -> void:
@@ -152,3 +153,15 @@ func _on_quit_confirm_mouse_entered() -> void:
 
 func _on_quit_cancel_mouse_entered() -> void:
 	SoundManager.play_hover_sound()
+
+@onready var reset_button_confirm: Panel = $SettingMenu/ResetButton/ResetButtonConfirm
+
+func _on_reset_button_pressed() -> void:
+	reset_button_confirm.visible = true
+func _on_reset_cancel_pressed() -> void:
+	reset_button_confirm.visible = false
+func _on_reset_confirm_pressed() -> void:
+	Global.reset_data()
+	reset_button_confirm.visible = false
+	setting_menu.visible = false
+
