@@ -1,18 +1,26 @@
 extends Node
 
+const save_path = "user://levelScores.save"
+
 var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
-var levelScores: Array = [9999,9990,9990,9990,9990,9990,9990,9990,0]
-var lightEventRarity: Array = [50,0,10,20,30,40,40,50,50]
-var flashingEventRarity: Array = [50,0,0,0,0,0,30,40,50]
+const defaultLevelScores: Array = [9999,0,0,0,0,0,0,0,0]
+var levelScores: Array = [9999,0,0,0,0,0,0,0,0]
+
+const lightEventRarity: Array = [50,0,10,20,30,40,40,50,50]
+const flashingEventRarity: Array = [50,0,0,0,0,0,30,40,50]
+
+const ONE_STAR_REQUIREMENT: Array = [3000,3000,3000,3000,3000,3000,4000,5000,6000]
+const TWO_STAR_REQUIREMENT: Array = [3500,3500,3500,3500,3500,3500,5000,6000,7000]
+const THREE_STAR_REQUIREMENT: Array = [4500,4500,4500,4500,4500,4500,7000,8000,9000]
 
 var tool = 0
 var boxesInScene: Array = []
 var currentBoxSpeed = 150
 
 var level = 0
-var boxSpeeds: Array = [150,150,150,150,150,150,150,150,160]
+const boxSpeeds: Array = [150,150,150,150,150,150,150,150,160]
 
 func _ready():
 	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
@@ -47,9 +55,12 @@ func _reset_tool():
 
 func _set_level_to(number):
 	level = number
+
 func _set_new_score(score):
 	if levelScores[level] < score:
 		levelScores[level] = score
+		saveData()
+
 
 
 func _get_spawn_rates():
@@ -213,3 +224,25 @@ func _get_safe_boxes():
 		8:
 			safeBoxes = ["Fixed","Fixed Crate"]
 	return safeBoxes
+
+func saveData():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(levelScores.duplicate())
+	file.close()
+
+func loadData():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		var data = file.get_var()
+		file.close()
+		
+		var save_data = data.duplicate()
+		levelScores = save_data
+		print("Loaded scores: " + str(levelScores))
+
+func reset_data():
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(defaultLevelScores.duplicate())
+	file.close()
+	
+	levelScores = defaultLevelScores

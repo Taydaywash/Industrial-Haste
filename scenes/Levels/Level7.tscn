@@ -754,9 +754,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
 process_mode = 3
 z_index = 10
 offset_left = -450.0
-offset_top = -308.0
+offset_top = 360.0
 offset_right = 470.0
-offset_bottom = 300.0
+offset_bottom = 968.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qlrdj")
 script = ExtResource("2_maeo2")
@@ -1054,9 +1054,9 @@ autoplay = "enterScene"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
-[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="ConveyorSpeedUp" method="_on_clock_timer_timeout"]
-[connection signal="timeout" from="Clock/ClockTimer" to="FlashingEvent" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="FlashingEvent" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
