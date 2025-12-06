@@ -88,9 +88,6 @@ func _ready() -> void:
 	#timer.wait_time = 300.0/float(Global.boxSpeeds[Global.level]) - (300.0/currentSpeed - timer.time_left)
 	#timer.start()
 func change_timer(currentSpeed, desiredSpeed, time_left):
-	print(currentSpeed)
-	print(desiredSpeed)
-	print(time_left)
 	var desiredTimer = 300.0/float(desiredSpeed)
 	var currentTimer = 300.0/float(currentSpeed)
 	timer.wait_time = abs(desiredTimer - (currentTimer - time_left))
