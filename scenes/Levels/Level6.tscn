@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c7j5bvfsvltos"]
+[gd_scene load_steps=54 format=3 uid="uid://c7j5bvfsvltos"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_yi10d"]
 [ext_resource type="Texture2D" uid="uid://bfwtdw2kw3pr3" path="res://spirtes/star.png" id="2_275mg"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_17jxx"]
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_tccsq"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_crlyu"]
+[ext_resource type="PackedScene" uid="uid://t7te06076nft" path="res://scenes/flashingEvent.tscn" id="23_aev2d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -1053,10 +1054,14 @@ autoplay = "enterScene"
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_crlyu")]
 
+[node name="FlashingEvent" parent="." instance=ExtResource("23_aev2d")]
+position = Vector2(-440.09738, 176.271)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="ConveyorSpeedUp" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="FlashingEvent" method="_on_clock_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

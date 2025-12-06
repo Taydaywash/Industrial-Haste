@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bhns8m0mfebj8"]
+[gd_scene load_steps=54 format=3 uid="uid://bhns8m0mfebj8"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_c7fb8"]
 [ext_resource type="Script" uid="uid://b4boslph2mi0l" path="res://scripts/levelInstructionsFunctions.gd" id="2_3ps0n"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cvcdsprxqm6d1" path="res://scenes/lightsOffEvent.tscn" id="11_hbq5q"]
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_hpel6"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_dhfmm"]
+[ext_resource type="PackedScene" uid="uid://t7te06076nft" path="res://scenes/flashingEvent.tscn" id="23_1tij3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -753,9 +754,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
 process_mode = 3
 z_index = 10
 offset_left = -450.0
-offset_top = 360.0
+offset_top = -308.0
 offset_right = 470.0
-offset_bottom = 968.0
+offset_bottom = 300.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_sonym")
 script = ExtResource("2_3ps0n")
@@ -777,10 +778,11 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_1tij3")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+text = "|Shift #8 | Worker #1012 |Business Co. |
+Hey #1012, thanks for coming in today, I hope the overtime pay will be worth it.
+Nothing new for you today, but it might be a bit hectic.
 
-With love,
+You got this,
 Boss"
 scroll_active = false
 shortcut_keys_enabled = false
@@ -1047,12 +1049,16 @@ libraries = {
 autoplay = "enterScene"
 
 [node name="LightsOffEvent" parent="." instance=ExtResource("11_hbq5q")]
-visible = false
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_dhfmm")]
 
+[node name="FlashingEvent" parent="." instance=ExtResource("23_1tij3")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
+[connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="ConveyorSpeedUp" method="_on_clock_timer_timeout"]
+[connection signal="timeout" from="Clock/ClockTimer" to="FlashingEvent" method="_on_clock_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]

@@ -81,10 +81,20 @@ func _ready() -> void:
 	
 	#add_child(lights.instantiate())
 
-
-func _process(_delta: float) -> void:
-	$Timer.wait_time = 300.0/float(Global.currentBoxSpeed)
-
+@onready var timer = $Timer
+#func _process(_delta: float) -> void:
+	#timer.wait_time = 300.0/float(Global.currentBoxSpeed)
+#func reset_timer(currentSpeed):
+	#timer.wait_time = 300.0/float(Global.boxSpeeds[Global.level]) - (300.0/currentSpeed - timer.time_left)
+	#timer.start()
+func change_timer(currentSpeed, desiredSpeed, time_left):
+	print(currentSpeed)
+	print(desiredSpeed)
+	print(time_left)
+	var desiredTimer = 300.0/float(desiredSpeed)
+	var currentTimer = 300.0/float(currentSpeed)
+	timer.wait_time = abs(desiredTimer - (currentTimer - time_left))
+	timer.start()
 #Pause
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -159,7 +169,7 @@ func _on_timer_timeout() -> void:
 	add_child(boxInstance)
 	
 	boxType = boxInstance.get_box_type()
-	while lastBoxSpawned == "Mislabeled" && boxType == "Mislabeled":
+	while (lastBoxSpawned == "Mislabeled") && boxType == "Mislabeled":
 		boxType = boxInstance.get_box_type()
 	boxInstance.match_box(boxType)
 	

@@ -12,7 +12,7 @@ var boxesInScene: Array = []
 var currentBoxSpeed = 150
 
 var level = 0
-var boxSpeeds: Array = [150,150,150,150,150,150,150,150,150]
+var boxSpeeds: Array = [150,150,150,150,150,150,150,150,160]
 
 func _ready():
 	Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
@@ -33,6 +33,7 @@ func _change_box_speed_to(speed):
 	for box in boxesInScene:
 		box._set_speed_to(speed)
 		currentBoxSpeed = speed
+	
 func _set_tool_to(input):
 	tool = input
 
@@ -147,10 +148,10 @@ func _get_spawn_rates():
 			"Opened": 15, 
 			"Tapeless": 20,
 			"Dirty": 30, 
-			"Mislabeled": 55, 
-			"Bulging": 70, 
-			"Fixed Crate": 80,
-			"Loose Bolt": 90, 
+			"Mislabeled": 45, 
+			"Bulging": 60, 
+			"Fixed Crate": 70,
+			"Loose Bolt": 85, 
 			"Boltless": 100 
 			}
 		8:
