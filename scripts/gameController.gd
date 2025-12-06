@@ -95,6 +95,7 @@ func change_timer(currentSpeed, desiredSpeed, time_left):
 	var currentTimer = 300.0/float(currentSpeed)
 	timer.wait_time = abs(desiredTimer - (currentTimer - time_left))
 	timer.start()
+	timer.wait_time = desiredTimer
 #Pause
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:

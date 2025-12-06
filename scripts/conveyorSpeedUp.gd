@@ -29,8 +29,8 @@ func _on_clock_timer_timeout() -> void:
 	if Global.level >= 4 || Global.level == 0:
 		if Global.level == 4:
 			if fiveMinutes > 60 && fiveMinutes % (3) == 0:
-				$"..".change_timer(Global.currentBoxSpeed,Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1),0)
+				$"..".change_timer(Global.currentBoxSpeed,Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1),$"../Timer".time_left)
 				Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
 		elif fiveMinutes % (3) == 0:
-			$"..".change_timer(Global.currentBoxSpeed,Global.currentBoxSpeed + Global.currentBoxSpeed * 0.1,0)
+			$"..".change_timer(Global.currentBoxSpeed,Global.currentBoxSpeed + Global.currentBoxSpeed * 0.1,$"../Timer".time_left)
 			Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
