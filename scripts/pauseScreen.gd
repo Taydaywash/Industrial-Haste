@@ -2,6 +2,16 @@ extends Panel
 @onready var loading_screen_animator: AnimationPlayer = $"../LoadingScreen/loadingScreenAnimator"
 var paused = false
 @onready var gameScreen: Node2D = $".."
+@onready var rich_text_label: RichTextLabel = $HelpBookOpen/RichTextLabel
+
+func _ready() -> void:
+	rich_text_label.text = "1. Discard Opened Boxes
+2. Tape up opened and tapeless boxes.
+3. Discard Dirty Boxes
+etc
+etc
+etc
+etc"
 
 func _on_main_menu_button_pressed() -> void:
 	SoundManager.stop_ambience()

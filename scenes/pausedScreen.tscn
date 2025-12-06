@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfgsy7v82wqyl"]
+[gd_scene load_steps=19 format=3 uid="uid://cfgsy7v82wqyl"]
 
 [ext_resource type="Texture2D" uid="uid://di1glfb2nkdv" path="res://spirtes/paperAnimation/paperAnimation6.png" id="1_mnj8e"]
 [ext_resource type="Script" uid="uid://bkjoodu273tck" path="res://scripts/pauseScreen.gd" id="2_1pyk0"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ycfcapu1bkr5" path="res://spirtes/Fonts/VanillaCreamOx-Regular.otf" id="3_1pyk0"]
 [ext_resource type="Texture2D" uid="uid://bygxna6o3pik5" path="res://spirtes/helpBook.png" id="5_0pv8n"]
 [ext_resource type="Texture2D" uid="uid://ss68fcabrp25" path="res://spirtes/helpBookClosed.png" id="6_hxdne"]
+[ext_resource type="Script" uid="uid://1mbmsxynqcp8" path="res://scenes/levelTexts.gd" id="6_ul3s7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qv4wl"]
 texture = ExtResource("1_mnj8e")
@@ -60,6 +61,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-99, 500)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HelpBookCollider:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HelpBookCollider:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0pv8n"]
@@ -135,6 +160,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HelpBookCollider:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HelpBookCollider:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_ul3s7"]
 resource_name = "openBook"
@@ -191,6 +240,30 @@ tracks/3/keys = {
 "args": [],
 "method": &"_play_sliding_paper"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HelpBookCollider:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HelpBookCollider:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hxdne"]
@@ -314,13 +387,7 @@ offset_bottom = 590.0
 theme_override_colors/default_color = Color(0.37, 0.37, 0.37, 1)
 theme_override_fonts/normal_font = ExtResource("3_1pyk0")
 theme_override_font_sizes/normal_font_size = 38
-text = "1. Discard Opened Boxes
-2. Tape up opened and tapeless boxes.
-3. Discard Dirty Boxes
-etc
-etc
-etc
-etc"
+script = ExtResource("6_ul3s7")
 
 [node name="backButton" type="Button" parent="HelpBookOpen"]
 layout_mode = 0
