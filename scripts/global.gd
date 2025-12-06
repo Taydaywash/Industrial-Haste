@@ -3,8 +3,8 @@ extends Node
 var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
-var levelScores: Array = [9999,9990,9990,9990,9990,0,0,0,0]
-var lightEventRarity: Array = [50,0,20,30,30,40,40,50,50]
+var levelScores: Array = [9999,9990,9990,9990,9990,9990,9990,9990,0]
+var lightEventRarity: Array = [50,0,10,20,30,40,40,50,50]
 var flashingEventRarity: Array = [50,0,0,0,0,0,30,40,50]
 
 var tool = 0
@@ -202,11 +202,11 @@ func _get_safe_boxes():
 		3:
 			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Bulging","Loose Bolt","Boltless"]
 		4:
-			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless","Loose Bolt"]
 		5:
 			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
 		6:
-			safeBoxes = ["Fixed","Fixed Crate","Mislabeled","Boltless"]
+			safeBoxes = ["Fixed","Fixed Crate","Mislabeled"]
 		7:
 			safeBoxes = ["Fixed","Fixed Crate"]
 		8:

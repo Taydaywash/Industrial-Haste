@@ -38,15 +38,16 @@ func _play_flicker():
 
 func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
-		SoundManager.play_lights_switch_clicked()
-		switchOn = !switchOn
-		if switchOn:
-			light_switch_texture.texture = switch_on
-			count += 1
-			check_count()
-		else:
-			light_switch_texture.texture = switch_off
-			self.visible = true
+		if !get_tree().paused:
+			SoundManager.play_lights_switch_clicked()
+			switchOn = !switchOn
+			if switchOn:
+				light_switch_texture.texture = switch_on
+				count += 1
+				check_count()
+			else:
+				light_switch_texture.texture = switch_off
+				self.visible = true
 
 func _on_timer_timeout():
 	randomize()

@@ -104,9 +104,11 @@ func flip_pause_status():
 	get_tree().paused = paused
 	SoundManager.play_sliding_paper()
 	paused_screen.visible = paused
+	paused_screen.on_back_button_pressed()
 func set_next_screen_to_load_to(scene):
 	sceneTo = scene
 func _set_scene_to_(): #used in animator
+	SoundManager.stop_ambience()
 	get_tree().change_scene_to_file(sceneTo)
 
 #Clock Spawning

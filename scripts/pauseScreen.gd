@@ -2,17 +2,11 @@ extends Panel
 @onready var loading_screen_animator: AnimationPlayer = $"../LoadingScreen/loadingScreenAnimator"
 var paused = false
 @onready var gameScreen: Node2D = $".."
-@onready var rich_text_label: RichTextLabel = $HelpBookOpen/RichTextLabel
+@onready var levelTexts: RichTextLabel = $HelpBookOpen/RichTextLabel
 
 func _ready() -> void:
-	rich_text_label.text = "1. Discard Opened Boxes
-2. Tape up opened and tapeless boxes.
-3. Discard Dirty Boxes
-etc
-etc
-etc
-etc"
-
+	levelTexts.text = levelTexts.get_level_text(Global.level)
+	
 func _on_main_menu_button_pressed() -> void:
 	SoundManager.stop_ambience()
 	paused = false
@@ -48,6 +42,7 @@ func _on_help_book_collider_input_event(_viewport: Node, event: InputEvent, _sha
 		hoverableBook = false
 		help_book_animator.play("openBook")
 
-func _on_back_button_pressed() -> void:
-	hoverableBook = true
-	help_book_animator.play("closeBook")
+func on_back_button_pressed() -> void:
+	if !hoverableBook:
+		hoverableBook = true
+		help_book_animator.play("closeBook")

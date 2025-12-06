@@ -753,9 +753,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wx6og")
 process_mode = 3
 z_index = 10
 offset_left = -450.0
-offset_top = -308.0
+offset_top = 360.0
 offset_right = 470.0
-offset_bottom = 300.0
+offset_bottom = 968.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ia2xr")
 script = ExtResource("2_r228p")
@@ -777,10 +777,12 @@ mouse_filter = 2
 theme_override_colors/default_color = Color(0.28, 0.28, 0.28, 1)
 theme_override_fonts/normal_font = ExtResource("7_aev2d")
 theme_override_font_sizes/normal_font_size = 41
-text = "|Shift #0 | Worker #1012 |Business Co. |
-What's popping worker #1012. Management wanted me to make a testing level for you to try out new mechanics in or something. I am not going to pay you for working here tho, so do what you want I guess.
+text = "|Shift #6 | Worker #1012 |Business Co. |
+What's up worker, you've been doing great so far! 
+I've been getting some more complaints, supposedly there are crates with no bolts in them whatsoever. 
+I'll look and see if I have any bolts laying around anywhere, but for now just shove those crates off the line
 
-With love,
+Stay excellent,
 Boss"
 scroll_active = false
 shortcut_keys_enabled = false
