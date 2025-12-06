@@ -31,6 +31,7 @@ func _play_sliding_paper():
 
 var hoverableBook = true
 func _on_help_book_collider_mouse_entered() -> void:
+	SoundManager.play_paper_hover_sound()
 	if hoverableBook:
 		help_book_animator.play("bookHoverUp")
 func _on_help_book_collider_mouse_exited() -> void:
@@ -46,3 +47,6 @@ func on_back_button_pressed() -> void:
 	if !hoverableBook:
 		hoverableBook = true
 		help_book_animator.play("closeBook")
+		
+func _element_entered():
+	SoundManager.play_paper_hover_sound()

@@ -101,3 +101,5 @@ max_polyphony = 4
 
 [node name="PaperHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_thbj3")
+volume_db = -2.0
+max_polyphony = 4

@@ -109,6 +109,9 @@ func _on_music_volume_value_changed(value: float) -> void:
 func _on_element_entered() -> void:
 	SoundManager.play_hover_sound()
 
+func play_animation_sound():
+	SoundManager.play_transition_sound()
+
 @onready var reset_button_confirm: Panel = $SettingMenu/ResetButton/ResetButtonConfirm
 
 func _on_reset_button_pressed() -> void:

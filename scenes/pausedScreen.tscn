@@ -428,10 +428,14 @@ offset_right = 1112.0
 offset_bottom = 252.0
 text = "X"
 
+[connection signal="mouse_entered" from="ResumeButton" to="." method="_element_entered"]
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="MainMenubutton" to="." method="_element_entered"]
 [connection signal="pressed" from="MainMenubutton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="RestartButton" to="." method="_element_entered"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="input_event" from="HelpBookCollider" to="." method="_on_help_book_collider_input_event"]
 [connection signal="mouse_entered" from="HelpBookCollider" to="." method="_on_help_book_collider_mouse_entered"]
 [connection signal="mouse_exited" from="HelpBookCollider" to="." method="_on_help_book_collider_mouse_exited"]
+[connection signal="mouse_entered" from="HelpBookOpen/backButton" to="." method="_element_entered"]
 [connection signal="pressed" from="HelpBookOpen/backButton" to="." method="on_back_button_pressed"]

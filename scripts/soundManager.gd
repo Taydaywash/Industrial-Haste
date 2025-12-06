@@ -68,3 +68,8 @@ func play_hover_sound():
 	randomize()
 	$Hover.pitch_scale = randf_range(.8, 1.2)
 	$Hover.play()
+	
+func play_paper_hover_sound():
+	randomize()
+	$PaperHover.pitch_scale = randf_range(.8, 1.2)
+	$PaperHover.play()
