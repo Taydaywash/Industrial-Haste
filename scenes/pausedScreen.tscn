@@ -295,7 +295,7 @@ texture = ExtResource("5_0pv8n")
 [node name="PausedScreen" type="Panel"]
 process_mode = 3
 visible = false
-z_index = 8
+z_index = 12
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0

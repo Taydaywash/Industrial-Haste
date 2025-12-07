@@ -1,12 +1,22 @@
 extends Node
 
-const save_path = "user://levelScores.save"
+const save_path = "user://gameData.save"
 
 var cursor = preload("res://spirtes/handToolPalmCursorSmall.png")
 var cursor2 = preload("res://spirtes/handToolGraspCursorSmall.png")
 
 const defaultLevelScores: Array = [9999,0,0,0,0,0,0,0,0]
 var levelScores: Array = [9999,0,0,0,0,0,0,0,0]
+var sfxVolume = 0.5
+var musicVolume = 0.5
+var masterVolume = 0.5
+
+var dataToSave: Dictionary = {
+	"levelScores" : levelScores,
+	"sfxVolume" : sfxVolume,
+	"musicVolume" : musicVolume,
+	"masterVolume" : masterVolume,
+}
 
 const lightEventRarity: Array = [50,0,10,20,30,40,40,50,50]
 const flashingEventRarity: Array = [50,0,0,0,0,0,30,40,50]
@@ -32,6 +42,12 @@ func _input(event):
 		else: 
 			Input.set_custom_mouse_cursor(cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 
+func set_sfx_volume_to(value):
+	dataToSave.sfxVolume = value
+func set_music_volume_to(value):
+	dataToSave.musicVolume = value
+func set_master_volume_to(value):
+	dataToSave.masterVolume = value
 
 func _add_box_to_scene(box):
 	boxesInScene.insert(0,box)
@@ -225,7 +241,7 @@ func _get_safe_boxes():
 
 func saveData():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(levelScores.duplicate())
+	file.store_var(dataToSave.duplicate())
 	file.close()
 
 func loadData():
@@ -235,11 +251,16 @@ func loadData():
 		file.close()
 		
 		var save_data = data.duplicate()
-		levelScores = save_data
+		levelScores = save_data.levelScores
+		dataToSave.levelScores = levelScores
+		dataToSave.sfxVolume = save_data.sfxVolume
+		dataToSave.musicVolume = save_data.musicVolume
+		dataToSave.masterVolume = save_data.masterVolume
+		
 
 func reset_data():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(defaultLevelScores.duplicate())
-	file.close()
-	
+	dataToSave.levelScores = defaultLevelScores
 	levelScores = defaultLevelScores
+	file.store_var(dataToSave.duplicate())
+	file.close()

@@ -74,7 +74,7 @@ var paused = false
 var sceneTo = "res://scenes/TitleScreen.tscn"
 
 func _ready() -> void:
-	SoundManager.play_clocking_in_hot()
+	
 	ScoreController._reset_score()
 	clockText.visible = false
 	$Score.visible = false
@@ -101,6 +101,7 @@ func _input(event):
 			paused = false
 			get_tree().paused = paused
 			level_instruction_animations.play("InstructionExit")
+			SoundManager.play_clocking_in_hot()
 			clockText.visible = true
 			$Score.visible = true
 			gameIsStarted = true
