@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dpbelu56weedw"]
+[gd_scene load_steps=34 format=3 uid="uid://dpbelu56weedw"]
 
 [ext_resource type="Script" uid="uid://d4bpykmhidsgy" path="res://scripts/titleScreen.gd" id="1_qyuap"]
 [ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="2_4l16e"]
@@ -345,6 +345,16 @@ _data = {
 &"exitScene": SubResource("Animation_cjvrw")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_1vfo2"]
+font = ExtResource("2_4l16e")
+font_size = 30
+font_color = Color(0.89, 0.8595916, 0.8455, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hjcsb"]
+font = ExtResource("2_4l16e")
+font_size = 22
+font_color = Color(0.89, 0.8595916, 0.8455, 1)
+
 [node name="mainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -412,6 +422,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Quit
 "
+
+[node name="Credits" type="Button" parent="buttons"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 200.0
+offset_right = 536.0
+offset_bottom = 260.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.28, 0.17733333, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_dfj8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
+text = "Credits"
 
 [node name="LevelSelectBackdrop" type="Panel" parent="."]
 visible = false
@@ -1063,6 +1087,95 @@ libraries = {
 autoplay = "enterScene"
 script = ExtResource("9_w20ru")
 
+[node name="Credits" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -557.0
+offset_top = -261.0
+offset_right = 551.0
+offset_bottom = 293.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qyuap")
+
+[node name="creditsBackButton" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 483.0
+offset_right = 161.5
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(0.2784314, 0.1764706, 0, 1)
+theme_override_fonts/font = ExtResource("2_4l16e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_66w26")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hjcsb")
+text = "Back"
+
+[node name="Programming" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 26.0
+offset_right = 114.0
+offset_bottom = 49.0
+text = "Progamming & Game Design:
+--------------------------------------------------
+   |Tayven \"Taydaywash\" Washington
+   
+   |Kellen Neiswanger"
+label_settings = SubResource("LabelSettings_1vfo2")
+
+[node name="BackgroundArt" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 225.0
+offset_right = 544.0
+offset_bottom = 377.0
+text = "Background Art:
+--------------------------------------------------
+   |Avery Moon"
+label_settings = SubResource("LabelSettings_1vfo2")
+
+[node name="MainArt" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 24.0
+offset_right = 1084.0
+offset_bottom = 176.0
+text = "Main Art:
+--------------------------------------------------
+   |Kojo"
+label_settings = SubResource("LabelSettings_1vfo2")
+
+[node name="SupplementaryArtist" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 227.0
+offset_right = 1096.0
+offset_bottom = 379.0
+text = "Concept Art & Supplementary Art:
+--------------------------------------------------
+   |Tayven \"TaydayWash\" Washington"
+label_settings = SubResource("LabelSettings_1vfo2")
+
+[node name="Music" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 360.0
+offset_right = 546.0
+offset_bottom = 512.0
+text = "Music:
+--------------------------------------------------
+   |Preston Pinkelman"
+label_settings = SubResource("LabelSettings_1vfo2")
+
+[node name="Sfx" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 374.0
+offset_right = 1605.0
+offset_bottom = 526.0
+text = "Additional Credits:
+--------------------------------------------------
+Drag book by manuelaurreaf
+https://freesound.org/s/490109/"
+label_settings = SubResource("LabelSettings_hjcsb")
+
 [connection signal="pressed" from="TestButton" to="." method="_on_test_button_pressed"]
 [connection signal="mouse_entered" from="buttons/LevelSelectButton" to="." method="_on_element_entered"]
 [connection signal="pressed" from="buttons/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
@@ -1070,6 +1183,8 @@ script = ExtResource("9_w20ru")
 [connection signal="pressed" from="buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="mouse_entered" from="buttons/QuitButton" to="." method="_on_element_entered"]
 [connection signal="pressed" from="buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="buttons/Credits" to="." method="_on_element_entered"]
+[connection signal="pressed" from="buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_on_element_entered"]
 [connection signal="mouse_entered" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_show_level_score" binds= [1]]
 [connection signal="mouse_exited" from="LevelSelectBackdrop/LevelButtons/LevelButton1" to="." method="_hide_level_score"]
@@ -1117,3 +1232,4 @@ script = ExtResource("9_w20ru")
 [connection signal="pressed" from="SettingMenu/ResetButton/ResetButtonConfirm/ResetCancel" to="." method="_on_reset_cancel_pressed"]
 [connection signal="pressed" from="QuitConfirm/quitConfirm" to="." method="_on_quit_confirm_pressed"]
 [connection signal="pressed" from="QuitConfirm/quitCancel" to="." method="_on_quit_cancel_pressed"]
+[connection signal="pressed" from="Credits/creditsBackButton" to="." method="_on_credits_back_button_pressed"]

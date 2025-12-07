@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ctyn4ayvj5ad5"]
+[gd_scene load_steps=55 format=3 uid="uid://ctyn4ayvj5ad5"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_v5wxc"]
 [ext_resource type="Script" uid="uid://b4boslph2mi0l" path="res://scripts/levelInstructionsFunctions.gd" id="2_ehl3w"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cfgsy7v82wqyl" path="res://scenes/pausedScreen.tscn" id="17_6gy1u"]
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_dhpen"]
 [ext_resource type="Script" uid="uid://klx3boht0rs" path="res://scripts/LoadingTransition.gd" id="21_vpk81"]
+[ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="24_kpf0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -1107,9 +1108,20 @@ script = ExtResource("21_vpk81")
 
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_dhpen")]
 
+[node name="pause" type="Button" parent="."]
+z_index = 15
+offset_left = 517.08167
+offset_top = -256.0
+offset_right = 563.0
+offset_bottom = -211.0
+theme_override_fonts/font = ExtResource("24_kpf0j")
+theme_override_font_sizes/font_size = 32
+text = "||"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="timeout" from="Clock/ClockTimer" to="LightsOff" method="_on_timer_timeout"]
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]

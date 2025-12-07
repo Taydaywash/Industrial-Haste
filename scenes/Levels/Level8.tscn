@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bhns8m0mfebj8"]
+[gd_scene load_steps=56 format=3 uid="uid://bhns8m0mfebj8"]
 
 [ext_resource type="Script" uid="uid://y4dfkd5quihi" path="res://scripts/gameController.gd" id="1_c7fb8"]
 [ext_resource type="Script" uid="uid://b4boslph2mi0l" path="res://scripts/levelInstructionsFunctions.gd" id="2_3ps0n"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://b37q67j2rokc2" path="res://scenes/conveyorSpeedUp.tscn" id="19_dhfmm"]
 [ext_resource type="Script" uid="uid://klx3boht0rs" path="res://scripts/LoadingTransition.gd" id="21_w2t11"]
 [ext_resource type="PackedScene" uid="uid://t7te06076nft" path="res://scenes/flashingEvent.tscn" id="23_1tij3"]
+[ext_resource type="FontFile" uid="uid://dfwwok8l7ljib" path="res://spirtes/Fonts/SuperNormal-xRoj5.ttf" id="25_sonym"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6og"]
 bg_color = Color(0, 0, 0, 0.72156864)
@@ -1110,6 +1111,16 @@ script = ExtResource("21_w2t11")
 
 [node name="FlashingEvent" parent="." instance=ExtResource("23_1tij3")]
 
+[node name="pause" type="Button" parent="."]
+z_index = 15
+offset_left = 517.08167
+offset_top = -256.0
+offset_right = 563.0
+offset_bottom = -211.0
+theme_override_fonts/font = ExtResource("25_sonym")
+theme_override_font_sizes/font_size = 32
+text = "||"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]
 [connection signal="timeout" from="Clock/ClockTimer" to="LightsOffEvent" method="_on_timer_timeout"]
@@ -1118,3 +1129,4 @@ script = ExtResource("21_w2t11")
 [connection signal="input_event" from="ToolBar/TapeTool/TapeToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [1]]
 [connection signal="input_event" from="ToolBar/WrenchTool/WrenchToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [2]]
 [connection signal="input_event" from="ToolBar/BoltsTool/BoltsToolToolBar/Area2D" to="ToolBar" method="_on_tool_clicked" binds= [3]]
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]

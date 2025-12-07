@@ -161,3 +161,9 @@ func _on_reset_confirm_pressed() -> void:
 	Global.reset_data()
 	reset_button_confirm.visible = false
 	setting_menu.visible = false
+
+@onready var credits: Panel = $Credits
+func _on_credits_pressed() -> void:
+	credits.visible = true
+func _on_credits_back_button_pressed() -> void:
+	credits.visible = false

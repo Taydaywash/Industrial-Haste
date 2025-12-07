@@ -250,6 +250,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5wix3")
 
 [node name="Background" type="Sprite2D" parent="."]
 process_mode = 1
+visible = false
 texture = ExtResource("3_4hmjt")
 
 [node name="ConveyorBeltSprite" type="Sprite2D" parent="."]
