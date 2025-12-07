@@ -251,16 +251,17 @@ func loadData():
 		file.close()
 		
 		var save_data = data.duplicate()
+		print(save_data)
 		levelScores = save_data.levelScores
 		dataToSave.levelScores = levelScores
 		dataToSave.sfxVolume = save_data.sfxVolume
 		dataToSave.musicVolume = save_data.musicVolume
 		dataToSave.masterVolume = save_data.masterVolume
-		print(save_data)
+		
 
 func reset_data():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(defaultLevelScores.duplicate())
-	file.close()
-	
+	dataToSave.levelScores = defaultLevelScores
 	levelScores = defaultLevelScores
+	file.store_var(dataToSave.duplicate())
+	file.close()
