@@ -409,7 +409,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_4l16e")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="buttons"]
-visible = false
 layout_mode = 0
 offset_left = -200.0
 offset_top = 200.0

@@ -12,6 +12,7 @@ func play_lights_off_ambience():
 	$LightsOffAmbience.pitch_scale = randf_range(.8, 1.2)
 	$LightsOffAmbience.play()
 func stop_ambience():
+	$PowerOff.stop()
 	$LightsOffAmbience.stop()
 
 func play_light_flicker():
@@ -81,24 +82,9 @@ func play_clocking_in_hot():
 	$SimulationAnxiety.play()
 	$SimulationAnxiety.volume_db = -15.0
 func dynamic_music(speed):
-	if speed <= 235.0:
+	if speed <= 290.0:
 		$ClockingInHot.volume_db = -80.0
 		$SimulationAnxiety.volume_db = -15.0
-	elif speed < 250.0:
-		$ClockingInHot.volume_db = -25.0
-		$SimulationAnxiety.volume_db = -15.0
-	elif speed < 285.0:
-		$ClockingInHot.volume_db = -20.0
-		$SimulationAnxiety.volume_db = -15.0
-	elif speed < 315.0:
-		$ClockingInHot.volume_db = -17.5
-		$SimulationAnxiety.volume_db = -15.0
-	elif speed < 335.0:
-		$ClockingInHot.volume_db = -16.5
-		$SimulationAnxiety.volume_db = -17.5
-	elif speed < 350.0:
-		$ClockingInHot.volume_db = -15.5
-		$SimulationAnxiety.volume_db = -18.5
 	else:
 		$ClockingInHot.volume_db = -15.0
 		$SimulationAnxiety.volume_db = -80.0
@@ -150,3 +136,7 @@ func play_gain_points():
 	
 func play_loose_points():
 	$LoosePoints.play()
+func play_power_off():
+	$PowerOff.play()
+func play_power_on():
+	$PowerOn.play()

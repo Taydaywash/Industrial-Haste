@@ -28,6 +28,8 @@ func set_target():
 func check_count():
 	if count >= target:
 		SoundManager.stop_ambience()
+		SoundManager.play_power_on()
+		animation_player.stop()
 		light.visible = false
 
 func _play_ambience():
@@ -46,7 +48,6 @@ func _on_light_swtich_input_event(_viewport: Node, event: InputEvent, _shape_idx
 				check_count()
 			else:
 				light_switch_texture.texture = switch_off
-				self.visible = true
 
 func _on_timer_timeout():
 	randomize()
@@ -55,8 +56,9 @@ func _on_timer_timeout():
 		if randi_range(1, 100) <= spawn_chance:
 			set_target()
 			animation_player.play("lightsOff")
+			SoundManager.play_power_off()
 			count = 0
 			spawn_chance = Global.lightEventRarity[Global.level]
-			light.visible = true
+			#light.visible = true
 		else:
 			spawn_chance += chance * 2

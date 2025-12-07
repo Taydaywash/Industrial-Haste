@@ -220,11 +220,11 @@ func _try_set_star_visible(starIndex):
 func _play_star_jingle():
 	var score = Score._get_current_score()
 	
-	if score >= 4500: 
+	if score >= Global.THREE_STAR_REQUIREMENT[Global.level]: 
 		SoundManager.play_three_stars()
-	elif score >= 3500:
+	elif score >= Global.TWO_STAR_REQUIREMENT[Global.level]:
 		SoundManager.play_two_stars()
-	elif score >= 3000:
+	elif score >= Global.ONE_STAR_REQUIREMENT[Global.level]:
 		SoundManager.play_one_star()
 	else:
 		SoundManager.play_zero_stars()

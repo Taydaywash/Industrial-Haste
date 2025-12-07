@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ig3sw1u1fany"]
+[gd_scene load_steps=31 format=3 uid="uid://ig3sw1u1fany"]
 
 [ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
 [ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
@@ -28,6 +28,8 @@
 [ext_resource type="AudioStream" uid="uid://cg77o17rrqs1s" path="res://Sound Effects/Siern.mp3" id="25_svjxb"]
 [ext_resource type="AudioStream" uid="uid://b0svya5wnfdi2" path="res://Sound Effects/GainPoints.mp3" id="26_yd8ld"]
 [ext_resource type="AudioStream" uid="uid://deivxbhdnasyn" path="res://Sound Effects/LoosePoints.mp3" id="27_cq7ej"]
+[ext_resource type="AudioStream" uid="uid://cyu1mno2l1507" path="res://Sound Effects/power-down-45784.mp3" id="29_lkwib"]
+[ext_resource type="AudioStream" uid="uid://cbrof0f5rf71u" path="res://Sound Effects/power-cut-101047 (1).mp3" id="30_hb3bm"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3
@@ -139,36 +141,57 @@ bus = &"Music"
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_yu3b1")
 volume_db = 3.0
+bus = &"SFX"
 
 [node name="Stars" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_c7seg")
+bus = &"SFX"
 
 [node name="Ticking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_2aay0")
+bus = &"SFX"
 
 [node name="ZeroStars" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_ee3qd")
+bus = &"SFX"
 
 [node name="OneStar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_bv6in")
+bus = &"SFX"
 
 [node name="TwoStars" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_svjxb")
+bus = &"SFX"
 
 [node name="ThreeStars" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_o5b7a")
+bus = &"SFX"
 
 [node name="ToolGrab" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_bv6in")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="Siren" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_svjxb")
+bus = &"SFX"
 
 [node name="GainPoints" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_yd8ld")
 volume_db = -8.0
+bus = &"SFX"
 
 [node name="LoosePoints" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_cq7ej")
 volume_db = -10.0
+bus = &"SFX"
+
+[node name="PowerOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_lkwib")
+volume_db = 1.556
+bus = &"SFX"
+
+[node name="PowerOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_hb3bm")
+volume_db = -10.0
+bus = &"SFX"

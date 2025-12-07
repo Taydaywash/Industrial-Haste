@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyu1mno2l1507"
+path="res://.godot/imported/power-down-45784.mp3-b55edc8528f518f99395258e10c4988d.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/power-down-45784.mp3"
+dest_files=["res://.godot/imported/power-down-45784.mp3-b55edc8528f518f99395258e10c4988d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
