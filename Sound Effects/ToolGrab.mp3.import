@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bajy2mpcg3fap"
+path="res://.godot/imported/ToolGrab.mp3-6b2180a2d61c420f12afb0a6c76190cc.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/ToolGrab.mp3"
+dest_files=["res://.godot/imported/ToolGrab.mp3-6b2180a2d61c420f12afb0a6c76190cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

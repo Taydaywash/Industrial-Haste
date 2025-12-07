@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://deivxbhdnasyn"
+path="res://.godot/imported/LoosePoints.mp3-637de6a7af944984b7fe1bba0f58e0d3.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/LoosePoints.mp3"
+dest_files=["res://.godot/imported/LoosePoints.mp3-637de6a7af944984b7fe1bba0f58e0d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

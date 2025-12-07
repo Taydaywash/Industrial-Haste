@@ -19,6 +19,7 @@ func _on_timer_timeout():
 	seconds += 1
 	if seconds%12 == 0:
 		if randi_range(1, 100) <= spawn_chance:
+			SoundManager.play_siren()
 			spawn_chance = Global.flashingEventRarity[Global.level]
 			flash.visible = true
 			$Timer.start()
@@ -29,6 +30,7 @@ func _on_timer_timeout():
 		flash_pulse()
 
 func _on_timer_timeout_flashing():
+	SoundManager.end_siren()
 	spawn_chance = Global.flashingEventRarity[Global.level]
 	var tween = create_tween()
 	tween.tween_property(flash, "self_modulate:a", 0, 1)

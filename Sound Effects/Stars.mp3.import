@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd4q0a65cfg0j"
+path="res://.godot/imported/Stars.mp3-3dd5e4f058b3e437f2436dac1c6539c6.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Stars.mp3"
+dest_files=["res://.godot/imported/Stars.mp3-3dd5e4f058b3e437f2436dac1c6539c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -40,6 +40,7 @@ func _input(event):
 #var tool recieved from extra call argument in Area2D
 func _on_tool_clicked(_viewport: Node, event: InputEvent, _shape_idx: int, toolNumber: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		SoundManager.play_tool_grab()
 		holdingTool = true
 		heldTool = toolNumber
 		Global._set_tool_to(heldTool)
