@@ -77,9 +77,35 @@ func play_paper_hover_sound():
 func play_clocking_in_hot():
 	$WelcomeToFactoryTown.stop()
 	$ClockingInHot.play()
+	$ClockingInHot.volume_db = -80.0
+	$SimulationAnxiety.play()
+	$SimulationAnxiety.volume_db = -15.0
+func dynamic_music(speed):
+	if speed <= 235.0:
+		$ClockingInHot.volume_db = -80.0
+		$SimulationAnxiety.volume_db = -15.0
+	elif speed < 250.0:
+		$ClockingInHot.volume_db = -25.0
+		$SimulationAnxiety.volume_db = -15.0
+	elif speed < 285.0:
+		$ClockingInHot.volume_db = -20.0
+		$SimulationAnxiety.volume_db = -15.0
+	elif speed < 315.0:
+		$ClockingInHot.volume_db = -17.5
+		$SimulationAnxiety.volume_db = -15.0
+	elif speed < 335.0:
+		$ClockingInHot.volume_db = -16.5
+		$SimulationAnxiety.volume_db = -17.5
+	elif speed < 350.0:
+		$ClockingInHot.volume_db = -15.5
+		$SimulationAnxiety.volume_db = -18.5
+	else:
+		$ClockingInHot.volume_db = -15.0
+		$SimulationAnxiety.volume_db = -80.0
 	
 func play_welcome_to_factory_town():
 	$ClockingInHot.stop()
+	$SimulationAnxiety.stop()
 	$WelcomeToFactoryTown.play()
 	
 func play_button_clicked():

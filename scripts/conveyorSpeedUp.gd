@@ -19,7 +19,7 @@ func _on_tool_used(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 			SoundManager.play_bolt_screwed_sound()
 			$"..".change_timer(Global.currentBoxSpeed,defaultBoxSpeed,$"../Timer".time_left)
 			Global._change_box_speed_to(defaultBoxSpeed)
-			
+	SoundManager.dynamic_music(Global.currentBoxSpeed)
 
 #increases every second
 var fiveMinutes = 0
@@ -34,3 +34,4 @@ func _on_clock_timer_timeout() -> void:
 		elif fiveMinutes % (3) == 0:
 			$"..".change_timer(Global.currentBoxSpeed,Global.currentBoxSpeed + Global.currentBoxSpeed * 0.1,$"../Timer".time_left)
 			Global._change_box_speed_to(Global.currentBoxSpeed + (Global.currentBoxSpeed * 0.1))
+	SoundManager.dynamic_music(Global.currentBoxSpeed)
