@@ -107,3 +107,20 @@ func play_two_stars():
 	
 func play_three_stars():
 	$ThreeStars.play()
+
+func play_tool_grab():
+	randomize()
+	$ToolGrab.pitch_scale = randf_range(.8, 1.2)
+	$ToolGrab.play()
+
+func play_siren():
+	$Siren.play()
+	
+func end_siren():
+	$Siren.stop()
+	
+func play_gain_points():
+	$GainPoints.play()
+	
+func play_loose_points():
+	$LoosePoints.play()

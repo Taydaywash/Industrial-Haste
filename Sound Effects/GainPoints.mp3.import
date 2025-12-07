@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0svya5wnfdi2"
+path="res://.godot/imported/GainPoints.mp3-eb79da99cd4d6938b597ded7a8a5c154.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/GainPoints.mp3"
+dest_files=["res://.godot/imported/GainPoints.mp3-eb79da99cd4d6938b597ded7a8a5c154.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
