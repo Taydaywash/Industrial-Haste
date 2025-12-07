@@ -202,10 +202,25 @@ func _try_set_star_visible(starIndex):
 	match starIndex:
 		2:
 			if Score._get_current_score() >= 4500:
+				SoundManager.play_stars(1.4)
 				star.set_deferred("modulate",Color(1,1,1,1))
 		1:
 			if Score._get_current_score() >= 3500:
+				SoundManager.play_stars(1.2)
 				star.set_deferred("modulate",Color(1,1,1,1))
 		0:
 			if Score._get_current_score() >= 3000:
+				SoundManager.play_stars(1)
 				star.set_deferred("modulate",Color(1,1,1,1))
+				
+func _play_star_jingle():
+	var score = Score._get_current_score()
+	
+	if score >= 4500: 
+		SoundManager.play_three_stars()
+	elif score >= 3500:
+		SoundManager.play_two_stars()
+	elif score >= 3000:
+		SoundManager.play_one_star()
+	else:
+		SoundManager.play_zero_stars()

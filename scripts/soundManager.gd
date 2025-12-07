@@ -86,3 +86,24 @@ func play_button_clicked():
 	randomize()
 	$ButtonClick.pitch_scale = randf_range(.8, 1.2)
 	$ButtonClick.play()
+
+func play_stars(num):
+	$Stars.pitch_scale = num
+	$Stars.play()
+
+func play_ticking():
+	randomize()
+	$Ticking.pitch_scale = randf_range(.9, 1.1)
+	$Ticking.play()
+
+func play_zero_stars():
+	$ZeroStars.play()
+	
+func play_one_star():
+	$OneStar.play()
+	
+func play_two_stars():
+	$TwoStars.play()
+	
+func play_three_stars():
+	$ThreeStars.play()

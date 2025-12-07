@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ig3sw1u1fany"]
+[gd_scene load_steps=24 format=3 uid="uid://ig3sw1u1fany"]
 
 [ext_resource type="Script" uid="uid://dgwycsfv3mvuc" path="res://scripts/soundManager.gd" id="1_p1llj"]
 [ext_resource type="AudioStream" uid="uid://dqm1svloq4w0m" path="res://Sound Effects/whoosh.mp3" id="1_rupev"]
@@ -17,6 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://wgllqhoteaxw" path="res://Sound Effects/Welcome to Factory Town.mp3" id="15_qsl2i"]
 [ext_resource type="AudioStream" uid="uid://b4mxcdts2imc2" path="res://Sound Effects/Clocking In Hot (Unloopable).mp3" id="16_yu3b1"]
 [ext_resource type="AudioStream" uid="uid://dcv0ceny3ihp3" path="res://Sound Effects/ButtonClick.mp3" id="17_yu3b1"]
+[ext_resource type="AudioStream" uid="uid://bd4q0a65cfg0j" path="res://Sound Effects/Stars.mp3" id="18_c7seg"]
+[ext_resource type="AudioStream" uid="uid://do0vh65laajxr" path="res://Sound Effects/Ticking.mp3" id="19_2aay0"]
+[ext_resource type="AudioStream" uid="uid://c5kgq8amfwx4i" path="res://Sound Effects/0 Stars.mp3" id="20_ee3qd"]
+[ext_resource type="AudioStream" uid="uid://dosljdra6vt4h" path="res://Sound Effects/1 Star.mp3" id="21_bv6in"]
+[ext_resource type="AudioStream" uid="uid://pp336gwsx4rq" path="res://Sound Effects/2 Stars.mp3" id="22_svjxb"]
+[ext_resource type="AudioStream" uid="uid://dnmmysa18lrvh" path="res://Sound Effects/3 Stars.mp3" id="23_o5b7a"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3
@@ -123,3 +129,21 @@ bus = &"Music"
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_yu3b1")
 volume_db = 1.0
+
+[node name="Stars" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_c7seg")
+
+[node name="Ticking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_2aay0")
+
+[node name="ZeroStars" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_ee3qd")
+
+[node name="OneStar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_bv6in")
+
+[node name="TwoStars" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_svjxb")
+
+[node name="ThreeStars" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_o5b7a")

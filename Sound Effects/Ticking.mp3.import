@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://do0vh65laajxr"
+path="res://.godot/imported/Ticking.mp3-1769b66e61349686df54de5e908bf410.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Ticking.mp3"
+dest_files=["res://.godot/imported/Ticking.mp3-1769b66e61349686df54de5e908bf410.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
