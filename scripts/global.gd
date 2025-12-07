@@ -251,7 +251,6 @@ func loadData():
 		file.close()
 		
 		var save_data = data.duplicate()
-		print(save_data)
 		levelScores = save_data.levelScores
 		dataToSave.levelScores = levelScores
 		dataToSave.sfxVolume = save_data.sfxVolume
