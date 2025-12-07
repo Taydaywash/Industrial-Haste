@@ -2,11 +2,26 @@ extends Control
 @onready var level_select_backdrop: Panel = $LevelSelectBackdrop
 @onready var setting_menu: Panel = $SettingMenu
 @onready var quit_confirm: Panel = $QuitConfirm
+@onready var master_volume_text: HSlider = $SettingMenu/MasterVolumeText
+@onready var music_volume: HSlider = $"SettingMenu/Music Volume"
+@onready var sfx_volume: HSlider = $"SettingMenu/SFX Volume"
 
 func _ready() -> void:
 	SoundManager.play_welcome_to_factory_town()
 	Global.loadData()
 	get_tree().paused = false
+	load_audio_data()
+
+func load_audio_data():
+	SoundManager.set_master_volume_to(Global.dataToSave.masterVolume)
+	SoundManager.set_music_volume_to(Global.dataToSave.musicVolume)
+	SoundManager.set_sfx_volume_to(Global.dataToSave.sfxVolume)
+	volume_number.text = str(int(Global.dataToSave.masterVolume*100))
+	music_number.text = str(int(Global.dataToSave.musicVolume*100))
+	sfx_number.text = str(int(Global.dataToSave.sfxVolume*100))
+	master_volume_text.value = Global.dataToSave.masterVolume
+	music_volume.value = Global.dataToSave.musicVolume
+	sfx_volume.value = Global.dataToSave.sfxVolume
 
 func _process(delta: float) -> void:
 	for i in range(0,5):
@@ -100,20 +115,25 @@ func _on_quit_cancel_pressed() -> void:
 func _on_master_volume_text_value_changed(value: float) -> void:
 	SoundManager. play_bolt_placed_sound()
 	SoundManager.set_master_volume_to(value)
-	
+	Global.set_master_volume_to(value)
 	volume_number.text = str(int(value*100))
+	Global.saveData()
 
 @onready var sfx_number: Label = $"SettingMenu/SFX Volume/SFXNumber"
 func _on_sfx_volume_value_changed(value: float) -> void:
 	SoundManager. play_bolt_placed_sound()
 	SoundManager.set_sfx_volume_to(value)
+	Global.set_sfx_volume_to(value)
 	sfx_number.text = str(int(value*100))
+	Global.saveData()
 
 @onready var music_number: Label = $"SettingMenu/Music Volume/musicNumber"
 func _on_music_volume_value_changed(value: float) -> void:
 	SoundManager. play_bolt_placed_sound()
 	SoundManager.set_music_volume_to(value)
+	Global.set_music_volume_to(value)
 	music_number.text = str(int(value*100))
+	Global.saveData()
 
 @onready var level_stats: Panel = $LevelSelectBackdrop/LevelStats
 @onready var level_score: Label = $LevelSelectBackdrop/LevelStats/LevelScore
