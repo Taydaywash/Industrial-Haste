@@ -13,7 +13,10 @@ config_version=5
 config/name="Industrial Haste"
 run/main_scene="uid://dpbelu56weedw"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.1954897, 0.12541842, 0.07052369, 1)
+boot_splash/image="uid://qv7dsctq44qy"
 config/icon="uid://b6pu5ln5skign"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
@@ -23,8 +26,8 @@ ScoreController="*res://scripts/scoreController.gd"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [input]
