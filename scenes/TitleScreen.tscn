@@ -71,7 +71,7 @@ border_color = Color(0.31, 0.18269335, 0.0372, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w20ru"]
 font = ExtResource("2_4l16e")
-font_size = 30
+font_size = 27
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ktle"]
 bg_color = Color(0.32941177, 0.23137255, 0.09019608, 1)
@@ -353,6 +353,7 @@ script = ExtResource("1_qyuap")
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="TestButton" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -560.0
 offset_top = -304.0

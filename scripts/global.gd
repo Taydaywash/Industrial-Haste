@@ -21,9 +21,9 @@ var dataToSave: Dictionary = {
 const lightEventRarity: Array = [50,0,10,20,30,40,40,50,50]
 const flashingEventRarity: Array = [50,0,0,0,0,0,30,40,50]
 
-const ONE_STAR_REQUIREMENT: Array = [3000,3000,3000,3000,3000,3000,4000,5000,6000]
-const TWO_STAR_REQUIREMENT: Array = [3500,3500,3500,3500,3500,3500,5000,6000,7000]
-const THREE_STAR_REQUIREMENT: Array = [4500,4500,4500,4500,4500,4500,7000,8000,9000]
+const ONE_STAR_REQUIREMENT: Array = [3000,3000,3000,3000,3500,4000,4500,5000,6500]
+const TWO_STAR_REQUIREMENT: Array = [3500,3500,3500,3500,4000,4500,5000,5500,7000]
+const THREE_STAR_REQUIREMENT: Array = [4500,4500,4500,4500,5000,5500,6000,6500,7500]
 
 var tool = 0
 var boxesInScene: Array = []
@@ -54,10 +54,10 @@ func _add_box_to_scene(box):
 func _remove_box_from_scene(deletedBox):
 	boxesInScene.remove_at(boxesInScene.find(deletedBox))
 func _change_box_speed_to(speed):
+	currentBoxSpeed = speed
 	for box in boxesInScene:
 		box._set_speed_to(speed)
-		currentBoxSpeed = speed
-	
+
 func _set_tool_to(input):
 	tool = input
 

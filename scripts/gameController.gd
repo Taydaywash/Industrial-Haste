@@ -74,7 +74,7 @@ var paused = false
 var sceneTo = "res://scenes/TitleScreen.tscn"
 
 func _ready() -> void:
-	
+	Global._change_box_speed_to(Global.boxSpeeds[Global.level])
 	ScoreController._reset_score()
 	clockText.visible = false
 	$Score.visible = false

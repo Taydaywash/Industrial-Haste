@@ -1090,7 +1090,6 @@ script = ExtResource("21_0gesw")
 [node name="ConveyorSpeedUp" parent="." instance=ExtResource("19_crlyu")]
 
 [node name="FlashingEvent" parent="." instance=ExtResource("23_aev2d")]
-position = Vector2(-440.09738, 176.271)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Clock/ClockTimer" to="." method="_second_passed"]

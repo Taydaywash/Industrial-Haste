@@ -20,8 +20,9 @@ const LEVEL_6_TEXT = "1. Tape up opened and tapeless boxes
 2. Discard dirty-looking boxes
 3. Flick the light switch if lights go out
 4. Discard misshapened boxes
-5. Repair crates with loose bolts, add bolts to crates with none
-6. Tighten conveyor belt gears"
+5. Repair crates with loose bolts
+6. Discard crates missing bolts
+7. Tighten conveyor belt gears"
 const LEVEL_7_TEXT = "1. Tape up opened and tapeless boxes
 2. Discard dirty-looking boxes
 3. Flick the light switch if lights go out

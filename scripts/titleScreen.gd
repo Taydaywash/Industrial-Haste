@@ -58,14 +58,14 @@ func _on_level_select_button_pressed():
 	SoundManager.play_button_clicked()
 	for childIndex in range (0,8):
 		if childIndex < 7:
-			if Global.levelScores[childIndex] >= 3000:
+			if Global.levelScores[childIndex] >= Global.ONE_STAR_REQUIREMENT[childIndex]:
 				level_select_backdrop.get_child(1).get_child(childIndex).visible = true
 			else:
 				level_select_backdrop.get_child(1).get_child(childIndex).visible = false
 		else:
 			var threeStarsInAll = true
 			for score in range (0,8):
-				if Global.levelScores[score] < 3500:
+				if Global.levelScores[score] < Global.THREE_STAR_REQUIREMENT[score]:
 					threeStarsInAll = false
 			if threeStarsInAll:
 				level_select_backdrop.get_child(1).get_child(childIndex).visible = true
@@ -76,17 +76,17 @@ func _on_level_select_button_pressed():
 			
 			match starIndex:
 				2:
-					if Global.levelScores[childIndex+1] >= 4500:
+					if Global.levelScores[childIndex+1] >= Global.THREE_STAR_REQUIREMENT[childIndex+1]:
 						star.visible = true
 					else:
 						star.visible = false
 				1:
-					if Global.levelScores[childIndex+1] >= 3500:
+					if Global.levelScores[childIndex+1] >= Global.TWO_STAR_REQUIREMENT[childIndex+1]:
 						star.visible = true
 					else:
 						star.visible = false
 				0:
-					if Global.levelScores[childIndex+1] >= 3000:
+					if Global.levelScores[childIndex+1] >= Global.ONE_STAR_REQUIREMENT[childIndex+1]:
 						star.visible = true
 					else:
 						star.visible = false
@@ -141,7 +141,7 @@ func _on_element_entered() -> void:
 	SoundManager.play_hover_sound()
 func _show_level_score(level):
 	level_stats.visible = true
-	level_score.text = "Score: " + str(Global.levelScores[level])
+	level_score.text = "Score: " + str(Global.levelScores[level]) + " | One Star: " + str(Global.ONE_STAR_REQUIREMENT[level])+ " | Two Star: " + str(Global.TWO_STAR_REQUIREMENT[level])+ " | Three Star: " + str(Global.THREE_STAR_REQUIREMENT[level])
 func _hide_level_score():
 	level_stats.visible = false
 
